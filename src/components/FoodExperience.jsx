@@ -43,7 +43,7 @@ export default function FoodExperience() {
             
             <div className="space-y-8">
               <p className="text-subtle/60 font-inter text-lg leading-relaxed">
-                Step into a world where Japanese and Korean comfort food meets the vibrant energy of anime café culture. Every dish at Takkeru is handcrafted with precision, designed to transport you to the bustling streets of Seoul or the quiet alleys of Tokyo.
+                Step into a world where premium Asian comfort food meets the vibrant energy of 2D café culture. Every dish at Takkeru is handcrafted with precision, offering Delhi an unforgettable, immersive dining experience.
               </p>
               
               <div className="grid grid-cols-2 gap-8">

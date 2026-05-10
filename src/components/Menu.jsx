@@ -7,7 +7,7 @@ const MENU_ITEMS = [
     name: "Ramen", 
     jp: "ラーメン",
     price: "₹389 – ₹629", 
-    desc: "A comforting Japanese noodle bowl served in rich flavorful broth with chewy noodles, toppings, and warm steam. Takkeru Café serves ramen with Korean and Japanese-inspired flavors ranging from mild to spicy.", 
+    desc: "A comforting noodle bowl served in rich flavorful broth with chewy noodles, toppings, and warm steam. Takkeru Café serves noodles with authentic pan-Asian flavors ranging from mild to spicy.",
     img: "/images/Ramen.jpeg",
     hasSteam: true
   },
@@ -32,7 +32,7 @@ const MENU_ITEMS = [
     name: "Dango", 
     jp: "団子",
     price: "₹389", 
-    desc: "Traditional Japanese rice dumplings served on skewers with soft chewy texture and lightly sweet flavor.", 
+    desc: "Traditional sweet rice dumplings served on skewers with a soft, chewy texture.",
     img: "/images/dango.jpeg"
   },
   { 
@@ -101,7 +101,7 @@ export default function Menu() {
             transition={{ delay: 0.2 }}
             className="text-subtle/40 font-inter max-w-xl mx-auto italic"
           >
-            Authentic flavors curated with cinematic precision, bridging the gap between Tokyo's rain and Delhi's heart.
+            Bold Asian flavors curated with cinematic precision, designed exclusively for Delhi's true food lovers.
           </motion.p>
         </div>
 

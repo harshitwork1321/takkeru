@@ -34,21 +34,10 @@ export default function ContactSection() {
                 </div>
               </a>
 
-              <a 
-                href="tel:+918076092273" 
-                className="group flex items-center gap-6 p-6 border border-white/5 bg-white/[0.02] hover:bg-accent transition-all duration-500"
-              >
-                <div className="w-14 h-14 bg-accent group-hover:bg-white flex items-center justify-center transition-colors">
-                  <Phone className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <span className="text-subtle/30 text-xs block uppercase tracking-widest mb-1 group-hover:text-white/50">Call Us</span>
-                  <span className="text-2xl font-bebas tracking-wider group-hover:text-white">8076092273</span>
-                </div>
-              </a>
+
 
               <div className="flex gap-4">
-                <a href="#" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
+                <a href="https://www.instagram.com/takkeru_cafe" target="_blank" rel="noopener noreferrer" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
                   <Instagram className="w-6 h-6 group-hover:scale-110 transition-transform" />
                 </a>
                 <a href="#" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">

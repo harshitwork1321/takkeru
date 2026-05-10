@@ -16,7 +16,7 @@ const SIGNATURE_ITEMS = [
   },
   {
     title: "Ramen",
-    description: "A comforting Japanese noodle bowl served in rich flavorful broth with chewy noodles, toppings, and warm steam. Takkeru Café serves ramen with Korean and Japanese-inspired flavors ranging from mild to spicy.",
+    description: "A comforting noodle bowl served in rich flavorful broth with chewy noodles, toppings, and warm steam. Takkeru Café serves noodles with authentic pan-Asian flavors ranging from mild to spicy.",
     image: "/images/Ramen.jpeg", 
     japanese: "ラーメン"
   }
@@ -44,7 +44,7 @@ export default function FoodSection() {
             <h2 className="text-5xl md:text-7xl">Asian Flavors Beyond The Frame</h2>
           </div>
           <p className="max-w-md text-subtle/50 font-inter leading-relaxed italic border-l border-white/10 pl-6">
-            "We don't just serve food. We serve moments frozen in time, inspired by the quiet corners of Shinjuku."
+            "We don't just serve food. We serve moments frozen in time, bringing a quiet cinematic escape right to your table."
           </p>
         </div>
 

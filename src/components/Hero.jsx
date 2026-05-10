@@ -67,7 +67,7 @@ export default function Hero() {
             className="flex items-center gap-4 mb-6"
           >
             <div className="w-12 h-[1px] bg-accent" />
-            <span className="font-jp text-accent tracking-[0.3em] text-sm uppercase">東京の雨</span>
+            <span className="font-jp text-accent tracking-[0.3em] text-sm uppercase">タケル</span>
           </motion.div>
 
           <h1 className="hero-text text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] leading-none mb-4 tracking-tighter">
@@ -79,7 +79,7 @@ export default function Hero() {
           </h2>
 
           <p className="hero-text text-lg md:text-xl font-inter text-subtle/60 max-w-lg mb-12 italic">
-            Where Tokyo rain meets sketchbook memories.
+            Where cinematic rain meets 2D sketchbook memories in the heart of Delhi.
           </p>
 
           <div className="hero-text flex flex-col sm:flex-row gap-6">

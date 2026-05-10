@@ -17,7 +17,7 @@ export default function InfoSection() {
               ATMOSPHERE
             </h3>
             <p className="text-subtle/50 font-inter leading-relaxed">
-              Our interiors are a love letter to the 2D world. From the hand-sketched wall murals to the soft warm lighting, every corner of Takkeru is designed to make you feel like you've stepped into a cozy anime scene.
+              Our interiors are a love letter to the 2D world. From the hand-sketched wall murals to the soft warm lighting, every corner of Takkeru is designed to make you feel like you've stepped into a beautiful 2D animated scene.
             </p>
           </motion.div>
 
@@ -32,7 +32,7 @@ export default function InfoSection() {
               VISITING TIMES
             </h3>
             <p className="text-subtle/50 font-inter leading-relaxed">
-              While we are vibrant throughout the day, the best time to visit for the full cinematic experience is late evening. As the city lights dim, our café truly comes alive with that signature "late-night Tokyo" vibe.
+              While we are vibrant throughout the day, the best time to visit for the full cinematic experience is late evening. As the city lights dim, our café truly comes alive with a signature, moody late-night vibe exclusive to our Delhi location.
             </p>
           </motion.div>
 
@@ -47,7 +47,7 @@ export default function InfoSection() {
               SOCIAL HUB
             </h3>
             <p className="text-subtle/50 font-inter leading-relaxed">
-              Takkeru is more than a café; it's a social hangout for the community. Whether you're here to work on your manga, discuss the latest episodes, or just soak in the vibe, you're among friends.
+              Takkeru is more than a café; it's a social hangout for the community. Whether you're here to sketch, discuss your favorite shows, or just soak in the vibe, you're among friends.
             </p>
           </motion.div>
 
@@ -60,7 +60,7 @@ export default function InfoSection() {
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             className="text-[15rem] md:text-[25rem] font-bebas leading-none inline-block pr-20"
           >
-            BEYOND THE FRAME — CINEMATIC DINING — MANGA CULTURE — TAKKERU CAFE — 
+            BEYOND THE FRAME — CINEMATIC DINING — 2D CULTURE — TAKKERU CAFE —
           </motion.div>
         </div>
       </div>

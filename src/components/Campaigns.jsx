@@ -2,16 +2,18 @@ import { motion } from 'framer-motion';
 
 const EVENTS = [
   {
-    title: "Anime Nights",
-    date: "Coming Soon",
-    description: "Immersive screenings of classic and seasonal hits with themed snacks.",
-    japanese: "アニメの夜"
+    title: "COMING",
+    date: "Stay Tuned",
+    description: "Something special is brewing in the cinematic shadows of Delhi...",
+    japanese: "近日公開",
+    image: "/images/coming.jpg"
   },
   {
-    title: "Ramen Challenge",
-    date: "Coming Soon",
-    description: "Can you handle the heat? Take on our spiciest bowl for a place on the wall.",
-    japanese: "ラーメン挑戦"
+    title: "SOON",
+    date: "Get Ready",
+    description: "Prepare yourself for our next big anime event.",
+    japanese: "近日公開",
+    image: "/images/soon.jpg"
   }
 ];
 
@@ -48,7 +50,16 @@ export default function Campaigns() {
               viewport={{ once: true }}
               className="group relative h-[450px] overflow-hidden border border-white/5 bg-primary p-8 flex flex-col justify-end hover:bg-accent transition-colors duration-700"
             >
-              <div className="absolute top-8 right-8 font-jp text-white/5 text-6xl leading-none group-hover:text-white/10 transition-colors">
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <img 
+                  src={event.image} 
+                  alt={event.title} 
+                  className="w-full h-full object-cover grayscale opacity-20 group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
+              </div>
+
+              <div className="absolute top-8 right-8 font-jp text-white/10 text-6xl leading-none group-hover:text-white/20 transition-colors z-10">
                 {event.japanese}
               </div>
               
@@ -62,10 +73,7 @@ export default function Campaigns() {
                 </p>
               </div>
               
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none">
-                 <div className="w-full h-full bg-[url('/images/pinstriped-suit.png')]" />
-              </div>
-              <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/images/halftone.png')]" />
+              <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/images/halftone.png')] z-20" />
             </motion.div>
           ))}
         </div>

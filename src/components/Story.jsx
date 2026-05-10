@@ -22,10 +22,10 @@ export default function Story() {
           
           <div className="space-y-6 text-xl md:text-2xl font-inter font-light text-subtle/70 leading-relaxed max-w-xl">
             <p>Takkeru was built for pauses.</p>
-            <p>For rain outside train windows. For unfinished conversations. For late-night ramen.</p>
-            <p className="text-white italic">For sketchbook walls that feel alive.</p>
+            <p>For monsoon evenings outside café windows. For unfinished conversations. For late-night cravings.</p>
+            <p className="text-white italic">For 2D sketchbook walls that feel alive.</p>
             <p className="pt-6 text-sm md:text-base tracking-[0.2em] uppercase text-accent font-bold">
-              A small Tokyo dream hidden inside Delhi.
+              A unique cinematic escape hidden inside Delhi.
             </p>
           </div>
         </motion.div>

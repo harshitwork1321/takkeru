@@ -8,8 +8,11 @@ export default function Footer() {
           
           <div className="md:col-span-1">
             <h2 className="text-4xl font-bebas tracking-[0.2em] mb-6">TAKKERU</h2>
-            <p className="text-subtle/30 text-sm font-inter leading-relaxed max-w-xs">
-              Where Tokyo rain meets sketchbook memories. A cinematic 2D experience in the heart of Delhi.
+            <p className="text-subtle/30 text-sm font-inter leading-relaxed max-w-xs mb-4">
+              Where cinematic art meets unforgettable flavors. A premier 2D experience in the heart of Delhi.
+            </p>
+            <p className="text-accent/60 text-xs font-inter uppercase tracking-widest">
+              A Brand By Anubind Group Pvt Ltd
             </p>
           </div>
 
@@ -35,13 +38,13 @@ export default function Footer() {
           <div>
             <h3 className="font-bebas text-xl tracking-widest text-accent mb-8">SOCIALS</h3>
             <div className="flex gap-6">
-              <a href="#" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
+              <a href="https://www.instagram.com/takkeru_cafe" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="#" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
+              <a href="tel:+918076092273" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
                 <Phone className="w-5 h-5" />
               </a>
             </div>

@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 
 const PRODUCTS = [
-  { name: "Takkeru Hoodie", category: "Apparel", image: "/images/hoodie.jpg" },
-  { name: "Takkeru Key Chain", category: "Accessories", image: "/images/stickers.jpg" },
-  { name: "The Takkeru Mug", category: "Lifestyle", image: "/images/mug.jpg" },
+  { name: "Anime Figure", category: "Collectibles", image: "/images/figure.jpg" },
+  { name: "Takkeru T-Shirt", category: "Apparel", image: "/images/tshirt.jpg" },
+  { name: "Manga Poster", category: "Art", image: "/images/poster.jpg" },
+  { name: "Takkeru Keychain", category: "Accessories", image: "/images/keychain.jpg" },
 ];
 
 export default function ProductShowcase() {
@@ -21,7 +22,7 @@ export default function ProductShowcase() {
           <h2 className="text-5xl md:text-8xl">TAKKERU ORIGINALS</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {PRODUCTS.map((product, index) => (
             <motion.div
               key={index}
@@ -38,11 +39,6 @@ export default function ProductShowcase() {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                 />
-                <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                   <div className="bg-white text-primary px-4 py-2 font-bebas text-xl tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                     VIEW ITEM
-                   </div>
-                </div>
               </div>
               <h4 className="text-xl font-bebas tracking-wider group-hover:text-accent transition-colors">{product.name}</h4>
               <p className="text-subtle/30 text-xs uppercase tracking-[0.2em]">{product.category}</p>
