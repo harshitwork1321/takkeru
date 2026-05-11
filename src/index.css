@@ -17,20 +17,45 @@
   --animate-slide-up: slideUp 1s ease-out forwards;
 
   @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
+
   @keyframes slideUp {
-    0% { transform: translateY(20px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
+
   @keyframes loading {
-    0% { width: 0%; }
-    100% { width: 100%; }
+    0% {
+      width: 0%;
+    }
+
+    100% {
+      width: 100%;
+    }
   }
+
   @keyframes scrollIndicator {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(100%); }
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(100%);
+    }
   }
 }
 
@@ -43,7 +68,12 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-bebas);
     letter-spacing: 0.05em;
   }
