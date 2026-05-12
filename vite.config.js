@@ -8,4 +8,15 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-gsap': ['gsap', 'gsap/ScrollTrigger'],
+          'vendor-motion': ['framer-motion'],
+          'vendor-react': ['react', 'react-dom'],
+        },
+      },
+    },
+  },
 })

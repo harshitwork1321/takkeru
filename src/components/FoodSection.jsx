@@ -61,7 +61,8 @@ export default function FoodSection() {
               <div className="relative aspect-[4/5] overflow-hidden mb-8 rounded-sm shadow-2xl">
                 <img 
                   src={item.image} 
-                  alt={item.title}
+                  alt={`${item.title} – Takkeru Café signature dish`}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
                 <div 

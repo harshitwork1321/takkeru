@@ -40,7 +40,8 @@ export default function Story() {
           <div className="absolute inset-0 border border-white/10 m-4 z-0" />
           <img 
             src="/images/story-interior.jpeg" 
-            alt="Takkeru Interior"
+            alt="Takkeru Café interior – cinematic 2D sketchbook walls and anime décor in Delhi"
+            loading="lazy"
             className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
           />
           <div className="absolute bottom-10 -left-10 bg-accent p-8 hidden md:block">

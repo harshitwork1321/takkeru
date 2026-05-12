@@ -48,6 +48,8 @@ export default function Hero() {
           loop
           muted
           playsInline
+          preload="metadata"
+          aria-label="Cinematic rain-filled Tokyo-style street ambience video"
           className="absolute inset-0 w-full h-full object-cover scale-110"
         >
           <source src="/videos/hero-tokyo-rain.mp4" type="video/mp4" />
@@ -83,7 +85,10 @@ export default function Hero() {
           </p>
 
           <div className="hero-text flex flex-col sm:flex-row gap-6">
-            <button className="px-10 py-4 bg-accent text-primary font-bebas text-xl tracking-widest hover:bg-white transition-all duration-500 transform hover:-translate-y-1">
+            <button 
+              aria-label="Explore the Takkeru Café experience"
+              className="px-10 py-4 bg-accent text-primary font-bebas text-xl tracking-widest hover:bg-white transition-all duration-500 transform hover:-translate-y-1"
+            >
               Explore Experience
             </button>
           </div>

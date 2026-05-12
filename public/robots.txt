@@ -1,0 +1,4 @@
+# Takkeru Café — robots.txt
+User-agent: *
+Allow: /
+Sitemap: https://takkeru.com/sitemap.xml

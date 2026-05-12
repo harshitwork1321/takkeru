@@ -19,7 +19,8 @@ export default function FoodExperience() {
             <div className="relative z-10 rounded-sm overflow-hidden shadow-[0_0_100px_rgba(255,122,61,0.15)] border border-white/5">
               <img 
                 src="/images/experience-interior.jpeg" 
-                alt="Café Atmosphere"
+                alt="Takkeru Café cinematic 2D anime-themed interior atmosphere in Delhi"
+                loading="lazy"
                 className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />

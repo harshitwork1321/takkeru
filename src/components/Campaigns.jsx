@@ -53,7 +53,8 @@ export default function Campaigns() {
               <div className="absolute inset-0 z-0 overflow-hidden">
                 <img 
                   src={event.image} 
-                  alt={event.title} 
+                  alt={`${event.title} – Takkeru Café campaign event`}
+                  loading="lazy"
                   className="w-full h-full object-cover grayscale opacity-20 group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />

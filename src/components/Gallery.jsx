@@ -56,7 +56,8 @@ export default function Gallery() {
               <div className="relative h-[70vh] w-full overflow-hidden">
                 <img 
                   src={img.url} 
-                  alt={img.title}
+                  alt={`${img.title} – Takkeru 2D anime café gallery`}
+                  loading="lazy"
                   className="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 hover:brightness-100 transition-all duration-1000"
                 />
                 <div className="absolute bottom-10 left-10 text-white z-10">

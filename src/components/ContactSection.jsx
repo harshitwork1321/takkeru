@@ -37,14 +37,14 @@ export default function ContactSection() {
 
 
               <div className="flex gap-4">
-                <a href="https://www.instagram.com/takkeru_cafe" target="_blank" rel="noopener noreferrer" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
-                  <Instagram className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                <a href="https://www.instagram.com/takkeru_cafe" target="_blank" rel="noopener noreferrer" aria-label="Follow Takkeru Café on Instagram" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
+                  <Instagram className="w-6 h-6 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 </a>
-                <a href="#" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
-                  <Twitter className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                <a href="#" aria-label="Follow Takkeru Café on Twitter" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
+                  <Twitter className="w-6 h-6 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 </a>
-                <a href="tel:+918076092273" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
-                  <Phone className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                <a href="tel:+918076092273" aria-label="Call Takkeru Café at +91 8076092273" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
+                  <Phone className="w-6 h-6 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -60,7 +60,8 @@ export default function ContactSection() {
             <div className="aspect-square glass p-1 rounded-sm relative overflow-hidden">
                <img 
                  src="/images/contact.jpg" 
-                 alt="Contact Takkeru"
+                 alt="Contact Takkeru – anime 2D themed café interior in Delhi"
+                 loading="lazy"
                  className="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
                />
                <div className="absolute inset-0 border-[20px] border-primary/50 pointer-events-none" />
