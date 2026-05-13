@@ -35,9 +35,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section 
+    <section
       id="home"
-      ref={heroRef} 
+      ref={heroRef}
       className="relative h-screen w-full overflow-hidden flex items-center"
     >
       {/* Video Background */}
@@ -75,7 +75,7 @@ export default function Hero() {
           <h1 className="hero-text text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] leading-none mb-4 tracking-tighter">
             TAKKERU
           </h1>
-          
+
           <h2 className="hero-text text-xl md:text-3xl font-inter font-light text-subtle/80 tracking-widest uppercase mb-8">
             Anime 2D Theme Café of Delhi
           </h2>
@@ -85,7 +85,7 @@ export default function Hero() {
           </p>
 
           <div className="hero-text flex flex-col sm:flex-row gap-6">
-            <button 
+            <button
               aria-label="Explore the Takkeru Café experience"
               className="px-10 py-4 bg-accent text-primary font-bebas text-xl tracking-widest hover:bg-white transition-all duration-500 transform hover:-translate-y-1"
             >
