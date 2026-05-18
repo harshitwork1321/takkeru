@@ -11,6 +11,7 @@ import FoodSection from './components/FoodSection';
 import FoodExperience from './components/FoodExperience';
 import ProductShowcase from './components/ProductShowcase';
 import Campaigns from './components/Campaigns';
+import CreatorLaunch from './components/CreatorLaunch';
 import FanClub from './components/FanClub';
 import InfoSection from './components/InfoSection';
 import Story from './components/Story';
@@ -71,6 +72,9 @@ function App() {
           </div>
           <FoodSection />
           <FoodExperience />
+          <div id="creator-launch">
+            <CreatorLaunch />
+          </div>
           <div id="products">
             <ProductShowcase />
           </div>
