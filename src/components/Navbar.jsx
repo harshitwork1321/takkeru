@@ -48,10 +48,21 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled ? 'py-4 bg-primary/80 backdrop-blur-lg border-b border-white/5' : 'py-8 bg-transparent'
+        isScrolled && !isMobileMenuOpen ? 'py-4 bg-primary/80 backdrop-blur-lg border-b border-white/5' : 'py-8 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -120,7 +131,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-primary z-40 flex flex-col items-center justify-center gap-8 lg:hidden"
+            className="fixed inset-0 bg-primary/80 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 lg:hidden"
           >
             <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
               <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
