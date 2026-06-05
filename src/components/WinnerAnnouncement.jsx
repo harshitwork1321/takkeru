@@ -103,7 +103,7 @@ export default function WinnerAnnouncement() {
                 <div className="relative z-10 overflow-hidden shadow-[0_0_100px_rgba(255,122,61,0.15)] border border-white/5">
                   <img
                     src="/images/winner_image.jpeg"
-                    alt="Winner – Himanshu"
+                    alt="Winner – Kushal"
                     loading="lazy"
                     className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000"
                   />
@@ -132,20 +132,20 @@ export default function WinnerAnnouncement() {
                     Congratulations to
                   </p>
                   <h4 className="text-3xl md:text-4xl leading-tight">
-                    HIMANSHU{' '}
+                    KUSHAL CHITKARA{' '}
                     <a
-                      href="https://instagram.com/ind_venomxrider"
+                      href="https://instagram.com/khushaaaaalllll"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-accent text-xl md:text-2xl hover:opacity-70 transition-opacity underline"
                     >
-                      (@ind_venomxrider)
+                      (@khushaaaaalllll)
                     </a>
                   </h4>
 
                   <div className="border-l border-accent/30 pl-6">
                     <p className="text-subtle/40 text-sm font-inter leading-relaxed">
-                    With over 1.1M+ views, 10.8K+ likes, 30+ comments, and 14.7K+ shares, Himanshu 
+                    With over 1.1M+ views, 2K+ likes, 16+ comments, and 2K+ shares, Kushal chitkara
                     delivered the highest-performing entry, emerged as the winner of the Creative
                      Content Award, and earned the prestigious 
                       <strong className="text-accent">Winning Reward.</strong>.
