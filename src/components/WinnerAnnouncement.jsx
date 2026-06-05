@@ -145,9 +145,10 @@ export default function WinnerAnnouncement() {
 
                   <div className="border-l border-accent/30 pl-6">
                     <p className="text-subtle/40 text-sm font-inter leading-relaxed">
-                      Through creativity, engagement, and outstanding content,
-                      Himanshu delivered the highest‑performing entry and earned the
-                      <strong className="text-accent"> ₹10,000 Cash Prize</strong>.
+                    With over 1.1M+ views, 10.8K+ likes, 30+ comments, and 14.7K+ shares, Himanshu 
+                    delivered the highest-performing entry, emerged as the winner of the Creative
+                     Content Award, and earned the prestigious 
+                      <strong className="text-accent">Winning Reward.</strong>.
                     </p>
                   </div>
 
