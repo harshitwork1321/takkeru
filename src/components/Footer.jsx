@@ -1,4 +1,4 @@
-import { Instagram, Twitter, MapPin, Clock, Phone } from 'lucide-react';
+import { Instagram, Twitter, MapPin, Clock } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -45,9 +45,6 @@ export default function Footer() {
               </a>
               <a href="#" aria-label="Follow Takkeru Café on Twitter" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
                 <Twitter className="w-5 h-5" aria-hidden="true" />
-              </a>
-              <a href="tel:+918076092273" aria-label="Call Takkeru Café at +91 8076092273" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
-                <Phone className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </div>
