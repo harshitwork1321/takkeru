@@ -78,8 +78,6 @@ export default function MembershipForm() {
     if (!formData.dob) nextErrors.dob = 'Date of birth is required';
     if (!formData.phone.trim()) {
       nextErrors.phone = 'Phone number is required';
-    } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ''))) {
-      nextErrors.phone = 'Enter a valid 10-digit phone number';
     }
     if (!formData.location.trim()) nextErrors.location = 'Location is required';
     if (!formData.source) nextErrors.source = 'Please choose how you heard about us';
@@ -105,7 +103,7 @@ export default function MembershipForm() {
     const payload = {
       name: formData.name,
       dob: formData.dob,
-      phone: `+91 ${formData.phone.replace(/\D/g, '')}`,
+      phone: `+91 ${formData.phone}`,
       location: formData.location,
       source: formData.source === 'Other' ? formData.sourceOther : formData.source,
       fanClubs: formData.fanClubs.join(', '),
@@ -208,7 +206,7 @@ export default function MembershipForm() {
                           type="tel"
                           value={formData.phone}
                           onChange={(event) => handleChange('phone', event.target.value)}
-                          placeholder="9876543210"
+                          placeholder=""
                           className="w-full bg-transparent text-white outline-none placeholder:text-subtle/50"
                         />
                       </div>
