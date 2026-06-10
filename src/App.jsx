@@ -20,6 +20,7 @@ import Gallery from './components/Gallery';
 import Menu from './components/Menu';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import MembershipForm from './components/MembershipForm';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,6 +86,7 @@ function App() {
           <div id="fan-club">
             <FanClub />
           </div>
+          <MembershipForm />
           <InfoSection />
           <Gallery />
           <div id="menu">

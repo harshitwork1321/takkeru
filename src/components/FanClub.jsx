@@ -31,9 +31,12 @@ export default function FanClub() {
           </p>
 
           <div className="mt-8 flex justify-center">
-            <span className="text-accent text-3xl font-bebas tracking-[0.2em] border border-accent/30 px-12 py-6 bg-accent/5 backdrop-blur-sm">
-              COMING SOON
-            </span>
+            <a
+              href="#membership-form"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-accent px-10 py-5 text-base font-semibold uppercase tracking-[0.2em] text-accent transition hover:bg-accent/20"
+            >
+              Join Membership Form
+            </a>
           </div>
 
           {/* Manga paper texture background for the card */}

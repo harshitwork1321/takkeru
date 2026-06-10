@@ -44,11 +44,8 @@ export default function WinnerAnnouncement() {
           >
             RESULT
           </motion.span>
-          <h2 className="text-5xl md:text-8xl">
-            <span className="text-accent">Coming</span> Soon
-          </h2>
           <p className="mt-6 max-w-2xl mx-auto text-subtle/60 text-lg leading-relaxed">
-            The winner announcement is hidden until June 6 at 12:00 PM. Tap the button below to reveal the countdown now, and the winner once the time has passed.
+            The inaugural Takkeru Creative Content competition has concluded! Our panel selected the most exceptional entry. Check out the winner announcement below and celebrate this milestone with our community.
           </p>
         </div>
 
