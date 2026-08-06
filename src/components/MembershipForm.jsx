@@ -206,7 +206,6 @@ export default function MembershipForm() {
                           type="tel"
                           value={formData.phone}
                           onChange={(event) => handleChange('phone', event.target.value)}
-                          placeholder=""
                           className="w-full bg-transparent text-white outline-none placeholder:text-subtle/50"
                         />
                       </div>

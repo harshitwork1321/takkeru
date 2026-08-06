@@ -12,15 +12,14 @@ import FoodExperience from './components/FoodExperience';
 import WinnerAnnouncement from './components/WinnerAnnouncement';
 import ProductShowcase from './components/ProductShowcase';
 import Campaigns from './components/Campaigns';
-
 import FanClub from './components/FanClub';
 import InfoSection from './components/InfoSection';
 import Story from './components/Story';
 import Gallery from './components/Gallery';
 import Menu from './components/Menu';
+import CustomerReviews from './components/CustomerReviews';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import MembershipForm from './components/MembershipForm';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,41 +61,63 @@ function App() {
   }, []);
 
   return (
-    <main className="bg-primary text-secondary selection:bg-accent selection:text-primary">
+    <main className="bg-primary text-secondary selection:bg-accent selection:text-primary overflow-x-hidden relative w-full">
       {isLoading ? (
         <LoadingScreen onComplete={() => setIsLoading(false)} />
       ) : (
         <div className="animate-fade-in">
           <Navbar />
           <Hero />
+
+          {/* About */}
           <div id="about">
             <Story />
           </div>
+
+          {/* Food showcase */}
           <FoodSection />
           <FoodExperience />
+
+          {/* Winner campaign */}
           <div id="winner-announcement" className="my-12">
             <WinnerAnnouncement />
           </div>
+
+          {/* Products */}
           <div id="products">
             <ProductShowcase />
           </div>
-          <div id="campaigns">
-            <Campaigns />
-          </div>
-          <div id="fan-club">
-            <FanClub />
-          </div>
-          <MembershipForm />
-          <InfoSection />
-          <Gallery />
+
+          {/* ── Menu moved BEFORE Campaigns ── */}
           <div id="menu">
             <Menu />
           </div>
+
+          {/* Campaigns */}
+          <div id="campaigns">
+            <Campaigns />
+          </div>
+
+          {/* Fan Club */}
+          <div id="fan-club">
+            <FanClub />
+          </div>
+
+          <InfoSection />
+          <Gallery />
+
+          {/* ── Customer Reviews before Contact ── */}
+          <div id="reviews">
+            <CustomerReviews />
+          </div>
+
+          {/* Contact */}
           <div id="contact">
             <ContactSection />
           </div>
+
           <Footer />
-          
+
           <div className="grain-overlay" />
         </div>
       )}

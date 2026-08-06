@@ -1,33 +1,34 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
   const heroRef = useRef(null);
   const videoRef = useRef(null);
-  const contentRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".hero-text", {
+      gsap.from('.hero-text', {
         opacity: 0,
         y: 100,
         filter: 'blur(20px)',
         duration: 1.5,
         stagger: 0.2,
-        ease: "power4.out",
-        delay: 0.5
+        ease: 'power4.out',
+        delay: 0.5,
       });
 
       gsap.to(videoRef.current, {
         yPercent: 20,
-        ease: "none",
+        ease: 'none',
         scrollTrigger: {
           trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
       });
     }, heroRef);
 
@@ -84,21 +85,39 @@ export default function Hero() {
             Where cinematic rain meets 2D sketchbook memories in the heart of Delhi.
           </p>
 
-          <div className="hero-text flex flex-col sm:flex-row gap-6">
+          {/* CTA Buttons */}
+          <div className="hero-text flex flex-col sm:flex-row gap-4 sm:gap-6">
             <button
               aria-label="Explore the Takkeru Café experience"
               className="px-10 py-4 bg-accent text-primary font-bebas text-xl tracking-widest hover:bg-white transition-all duration-500 transform hover:-translate-y-1"
             >
               Explore Experience
             </button>
+
+            {/* Book a Seat CTA */}
+            <a
+              href="https://www.google.com/maps/search/Takkeru+Cafe+Delhi"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Book a seat at Takkeru Café"
+              className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/30 text-white font-bebas text-xl tracking-widest hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-500 transform hover:-translate-y-1 backdrop-blur-sm"
+            >
+              {/* Seat icon */}
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              Book a Seat
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Floating indicators */}
+      {/* Floating scroll indicator */}
       <div className="absolute bottom-12 right-12 hidden md:flex flex-col items-end gap-4">
         <div className="flex items-center gap-4 group cursor-pointer">
-          <span className="text-[10px] font-inter tracking-[0.5em] uppercase opacity-40 group-hover:opacity-100 transition-opacity">Scroll to explore</span>
+          <span className="text-[10px] font-inter tracking-[0.5em] uppercase opacity-40 group-hover:opacity-100 transition-opacity">
+            Scroll to explore
+          </span>
           <div className="w-1 h-12 bg-white/10 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full bg-accent -translate-y-full animate-[scrollIndicator_2s_infinite]" />
           </div>
