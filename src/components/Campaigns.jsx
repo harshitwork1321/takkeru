@@ -21,10 +21,10 @@ export default function Campaigns() {
               viewport={{ once: true }}
               className="text-5xl md:text-7xl font-bebas leading-tight"
             >
-              TAKKERU CAMPAIGNS
+              TAKKERU CART NETWORK
             </motion.h2>
             <p className="mt-6 text-subtle/70 text-lg font-inter leading-relaxed">
-              Be part of the Takkeru anime community! Join our exclusive membership, unlock special perks, level up with exciting tasks, and get early access to our next anime-inspired events and campaigns. Your journey with Takkeru starts here.
+              Be part of the TAKKERU CART network! Join our growing community of cart owners, unlock special perks, get operational support, and stay updated with our latest menu innovations and campaigns. Your journey with TAKKERU starts here.
             </p>
           </div>
 
@@ -46,7 +46,7 @@ export default function Campaigns() {
               <p className="text-xs uppercase tracking-[0.35em] text-accent font-inter mb-3">Featured campaign</p>
               <h3 className="text-3xl md:text-4xl font-bebas text-white leading-tight">Fan Club Membership</h3>
               <p className="mt-4 text-sm text-white/70 font-inter">
-                Sign up for the fan club, get event access, rewards, and priority updates at Takkeru Café.
+                Sign up for the cart network, get operational support, menu updates, and priority access to new TAKKERU locations.
               </p>
             </div>
             <div className="absolute top-8 right-8 text-[7rem] font-jp text-white/10 leading-none select-none pointer-events-none">

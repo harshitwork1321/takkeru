@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import CartButton from './cart/CartButton';
 
 const NAV_LINKS = [
   { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
+  { name: 'How It Works', href: '#how-it-works' },
   { name: 'Menu', href: '#menu' },
-  { name: 'Products', href: '#products' },
-  { name: 'Campaigns', href: '#campaigns' },
-  { name: 'Fan Club', href: '#fan-club' },
+  { name: 'Cart', href: '#cart' },
+  { name: 'Locations', href: '#locations' },
+  { name: 'FAQ', href: '#faq' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -99,28 +100,34 @@ export default function Navbar() {
               )}
             </a>
           ))}
+
+          <CartButton />
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="lg:hidden flex flex-col gap-1.5 z-50"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={isMobileMenuOpen}
-        >
-          <motion.div 
-            animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-            className="w-8 h-[1px] bg-white" 
-          />
-          <motion.div 
-            animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="w-8 h-[1px] bg-white" 
-          />
-          <motion.div 
-            animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-            className="w-8 h-[1px] bg-white" 
-          />
-        </button>
+        {/* Mobile: Cart Button + Toggle */}
+        <div className="flex lg:hidden items-center gap-3">
+          <CartButton />
+          {/* Mobile Toggle */}
+          <button 
+            className="lg:hidden flex flex-col gap-1.5 z-50"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            <motion.div 
+              animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+              className="w-8 h-[1px] bg-white" 
+            />
+            <motion.div 
+              animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="w-8 h-[1px] bg-white" 
+            />
+            <motion.div 
+              animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+              className="w-8 h-[1px] bg-white" 
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

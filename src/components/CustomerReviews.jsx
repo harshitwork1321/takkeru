@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 
-/* ─── Takkeru Café Google reviews ─── */
+/* ─── TAKKERU CART reviews ─── */
 const REVIEWS = [
   {
     name: 'Riya Sharma',
     handle: '@riya.eats',
     rating: 5,
-    text: 'Absolutely loved the whole vibe! The ramen was next level and the 2D anime theme was such a unique experience. Felt like I walked into a Studio Ghibli film. Will definitely be back!',
+    text: 'Absolutely love the TAKKERU CART concept! The boba tea was next level and the mobile cart experience is such a unique business idea. Will definitely be starting my own!',
     avatar: 'RS',
     color: 'from-purple-600 to-pink-500',
     date: '2 weeks ago',
@@ -15,7 +15,7 @@ const REVIEWS = [
     name: 'Aryan Kapoor',
     handle: '@aryan.foodie',
     rating: 5,
-    text: 'Takkeru is honestly one of the most aesthetically pleasing cafés in Delhi. The boba tea was creamy and the dango was perfectly chewy. The ambience is unreal!',
+    text: 'TAKKERU CART is honestly one of the best food business concepts I have seen. The boba tea was creamy and the mandu was perfectly crispy. The brand is unreal!',
     avatar: 'AK',
     color: 'from-blue-600 to-cyan-500',
     date: '1 month ago',
@@ -24,7 +24,7 @@ const REVIEWS = [
     name: 'Priya Mehta',
     handle: '@priyamehta_',
     rating: 5,
-    text: 'Came here for the tteokbokki and stayed for the whole experience. The decor is insane — 2D sketchbook walls, cozy lighting, and the staff are so warm. 10/10 would recommend!',
+    text: 'Came across TAKKERU CART and stayed for the whole experience. The concept is brilliant — mobile food cart with premium boba and ramen. 10/10 would recommend!',
     avatar: 'PM',
     color: 'from-orange-600 to-red-500',
     date: '3 weeks ago',
@@ -33,7 +33,7 @@ const REVIEWS = [
     name: 'Kabir Singh',
     handle: '@kabir.wanderlust',
     rating: 5,
-    text: 'As an anime fan this place is a dream come true. The japchae bowl was phenomenal — glass noodles done right. The overall experience was unique and memorable.',
+    text: 'As an entrepreneur this concept is a dream come true. The ramen was phenomenal — rich broth done right. The TAKKERU CART business model is unique and profitable.',
     avatar: 'KS',
     color: 'from-green-600 to-teal-500',
     date: '2 months ago',
@@ -42,7 +42,7 @@ const REVIEWS = [
     name: 'Sneha Verma',
     handle: '@sneha.v',
     rating: 5,
-    text: 'One of the best food experiences I have had in Delhi. The ramen is rich and flavorful and the atmosphere transports you to another world. Perfect date spot!',
+    text: 'One of the best food business concepts I have seen. The boba tea is rich and flavorful and the cart setup is professional. Perfect business opportunity!',
     avatar: 'SV',
     color: 'from-yellow-500 to-amber-500',
     date: '1 week ago',
@@ -51,7 +51,7 @@ const REVIEWS = [
     name: 'Dev Anand',
     handle: '@dev.delhi',
     rating: 5,
-    text: 'Incredible concept! The 2D manga-style decor is something you have to see to believe. Food quality is top notch — especially the boba tea and ramen combo. Must visit!',
+    text: 'Incredible concept! The TAKKERU CART branding is something you have to see to believe. Food quality is top notch — especially the boba tea and ramen combo. Must try!',
     avatar: 'DA',
     color: 'from-indigo-600 to-violet-500',
     date: '3 months ago',
@@ -60,7 +60,7 @@ const REVIEWS = [
     name: 'Meera Nair',
     handle: '@meera.bites',
     rating: 5,
-    text: 'Takkeru gave me anime nostalgia in the best way possible! The food is authentic and creative, the playlist is great, and the service is super friendly. Already planning my next visit.',
+    text: 'TAKKERU CART gave me the confidence to start my own food business! The food is authentic and creative, the brand is great, and the support is super helpful.',
     avatar: 'MN',
     color: 'from-rose-600 to-pink-500',
     date: '5 weeks ago',
@@ -69,7 +69,7 @@ const REVIEWS = [
     name: 'Rohan Joshi',
     handle: '@rohanjoshi_nz',
     rating: 5,
-    text: 'Hidden gem in Delhi! The tteokbokki has the perfect level of spice and the atmosphere is so cozy and unique. Came across this on Instagram and so glad I visited.',
+    text: 'Hidden gem in the food business world! The TAKKERU CART concept has the perfect menu and the brand is so professional. Came across this on Instagram and so glad I did.',
     avatar: 'RJ',
     color: 'from-cyan-600 to-blue-500',
     date: '6 weeks ago',
@@ -134,7 +134,7 @@ function ReviewCard({ r }) {
         <svg className="w-3 h-3 text-green-400 fill-green-400" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
         </svg>
-        <span className="text-subtle/25 text-[10px] font-inter tracking-[0.15em] uppercase">Verified Google Review</span>
+        <span className="text-subtle/25 text-[10px] font-inter tracking-[0.15em] uppercase">Verified Review</span>
       </div>
     </div>
   );
@@ -145,7 +145,6 @@ function ReviewCard({ r }) {
   We render 4 copies so the loop is perfectly seamless regardless of screen width.
 */
 function InfiniteTrack({ reviews, direction = 'left', durationSec = 40 }) {
-  // 4 copies → the strip is 400% wide; we animate 0 → -25% (= one copy width) or reverse
   const quad = [...reviews, ...reviews, ...reviews, ...reviews];
   const animName = direction === 'left' ? 'marquee-left-q' : 'marquee-right-q';
 
@@ -205,22 +204,8 @@ export default function CustomerReviews() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl leading-tight"
           >
-            WHAT OUR <span className="text-accent">GUESTS</span><br />ARE SAYING
+            WHAT OUR <span className="text-accent">CART OWNERS</span><br />ARE SAYING
           </motion.h2>
-
-          <motion.a
-            href="https://g.page/r/takkeru-cafe/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.25 }}
-            className="flex items-center gap-2 text-subtle/40 hover:text-accent text-sm font-inter tracking-wider transition-colors duration-300 whitespace-nowrap shrink-0"
-          >
-            <GoogleIcon />
-            View all Google reviews →
-          </motion.a>
         </div>
 
         {/* Overall rating badge */}
@@ -234,7 +219,7 @@ export default function CustomerReviews() {
           <Stars count={5} />
           <span className="font-bebas text-xl text-white tracking-wide">4.9 / 5</span>
           <span className="text-subtle/40 text-xs font-inter">·</span>
-          <span className="text-subtle/40 text-xs font-inter">Based on Google Reviews</span>
+          <span className="text-subtle/40 text-xs font-inter">Based on Cart Owner Reviews</span>
         </motion.div>
       </div>
 

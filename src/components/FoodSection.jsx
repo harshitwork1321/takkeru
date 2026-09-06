@@ -1,5 +1,9 @@
 import { useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import useCart from '../hooks/useCart';
+import { formatPrice } from '../lib/cart';
+import { getProductByName } from '../data/products';
 
 const SIGNATURE_ITEMS = [
   {
@@ -10,15 +14,27 @@ const SIGNATURE_ITEMS = [
     japanese: 'トッポギ',
     tag: 'Spicy',
     color: 'from-red-900/30',
+    category: 'Korean',
   },
   {
     title: 'Boba Tea',
     description:
-      'Chilled creamy milk tea with chewy tapioca pearls. Sweet, refreshing, Gen-Z café favourite.',
+      'Chilled creamy milk tea with chewy tapioca pearls. Sweet, refreshing, and perfect for your cart.',
     image: '/images/boba.jpg',
     japanese: 'ボバティー',
     tag: 'Refreshing',
     color: 'from-purple-900/30',
+    category: 'Bubble Drinks',
+  },
+  {
+    title: 'Brown Sugar Boba',
+    description:
+      'Rich brown sugar syrup swirled with fresh milk and warm tapioca pearls. Deep, caramelised sweetness.',
+    image: '/images/soon.jpg',
+    japanese: '黒糖ボバ',
+    tag: 'Signature',
+    color: 'from-amber-900/30',
+    category: 'Bubble Drinks',
   },
   {
     title: 'Ramen',
@@ -28,6 +44,17 @@ const SIGNATURE_ITEMS = [
     japanese: 'ラーメン',
     tag: 'Signature',
     color: 'from-amber-900/30',
+    category: 'Ramen',
+  },
+  {
+    title: 'Mandu',
+    description:
+      'Korean dumplings pan-fried to golden perfection. Crispy outside, juicy inside.',
+    image: '/images/soon.jpg',
+    japanese: '饅頭',
+    tag: 'Pan-Fried',
+    color: 'from-orange-900/30',
+    category: 'Mandu',
   },
   {
     title: 'Dango',
@@ -37,6 +64,7 @@ const SIGNATURE_ITEMS = [
     japanese: '団子',
     tag: 'Sweet',
     color: 'from-pink-900/30',
+    category: 'Korean',
   },
   {
     title: 'Japchae Bowl',
@@ -46,14 +74,23 @@ const SIGNATURE_ITEMS = [
     japanese: 'チャプチェ',
     tag: 'Korean',
     color: 'from-green-900/30',
+    category: 'Korean',
   },
 ];
+
+const CATEGORIES = ['All', ...new Set(SIGNATURE_ITEMS.map((item) => item.category))];
 
 /* 3-D tilt card */
 function TiltCard({ item, index }) {
   const cardRef = useRef(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
+  const { addItem } = useCart();
+  const navigate = useNavigate();
+
+  const product = getProductByName(item.title);
+  const price = product ? formatPrice(product.price) : null;
+  const productId = product ? product.id : null;
 
   const onMove = (e) => {
     const rect = cardRef.current.getBoundingClientRect();
@@ -91,10 +128,16 @@ function TiltCard({ item, index }) {
         }`}
       >
         {/* Image */}
-        <div className="relative h-80 overflow-hidden">
+        <div
+          className="relative h-80 overflow-hidden"
+          onClick={(e) => {
+            e.stopPropagation();
+            if (productId) navigate(`/product/${productId}`);
+          }}
+        >
           <motion.img
             src={item.image}
-            alt={`${item.title} – Takkeru Café`}
+            alt={`${item.title} – TAKKERU CART`}
             loading="lazy"
             animate={{ scale: hovered ? 1.08 : 1.0 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -127,18 +170,40 @@ function TiltCard({ item, index }) {
         </div>
 
         {/* Bottom bar */}
-        <div className="px-6 py-5 flex items-center justify-between">
-          <h3 className="text-2xl font-bebas tracking-wide group-hover:text-accent transition-colors duration-400">
-            {item.title}
-          </h3>
-          {/* Animated underline */}
-          <div className="h-[1px] flex-1 mx-4 bg-white/10 relative overflow-hidden">
-            <motion.div
-              animate={{ x: hovered ? '0%' : '-100%' }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-0 bg-accent"
-            />
+        <div className="px-6 py-5">
+          <div className="flex items-center justify-between">
+            <h3
+              className="text-2xl font-bebas tracking-wide group-hover:text-accent transition-colors duration-400 cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (productId) navigate(`/product/${productId}`);
+              }}
+            >
+              {item.title}
+            </h3>
+            {/* Animated underline */}
+            <div className="h-[1px] flex-1 mx-4 bg-white/10 relative overflow-hidden">
+              <motion.div
+                animate={{ x: hovered ? '0%' : '-100%' }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 bg-accent"
+              />
+            </div>
           </div>
+          {price && (
+            <div className="flex items-center justify-between mt-3">
+              <span className="font-bebas text-lg text-accent tracking-wide">{price}</span>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (productId) addItem(productId);
+                }}
+                className="px-4 py-1.5 bg-accent text-primary font-bebas text-xs tracking-[0.15em] uppercase rounded-full hover:bg-white transition-colors duration-300"
+              >
+                Add to Cart
+              </button>
+            </div>
+          )}
         </div>
 
         {/* 3-D shine overlay */}
@@ -160,6 +225,11 @@ export default function FoodSection() {
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredItems = activeCategory === 'All'
+    ? SIGNATURE_ITEMS
+    : SIGNATURE_ITEMS.filter((item) => item.category === activeCategory);
 
   /* Mouse drag to scroll */
   const onMouseDown = (e) => {
@@ -188,7 +258,7 @@ export default function FoodSection() {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
           <div>
             <motion.span
               initial={{ opacity: 0 }}
@@ -204,7 +274,7 @@ export default function FoodSection() {
               viewport={{ once: true }}
               className="text-5xl md:text-7xl"
             >
-              Asian Flavors Beyond<br />The Frame
+              BOBA • MANDU •<br />RAMEN
             </motion.h2>
           </div>
           <motion.p
@@ -214,9 +284,32 @@ export default function FoodSection() {
             transition={{ delay: 0.2 }}
             className="max-w-md text-subtle/50 font-inter leading-relaxed italic border-l border-white/10 pl-6"
           >
-            "We don't just serve food. We serve moments frozen in time, bringing a quiet cinematic escape right to your table."
+            "Bold flavors, mobile business. Take the cart to where the crowd is."
           </motion.p>
         </div>
+
+        {/* Category Filters */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.25 }}
+          className="flex flex-wrap gap-3 mb-10"
+        >
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-5 py-2 rounded-full font-bebas text-sm tracking-[0.15em] uppercase transition-all duration-300 border ${
+                activeCategory === cat
+                  ? 'bg-accent text-primary border-accent'
+                  : 'bg-transparent text-subtle/50 border-white/10 hover:border-accent/40 hover:text-subtle/70'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </motion.div>
 
         {/* Drag hint */}
         <motion.div
@@ -253,9 +346,15 @@ export default function FoodSection() {
         {/* Left-align first card with the section container */}
         <div className="flex-shrink-0 w-6 md:w-12" />
 
-        {SIGNATURE_ITEMS.map((item, i) => (
-          <TiltCard key={item.title} item={item} index={i} />
-        ))}
+        {filteredItems.length > 0 ? (
+          filteredItems.map((item, i) => (
+            <TiltCard key={item.title} item={item} index={i} />
+          ))
+        ) : (
+          <div className="flex-shrink-0 text-center py-20 w-full">
+            <p className="text-subtle/40 font-inter">No items in this category.</p>
+          </div>
+        )}
 
         {/* Spacer at end */}
         <div className="flex-shrink-0 w-6 md:w-12" />

@@ -72,7 +72,7 @@ export default function LoadingScreen({ onComplete }) {
           ref={subtextRef}
           className="mt-4 text-sm md:text-base font-inter text-secondary tracking-[0.3em] uppercase opacity-0"
         >
-          Anime 2D Theme Café of Delhi
+          BOBA • MANDU • RAMEN — MOBILE FOOD CART
         </p>
       </div>
 

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
 
 export default function FanClub() {
   return (
@@ -24,10 +23,10 @@ export default function FanClub() {
             className="absolute bottom-10 right-10 w-32 h-32 border border-white/5 rounded-full"
           />
 
-          <span className="text-accent font-jp tracking-[0.4em] block mb-8">ファンクラブ</span>
-          <h2 className="text-4xl md:text-7xl mb-8">JOIN THE TAKKERU<br />ANIME FAN CLUB</h2>
+          <span className="text-accent font-jp tracking-[0.4em] block mb-8">ネットワーク</span>
+          <h2 className="text-4xl md:text-7xl mb-8">JOIN THE TAKKERU<br />CART NETWORK</h2>
           <p className="text-subtle/50 text-lg font-inter max-w-2xl mx-auto mb-12">
-            Join the Takkeru Anime Fan Club for exclusive events, anime nights, café updates, and limited Takkeru drops.
+            Join the TAKKERU CART network for exclusive support, menu updates, and priority access to new business opportunities.
           </p>
 
           <div className="mt-8 flex justify-center">
@@ -35,7 +34,7 @@ export default function FanClub() {
               href="#membership-form"
               className="inline-flex items-center justify-center gap-3 rounded-full border border-accent px-10 py-5 text-base font-semibold uppercase tracking-[0.2em] text-accent transition hover:bg-accent/20"
             >
-              Join Membership Form
+              Join Cart Network
             </a>
           </div>
 

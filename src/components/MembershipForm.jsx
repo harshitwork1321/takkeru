@@ -108,6 +108,7 @@ export default function MembershipForm() {
       source: formData.source === 'Other' ? formData.sourceOther : formData.source,
       fanClubs: formData.fanClubs.join(', '),
       tasks: Object.entries(formData.tasks)
+        // eslint-disable-next-line no-unused-vars
         .filter(([_, checked]) => checked)
         .map(([task]) => task)
         .join('; '),
@@ -115,7 +116,7 @@ export default function MembershipForm() {
     };
 
     try {
-      const response = await fetch(API_URL, {
+      await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -134,7 +135,7 @@ export default function MembershipForm() {
         tasks: TASKS.reduce((acc, task) => ({ ...acc, [task]: false }), {}),
       });
       setErrors({});
-    } catch (error) {
+    } catch {
       setStatus('Unable to submit at the moment. Please try again later.');
     } finally {
       setSubmitting(false);

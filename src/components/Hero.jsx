@@ -1,12 +1,10 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
   const heroRef = useRef(null);
   const videoRef = useRef(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -50,10 +48,10 @@ export default function Hero() {
           muted
           playsInline
           preload="metadata"
-          aria-label="Cinematic rain-filled Tokyo-style street ambience video"
+          aria-label="TAKKERU CART – mobile boba tea business video"
           className="absolute inset-0 w-full h-full object-cover scale-110"
         >
-          <source src="/videos/hero-tokyo-rain.mp4" type="video/mp4" />
+          <source src="/videos/takkeru-cart-hero.mp4" type="video/mp4" />
         </video>
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent" />
@@ -70,7 +68,7 @@ export default function Hero() {
             className="flex items-center gap-4 mb-6"
           >
             <div className="w-12 h-[1px] bg-accent" />
-            <span className="font-jp text-accent tracking-[0.3em] text-sm uppercase">タッケル</span>
+            <span className="font-jp text-accent tracking-[0.3em] text-sm uppercase">タッケル カート</span>
           </motion.div>
 
           <h1 className="hero-text text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] leading-none mb-4 tracking-tighter">
@@ -78,35 +76,30 @@ export default function Hero() {
           </h1>
 
           <h2 className="hero-text text-xl md:text-3xl font-inter font-light text-subtle/80 tracking-widest uppercase mb-8">
-            Anime 2D Theme Café of Delhi
+            YOUR BOBA BUSINESS. ON WHEELS.
           </h2>
 
           <p className="hero-text text-lg md:text-xl font-inter text-subtle/60 max-w-lg mb-12 italic">
-            Where cinematic rain meets 2D sketchbook memories in the heart of Delhi.
+            Boba doesn't have to stay in one place. Take the business with you.
           </p>
 
           {/* CTA Buttons */}
           <div className="hero-text flex flex-col sm:flex-row gap-4 sm:gap-6">
-            <button
-              aria-label="Explore the Takkeru Café experience"
+            <a
+              href="#contact"
               className="px-10 py-4 bg-accent text-primary font-bebas text-xl tracking-widest hover:bg-white transition-all duration-500 transform hover:-translate-y-1"
             >
-              Explore Experience
-            </button>
+              START YOUR CART
+            </a>
 
-            {/* Book a Seat CTA */}
             <a
-              href="https://www.google.com/maps/search/Takkeru+Cafe+Delhi"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Book a seat at Takkeru Café"
+              href="#how-it-works"
               className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/30 text-white font-bebas text-xl tracking-widest hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-500 transform hover:-translate-y-1 backdrop-blur-sm"
             >
-              {/* Seat icon */}
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-              Book a Seat
+              SEE HOW IT WORKS
             </a>
           </div>
         </div>

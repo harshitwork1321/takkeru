@@ -8,18 +8,19 @@ import LoadingScreen from './components/LoadingScreen';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import FoodSection from './components/FoodSection';
-import FoodExperience from './components/FoodExperience';
-import WinnerAnnouncement from './components/WinnerAnnouncement';
-import ProductShowcase from './components/ProductShowcase';
-import Campaigns from './components/Campaigns';
-import FanClub from './components/FanClub';
-import InfoSection from './components/InfoSection';
-import Story from './components/Story';
-import Gallery from './components/Gallery';
+import CartSection from './components/CartSection';
+import HowItWorks from './components/HowItWorks';
+import LocationStrategy from './components/LocationStrategy';
+import WhatYouGet from './components/WhatYouGet';
 import Menu from './components/Menu';
+import ProductShowcase from './components/ProductShowcase';
+import FAQ from './components/FAQ';
 import CustomerReviews from './components/CustomerReviews';
+import FinalCTA from './components/FinalCTA';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import CartDrawer from './components/cart/CartDrawer';
+import Toast from './components/cart/Toast';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,7 +28,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize Lenis smooth scroll
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -69,18 +69,30 @@ function App() {
           <Navbar />
           <Hero />
 
-          {/* About */}
-          <div id="about">
-            <Story />
-          </div>
-
           {/* Food showcase */}
           <FoodSection />
-          <FoodExperience />
 
-          {/* Winner campaign */}
-          <div id="winner-announcement" className="my-12">
-            <WinnerAnnouncement />
+          {/* TAKKERU CART */}
+          <CartSection />
+
+          {/* How It Works */}
+          <div id="how-it-works">
+            <HowItWorks />
+          </div>
+
+          {/* Location Strategy */}
+          <div id="locations">
+            <LocationStrategy />
+          </div>
+
+          {/* What You Get */}
+          <div id="what-you-get">
+            <WhatYouGet />
+          </div>
+
+          {/* Menu */}
+          <div id="menu">
+            <Menu />
           </div>
 
           {/* Products */}
@@ -88,28 +100,18 @@ function App() {
             <ProductShowcase />
           </div>
 
-          {/* ── Menu moved BEFORE Campaigns ── */}
-          <div id="menu">
-            <Menu />
+          {/* FAQ */}
+          <div id="faq">
+            <FAQ />
           </div>
 
-          {/* Campaigns */}
-          <div id="campaigns">
-            <Campaigns />
-          </div>
-
-          {/* Fan Club */}
-          <div id="fan-club">
-            <FanClub />
-          </div>
-
-          <InfoSection />
-          <Gallery />
-
-          {/* ── Customer Reviews before Contact ── */}
+          {/* Customer Reviews */}
           <div id="reviews">
             <CustomerReviews />
           </div>
+
+          {/* Final CTA */}
+          <FinalCTA />
 
           {/* Contact */}
           <div id="contact">
@@ -121,6 +123,9 @@ function App() {
           <div className="grain-overlay" />
         </div>
       )}
+
+      <CartDrawer />
+      <Toast />
     </main>
   );
 }
