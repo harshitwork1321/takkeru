@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+﻿import { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -8,8 +8,8 @@ const MENU_ITEMS = [
   {
     id: 'ramen',
     name: 'Ramen',
-    jp: 'ラーメン',
-    price: '₹389 – ₹629',
+    jp: 'ãƒ©ãƒ¼ãƒ¡ãƒ³',
+    price: '₹89/-',
     desc: 'A comforting noodle bowl served in rich flavorful broth with chewy noodles, toppings, and warm steam. Authentic pan-Asian flavors ranging from mild to spicy.',
     img: '/images/Ramen.jpeg',
     hasSteam: true,
@@ -18,17 +18,17 @@ const MENU_ITEMS = [
   {
     id: 'boba',
     name: 'Boba Tea',
-    jp: 'ボバティー',
-    price: '₹299',
-    desc: 'Chilled creamy milk tea served with chewy tapioca pearls — sweet, refreshing, and perfect for your cart.',
+    jp: 'ãƒœãƒãƒ†ã‚£ãƒ¼',
+    price: '₹89/-',
+    desc: 'Chilled creamy milk tea served with chewy tapioca pearls â€” sweet, refreshing, and perfect for your cart.',
     img: '/images/boba.jpg',
     category: 'Bubble Drinks',
   },
   {
     id: 'boba-brown-sugar',
     name: 'Brown Sugar Boba',
-    jp: '黒糖ボバ',
-    price: '₹349',
+    jp: 'é»’ç³–ãƒœãƒ',
+    price: '₹89/-',
     desc: 'Rich brown sugar syrup swirled with fresh milk and warm tapioca pearls. Deep, caramelised sweetness.',
     img: '/images/soon.jpg',
     category: 'Bubble Drinks',
@@ -36,8 +36,8 @@ const MENU_ITEMS = [
   {
     id: 'tteokbokki',
     name: 'Tteokbokki Bowl',
-    jp: 'トッポギ',
-    price: '₹479',
+    jp: 'ãƒˆãƒƒãƒã‚®',
+    price: '₹89/-',
     desc: 'Korean street-food chewy rice cakes coated in spicy savory sauce. Bold flavor with soft texture and comforting spice.',
     img: '/images/tteokbokki.jpg',
     category: 'Korean',
@@ -45,18 +45,18 @@ const MENU_ITEMS = [
   {
     id: 'dango',
     name: 'Dango',
-    jp: '団子',
-    price: '₹389',
-    desc: 'Traditional sweet rice dumplings on skewers — soft, chewy, and beautifully classic.',
+    jp: 'å›£å­',
+    price: '₹89/-',
+    desc: 'Traditional sweet rice dumplings on skewers â€” soft, chewy, and beautifully classic.',
     img: '/images/dango.jpeg',
     category: 'Korean',
   },
   {
     id: 'japchae',
     name: 'Japchae Bowl',
-    jp: 'チャプチェ',
-    price: '₹489',
-    desc: 'Korean sweet potato glass noodles stir-fried with vegetables and savory sauce — smoky, chewy, and satisfying.',
+    jp: 'ãƒãƒ£ãƒ—ãƒã‚§',
+    price: '₹89/-',
+    desc: 'Korean sweet potato glass noodles stir-fried with vegetables and savory sauce â€” smoky, chewy, and satisfying.',
     img: '/images/japchae.jpg',
     category: 'Korean',
   },
@@ -64,7 +64,7 @@ const MENU_ITEMS = [
     id: 'mandu',
     name: 'Mandu',
     jp: '饅頭',
-    price: '₹189',
+    price: '₹89/-',
     desc: 'Korean dumplings pan-fried to golden perfection. Crispy outside, juicy inside.',
     img: '/images/mandu.jpg',
     category: 'Mandu',
@@ -186,7 +186,7 @@ export default function Menu() {
             viewport={{ once: true }}
             className="text-accent font-jp tracking-[0.6em] block mb-6 text-sm uppercase"
           >
-            本物の味
+            æœ¬ç‰©ã®å‘³
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -231,7 +231,7 @@ export default function Menu() {
           ))}
         </motion.div>
 
-        {/* ── Carousel ── */}
+        {/* â”€â”€ Carousel â”€â”€ */}
         {filteredTotal > 0 ? (
           <div
             className="relative mx-auto select-none"
@@ -340,7 +340,7 @@ export default function Menu() {
           </div>
         )}
 
-        {/* ── Controls ── */}
+        {/* â”€â”€ Controls â”€â”€ */}
         {filteredTotal > 0 && (
           <div className="flex items-center justify-center gap-8 mt-10">
             <button
@@ -382,7 +382,7 @@ export default function Menu() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center text-subtle/30 font-inter text-xs tracking-[0.25em] uppercase mt-6"
           >
-            {active + 1} / {filteredTotal} — {activeItem.name}
+            {active + 1} / {filteredTotal} â€” {activeItem.name}
           </motion.p>
         )}
       </div>
