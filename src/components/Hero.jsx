@@ -62,7 +62,7 @@ export default function Hero() {
             className="flex items-center gap-4 mb-6"
           >
             <div className="w-12 h-[1px] bg-accent" />
-            <span className="font-jp text-accent tracking-[0.3em] text-sm uppercase">ã‚¿ãƒƒã‚±ãƒ« ã‚«ãƒ¼ãƒˆ</span>
+            <span className="font-jp text-accent tracking-[0.3em] text-sm uppercase">タッケル カート</span>
           </motion.div>
 
           <h1 className="hero-text text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] leading-none mb-4 tracking-tighter">
