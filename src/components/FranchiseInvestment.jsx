@@ -27,8 +27,8 @@ const PACKAGES = [
     number: '02',
     name: 'STANDARD',
     tagline: 'BUILD BIGGER',
-    price: '₹85,000',
-    priceValue: 85000,
+    price: '₹89,000',
+    priceValue: 89000,
     features: [
       'TAKKERU Cart',
       'Equipment package',
@@ -45,8 +45,8 @@ const PACKAGES = [
     number: '03',
     name: 'PREMIUM',
     tagline: 'GO PREMIUM',
-    price: '₹90,000',
-    priceValue: 90000,
+    price: '₹99,000',
+    priceValue: 99000,
     features: [
       'Premium TAKKERU Cart setup',
       'Equipment package',
