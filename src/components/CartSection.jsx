@@ -65,14 +65,7 @@ export default function CartSection() {
           >
             TAKKERU<br />CART
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-subtle/60 font-inter text-lg md:text-xl max-w-2xl italic"
-          >
-            Boba doesn't have to stay in one place. Take the business with you.
-          </motion.p>
+
         </div>
 
         {/* Video + How It Works grid */}
