@@ -170,6 +170,30 @@ export default function ProductDetailPage() {
             </div>
           </motion.div>
 
+          {/* Mandu Video */}
+          {product.category === 'Mandu' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6"
+            >
+              <div className="relative overflow-hidden rounded-2xl border border-white/5">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full aspect-video object-cover"
+                >
+                  <source src="/videos/mandu-video.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+              </div>
+            </motion.div>
+          )}
+
           {/* Right: Info */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}

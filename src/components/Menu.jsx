@@ -66,7 +66,7 @@ const MENU_ITEMS = [
     jp: '饅頭',
     price: '₹189',
     desc: 'Korean dumplings pan-fried to golden perfection. Crispy outside, juicy inside.',
-    img: '/images/soon.jpg',
+    img: '/images/mandu.jpg',
     category: 'Mandu',
   },
 ];
