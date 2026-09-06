@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+﻿import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 export default function FinalCTA() {
@@ -20,7 +20,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.8 }}
           className="text-accent font-jp tracking-[0.4em] block mb-6"
         >
-          始めよう
+          å§‹ã‚ã‚ˆã†
         </motion.span>
 
         <motion.h2
@@ -48,7 +48,9 @@ export default function FinalCTA() {
           className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
         >
           <a
-            href="#contact"
+            href="https://tally.so/r/XxaDyj"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-12 py-5 bg-accent text-primary font-bebas text-xl tracking-[0.2em] uppercase hover:bg-white transition-all duration-500 transform hover:-translate-y-1"
           >
             START YOUR CART

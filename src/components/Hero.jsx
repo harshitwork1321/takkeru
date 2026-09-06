@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+﻿import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
 
@@ -44,7 +44,7 @@ export default function Hero() {
         <img
           ref={videoRef}
           src="/images/hero-bg.png"
-          alt="TAKKERU CART – mobile boba tea business"
+          alt="TAKKERU CART â€“ mobile boba tea business"
           className="absolute inset-0 w-full h-full object-cover scale-110"
         />
         {/* Overlays */}
@@ -62,7 +62,7 @@ export default function Hero() {
             className="flex items-center gap-4 mb-6"
           >
             <div className="w-12 h-[1px] bg-accent" />
-            <span className="font-jp text-accent tracking-[0.3em] text-sm uppercase">タッケル カート</span>
+            <span className="font-jp text-accent tracking-[0.3em] text-sm uppercase">ã‚¿ãƒƒã‚±ãƒ« ã‚«ãƒ¼ãƒˆ</span>
           </motion.div>
 
           <h1 className="hero-text text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] leading-none mb-4 tracking-tighter">
@@ -76,7 +76,9 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="hero-text flex flex-col sm:flex-row gap-4 sm:gap-6">
             <a
-              href="#contact"
+              href="https://tally.so/r/XxaDyj"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-10 py-4 bg-accent text-primary font-bebas text-xl tracking-widest hover:bg-white transition-all duration-500 transform hover:-translate-y-1"
             >
               START YOUR CART
