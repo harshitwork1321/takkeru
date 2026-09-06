@@ -39,20 +39,14 @@ export default function Hero() {
       ref={heroRef}
       className="relative h-screen w-full overflow-hidden flex items-center"
     >
-      {/* Video Background */}
+      {/* Hero Background Image */}
       <div className="absolute inset-0 w-full h-full">
-        <video
+        <img
           ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          aria-label="TAKKERU CART – mobile boba tea business video"
+          src="/images/hero-bg.png"
+          alt="TAKKERU CART – mobile boba tea business"
           className="absolute inset-0 w-full h-full object-cover scale-110"
-        >
-          <source src="/videos/takkeru-cart-hero.mp4" type="video/mp4" />
-        </video>
+        />
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent" />
         <div className="absolute inset-0 bg-black/20" />
@@ -78,10 +72,6 @@ export default function Hero() {
           <h2 className="hero-text text-xl md:text-3xl font-inter font-light text-subtle/80 tracking-widest uppercase mb-8">
             YOUR BOBA BUSINESS. ON WHEELS.
           </h2>
-
-          <p className="hero-text text-lg md:text-xl font-inter text-subtle/60 max-w-lg mb-12 italic">
-            Boba doesn't have to stay in one place. Take the business with you.
-          </p>
 
           {/* CTA Buttons */}
           <div className="hero-text flex flex-col sm:flex-row gap-4 sm:gap-6">
