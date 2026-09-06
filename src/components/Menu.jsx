@@ -8,57 +8,12 @@ const MENU_ITEMS = [
   {
     id: 'ramen',
     name: 'Ramen',
-    jp: 'ãƒ©ãƒ¼ãƒ¡ãƒ³',
-    price: '₹89/-',
-    desc: 'A comforting noodle bowl served in rich flavorful broth with chewy noodles, toppings, and warm steam. Authentic pan-Asian flavors ranging from mild to spicy.',
+    jp: 'ラーメン',
+    price: '₹389',
+    desc: 'Rich broth, chewy noodles, warm steam. Authentic pan-Asian flavours from mild to spicy.',
     img: '/images/Ramen.jpeg',
     hasSteam: true,
     category: 'Ramen',
-  },
-  {
-    id: 'boba',
-    name: 'Boba Tea',
-    jp: 'ãƒœãƒãƒ†ã‚£ãƒ¼',
-    price: '₹89/-',
-    desc: 'Chilled creamy milk tea served with chewy tapioca pearls â€” sweet, refreshing, and perfect for your cart.',
-    img: '/images/boba.jpg',
-    category: 'Bubble Drinks',
-  },
-  {
-    id: 'boba-brown-sugar',
-    name: 'Brown Sugar Boba',
-    jp: 'é»’ç³–ãƒœãƒ',
-    price: '₹89/-',
-    desc: 'Rich brown sugar syrup swirled with fresh milk and warm tapioca pearls. Deep, caramelised sweetness.',
-    img: '/images/soon.jpg',
-    category: 'Bubble Drinks',
-  },
-  {
-    id: 'tteokbokki',
-    name: 'Tteokbokki Bowl',
-    jp: 'ãƒˆãƒƒãƒã‚®',
-    price: '₹89/-',
-    desc: 'Korean street-food chewy rice cakes coated in spicy savory sauce. Bold flavor with soft texture and comforting spice.',
-    img: '/images/tteokbokki.jpg',
-    category: 'Korean',
-  },
-  {
-    id: 'dango',
-    name: 'Dango',
-    jp: 'å›£å­',
-    price: '₹89/-',
-    desc: 'Traditional sweet rice dumplings on skewers â€” soft, chewy, and beautifully classic.',
-    img: '/images/dango.jpeg',
-    category: 'Korean',
-  },
-  {
-    id: 'japchae',
-    name: 'Japchae Bowl',
-    jp: 'ãƒãƒ£ãƒ—ãƒã‚§',
-    price: '₹89/-',
-    desc: 'Korean sweet potato glass noodles stir-fried with vegetables and savory sauce â€” smoky, chewy, and satisfying.',
-    img: '/images/japchae.jpg',
-    category: 'Korean',
   },
   {
     id: 'mandu',
@@ -69,6 +24,24 @@ const MENU_ITEMS = [
     img: '/images/mandu.jpg',
     category: 'Mandu',
   },
+  {
+    id: 'boba',
+    name: 'Boba Tea',
+    jp: 'ボバティー',
+    price: '₹299',
+    desc: 'Chilled creamy milk tea with chewy tapioca pearls. Sweet, refreshing, and perfect for your cart.',
+    img: '/images/boba.jpg',
+    category: 'Bubble Drinks',
+  },
+  {
+    id: 'tteokbokki',
+    name: 'Tteokbokki Bowl',
+    jp: 'トッポギ',
+    price: '₹479',
+    desc: 'Korean street-food rice cakes coated in spicy savory sauce. Bold, chewy, and comfortingly spiced.',
+    img: '/images/tteokbokki.jpg',
+    category: 'Korean',
+  },
 ];
 
 const CATEGORIES = ['All', ...new Set(MENU_ITEMS.map((item) => item.category))];
@@ -76,10 +49,7 @@ const CATEGORIES = ['All', ...new Set(MENU_ITEMS.map((item) => item.category))];
 const PRODUCT_ID_MAP = {
   'Ramen': 'ramen-signature',
   'Boba Tea': 'boba-tea',
-  'Brown Sugar Boba': 'boba-brown-sugar',
   'Tteokbokki Bowl': 'tteokbokki',
-  'Dango': 'dango',
-  'Japchae Bowl': 'japchae',
   'Mandu': 'mandu',
 };
 
@@ -186,7 +156,7 @@ export default function Menu() {
             viewport={{ once: true }}
             className="text-accent font-jp tracking-[0.6em] block mb-6 text-sm uppercase"
           >
-            æœ¬ç‰©ã®å‘³
+            本物の味
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -231,7 +201,7 @@ export default function Menu() {
           ))}
         </motion.div>
 
-        {/* â”€â”€ Carousel â”€â”€ */}
+        {/* ── Carousel ── */}
         {filteredTotal > 0 ? (
           <div
             className="relative mx-auto select-none"
@@ -340,7 +310,7 @@ export default function Menu() {
           </div>
         )}
 
-        {/* â”€â”€ Controls â”€â”€ */}
+        {/* ── Controls ── */}
         {filteredTotal > 0 && (
           <div className="flex items-center justify-center gap-8 mt-10">
             <button
@@ -382,7 +352,7 @@ export default function Menu() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center text-subtle/30 font-inter text-xs tracking-[0.25em] uppercase mt-6"
           >
-            {active + 1} / {filteredTotal} â€” {activeItem.name}
+            {active + 1} / {filteredTotal} — {activeItem.name}
           </motion.p>
         )}
       </div>

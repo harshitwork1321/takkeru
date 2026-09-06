@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+﻿import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import useCart from '../hooks/useCart';
@@ -6,36 +6,6 @@ import { formatPrice } from '../lib/cart';
 import { getProductByName } from '../data/products';
 
 const SIGNATURE_ITEMS = [
-  {
-    title: 'Tteokbokki Bowl',
-    description:
-      'Korean street-food rice cakes coated in spicy savory sauce. Bold, chewy, and comfortingly spiced.',
-    image: '/images/tteokbokki.jpg',
-    japanese: 'トッポギ',
-    tag: 'Spicy',
-    color: 'from-red-900/30',
-    category: 'Korean',
-  },
-  {
-    title: 'Boba Tea',
-    description:
-      'Chilled creamy milk tea with chewy tapioca pearls. Sweet, refreshing, and perfect for your cart.',
-    image: '/images/boba.jpg',
-    japanese: 'ボバティー',
-    tag: 'Refreshing',
-    color: 'from-purple-900/30',
-    category: 'Bubble Drinks',
-  },
-  {
-    title: 'Brown Sugar Boba',
-    description:
-      'Rich brown sugar syrup swirled with fresh milk and warm tapioca pearls. Deep, caramelised sweetness.',
-    image: '/images/soon.jpg',
-    japanese: '黒糖ボバ',
-    tag: 'Signature',
-    color: 'from-amber-900/30',
-    category: 'Bubble Drinks',
-  },
   {
     title: 'Ramen',
     description:
@@ -50,30 +20,30 @@ const SIGNATURE_ITEMS = [
     title: 'Mandu',
     description:
       'Korean dumplings pan-fried to golden perfection. Crispy outside, juicy inside.',
-    image: '/images/soon.jpg',
+    image: '/images/mandu.jpg',
     japanese: '饅頭',
     tag: 'Pan-Fried',
     color: 'from-orange-900/30',
     category: 'Mandu',
   },
   {
-    title: 'Dango',
+    title: 'Boba Tea',
     description:
-      'Traditional sweet rice dumplings on skewers. Soft, chewy, and beautifully classic.',
-    image: '/images/dango.jpeg',
-    japanese: '団子',
-    tag: 'Sweet',
-    color: 'from-pink-900/30',
-    category: 'Korean',
+      'Chilled creamy milk tea with chewy tapioca pearls. Sweet, refreshing, and perfect for your cart.',
+    image: '/images/boba.jpg',
+    japanese: 'ボバティー',
+    tag: 'Refreshing',
+    color: 'from-purple-900/30',
+    category: 'Bubble Drinks',
   },
   {
-    title: 'Japchae Bowl',
+    title: 'Tteokbokki Bowl',
     description:
-      'Korean glass noodles stir-fried with vegetables and savory sauce — smoky and satisfying.',
-    image: '/images/japchae.jpg',
-    japanese: 'チャプチェ',
-    tag: 'Korean',
-    color: 'from-green-900/30',
+      'Korean street-food rice cakes coated in spicy savory sauce. Bold, chewy, and comfortingly spiced.',
+    image: '/images/tteokbokki.jpg',
+    japanese: 'トッポギ',
+    tag: 'Spicy',
+    color: 'from-red-900/30',
     category: 'Korean',
   },
 ];
@@ -99,192 +69,125 @@ function TiltCard({ item, index }) {
     setTilt({ x, y });
   };
 
+  const onEnter = () => setHovered(true);
   const onLeave = () => {
-    setTilt({ x: 0, y: 0 });
     setHovered(false);
+    setTilt({ x: 0, y: 0 });
   };
 
   return (
     <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.7, delay: index * 0.1 }}
-      style={{
-        transformStyle: 'preserve-3d',
-        rotateX: tilt.y,
-        rotateY: tilt.x,
-        perspective: 800,
-      }}
-      onMouseMove={onMove}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={onLeave}
-      className="relative flex-shrink-0 w-72 md:w-80 cursor-pointer group"
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="group"
     >
       <div
-        className={`relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] transition-all duration-500 ${
-          hovered ? 'border-accent/30 shadow-[0_30px_80px_rgba(255,122,61,0.15)]' : ''
-        }`}
+        ref={cardRef}
+        onMouseMove={onMove}
+        onMouseEnter={onEnter}
+        onMouseLeave={onLeave}
+        onClick={() => productId && navigate(`/product/${productId}`)}
+        className="relative cursor-pointer rounded-2xl overflow-hidden border border-white/5 bg-white/[0.02] transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_60px_rgba(255,122,61,0.1)]"
+        style={{
+          transform: `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+          transition: hovered ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out',
+        }}
       >
         {/* Image */}
-        <div
-          className="relative h-80 overflow-hidden"
-          onClick={(e) => {
-            e.stopPropagation();
-            if (productId) navigate(`/product/${productId}`);
-          }}
-        >
-          <motion.img
+        <div className="relative h-56 overflow-hidden">
+          <img
             src={item.image}
-            alt={`${item.title} – TAKKERU CART`}
-            loading="lazy"
-            animate={{ scale: hovered ? 1.08 : 1.0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="w-full h-full object-cover"
+            alt={item.title}
+            className={`w-full h-full object-cover transition-transform duration-700 ${hovered ? 'scale-110' : 'scale-100'}`}
           />
-          {/* Gradient overlay */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-t ${item.color} via-transparent to-transparent opacity-80`}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+          <div className={`absolute inset-0 bg-gradient-to-t ${item.color} via-transparent to-primary/40`} />
 
-          {/* Tag chip */}
-          <span className="absolute top-4 left-4 px-3 py-1 bg-accent/90 text-primary font-bebas text-xs tracking-[0.2em] uppercase rounded-full">
+          {/* Tag */}
+          <span className="absolute top-4 left-4 px-3 py-1 bg-accent/90 text-primary font-bebas text-xs tracking-[0.15em] uppercase rounded-full">
             {item.tag}
           </span>
 
-          {/* JP text */}
-          <span className="absolute top-4 right-4 font-jp text-white/25 text-3xl leading-none rotate-90 origin-right">
+          {/* Japanese */}
+          <span className="absolute bottom-4 right-4 font-jp text-white/30 text-sm tracking-widest">
             {item.japanese}
           </span>
-
-          {/* Hover reveal */}
-          <motion.div
-            animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 10 }}
-            transition={{ duration: 0.3 }}
-            className="absolute bottom-0 left-0 right-0 p-5"
-          >
-            <p className="text-subtle/80 text-sm font-inter leading-relaxed">{item.description}</p>
-          </motion.div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="px-6 py-5">
+        {/* Info */}
+        <div className="p-5">
+          <h3 className="text-2xl font-bebas tracking-wide mb-2 group-hover:text-accent transition-colors">
+            {item.title}
+          </h3>
+          <p className="text-subtle/50 text-sm font-inter leading-relaxed mb-4 line-clamp-2">
+            {item.description}
+          </p>
+
           <div className="flex items-center justify-between">
-            <h3
-              className="text-2xl font-bebas tracking-wide group-hover:text-accent transition-colors duration-400 cursor-pointer"
+            {price && (
+              <span className="font-bebas text-xl text-accent tracking-wide">
+                {price}
+              </span>
+            )}
+            <button
               onClick={(e) => {
                 e.stopPropagation();
-                if (productId) navigate(`/product/${productId}`);
+                if (productId) addItem(productId);
               }}
+              className="px-4 py-2 bg-accent/10 text-accent font-bebas text-xs tracking-[0.15em] uppercase rounded-full hover:bg-accent hover:text-primary transition-all duration-300"
             >
-              {item.title}
-            </h3>
-            {/* Animated underline */}
-            <div className="h-[1px] flex-1 mx-4 bg-white/10 relative overflow-hidden">
-              <motion.div
-                animate={{ x: hovered ? '0%' : '-100%' }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0 bg-accent"
-              />
-            </div>
+              Add to Cart
+            </button>
           </div>
-          {price && (
-            <div className="flex items-center justify-between mt-3">
-              <span className="font-bebas text-lg text-accent tracking-wide">{price}</span>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (productId) addItem(productId);
-                }}
-                className="px-4 py-1.5 bg-accent text-primary font-bebas text-xs tracking-[0.15em] uppercase rounded-full hover:bg-white transition-colors duration-300"
-              >
-                Add to Cart
-              </button>
-            </div>
-          )}
         </div>
-
-        {/* 3-D shine overlay */}
-        {hovered && (
-          <div
-            className="absolute inset-0 pointer-events-none rounded-2xl"
-            style={{
-              background: `radial-gradient(circle at ${50 + tilt.x * 2}% ${50 - tilt.y * 2}%, rgba(255,255,255,0.06) 0%, transparent 70%)`,
-            }}
-          />
-        )}
       </div>
     </motion.div>
   );
 }
 
 export default function FoodSection() {
-  const trackRef = useRef(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredItems = activeCategory === 'All'
     ? SIGNATURE_ITEMS
     : SIGNATURE_ITEMS.filter((item) => item.category === activeCategory);
 
-  /* Mouse drag to scroll */
-  const onMouseDown = (e) => {
-    isDragging.current = true;
-    startX.current = e.pageX - trackRef.current.offsetLeft;
-    scrollLeft.current = trackRef.current.scrollLeft;
-    trackRef.current.style.cursor = 'grabbing';
-  };
-  const onMouseUp = () => {
-    isDragging.current = false;
-    trackRef.current.style.cursor = 'grab';
-  };
-  const onMouseMove = (e) => {
-    if (!isDragging.current) return;
-    e.preventDefault();
-    const x = e.pageX - trackRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5;
-    trackRef.current.scrollLeft = scrollLeft.current - walk;
-  };
-
   return (
     <section className="py-24 md:py-40 bg-primary relative overflow-hidden">
-      {/* Background textures */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/images/paper-fibers.png')]" />
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[url('/images/halftone.png')]" />
+      {/* Decorative background */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+        <div className="w-full h-full bg-[repeating-linear-gradient(-45deg,transparent,transparent_30px,white_30px,white_31px)]" />
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
-          <div>
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-accent font-jp tracking-[0.4em] block mb-4"
-            >
-              風味
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-5xl md:text-7xl"
-            >
-              BOBA • MANDU •<br />RAMEN
-            </motion.h2>
-          </div>
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-accent font-jp tracking-[0.6em] block mb-6 text-sm uppercase"
+          >
+            品質
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-7xl md:text-9xl mb-6 tracking-tighter"
+          >
+            BOBA • MANDU •<br />RAMEN
+          </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="max-w-md text-subtle/50 font-inter leading-relaxed italic border-l border-white/10 pl-6"
+            className="text-subtle/40 font-inter max-w-xl mx-auto italic"
           >
-            "Bold flavors, mobile business. Take the cart to where the crowd is."
+            Handcrafted with precision. Served with passion.
           </motion.p>
         </div>
 
@@ -293,8 +196,8 @@ export default function FoodSection() {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.25 }}
-          className="flex flex-wrap gap-3 mb-10"
+          transition={{ delay: 0.3 }}
+          className="flex flex-wrap justify-center gap-3 mb-14"
         >
           {CATEGORIES.map((cat) => (
             <button
@@ -311,53 +214,12 @@ export default function FoodSection() {
           ))}
         </motion.div>
 
-        {/* Drag hint */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="flex items-center gap-3 mb-8 text-subtle/30"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-          </svg>
-          <span className="font-inter text-xs tracking-[0.25em] uppercase">Drag to explore</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </motion.div>
-      </div>
-
-      {/* Horizontal scrollable track — full width, no container clipping */}
-      <style>{`
-        .food-track { scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
-        .food-track::-webkit-scrollbar { display: none; }
-      `}</style>
-      <div
-        ref={trackRef}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
-        onMouseMove={onMouseMove}
-        className="food-track flex gap-6 overflow-x-auto pb-6 pr-12 scroll-smooth"
-        style={{ cursor: 'grab' }}
-      >
-        {/* Left-align first card with the section container */}
-        <div className="flex-shrink-0 w-6 md:w-12" />
-
-        {filteredItems.length > 0 ? (
-          filteredItems.map((item, i) => (
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {filteredItems.map((item, i) => (
             <TiltCard key={item.title} item={item} index={i} />
-          ))
-        ) : (
-          <div className="flex-shrink-0 text-center py-20 w-full">
-            <p className="text-subtle/40 font-inter">No items in this category.</p>
-          </div>
-        )}
-
-        {/* Spacer at end */}
-        <div className="flex-shrink-0 w-6 md:w-12" />
+          ))}
+        </div>
       </div>
     </section>
   );
