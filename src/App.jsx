@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,7 +13,6 @@ import HowItWorks from './components/HowItWorks';
 import LocationStrategy from './components/LocationStrategy';
 import WhatYouGet from './components/WhatYouGet';
 import Menu from './components/Menu';
-import ProductShowcase from './components/ProductShowcase';
 import FAQ from './components/FAQ';
 import CustomerReviews from './components/CustomerReviews';
 import FinalCTA from './components/FinalCTA';
@@ -97,7 +96,7 @@ function App() {
 
           {/* Products */}
           <div id="products">
-            <ProductShowcase />
+            
           </div>
 
           {/* FAQ */}
