@@ -11,7 +11,8 @@ import CartShowcase from './components/CartShowcase';
 import FoodMenu from './components/FoodMenu';
 import BusinessModel from './components/BusinessModel';
 import HowItWorks from './components/HowItWorks';
-import FranchiseTiers from './components/FranchiseTiers';
+import FranchiseInvestment from './components/FranchiseInvestment';
+import BusinessEconomics from './components/BusinessEconomics';
 import CustomerReviews from './components/CustomerReviews';
 import BrandStory from './components/BrandStory';
 import FinalCTA from './components/FinalCTA';
@@ -69,7 +70,8 @@ function App() {
           <FoodMenu />
           <BusinessModel />
           <HowItWorks />
-          <FranchiseTiers />
+          <FranchiseInvestment />
+          <BusinessEconomics />
           <CustomerReviews />
           <BrandStory />
           <FAQ />
