@@ -5,21 +5,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Components
 import LoadingScreen from './components/LoadingScreen';
-import Hero from './components/Hero';
 import Navbar from './components/Navbar';
-import FoodSection from './components/FoodSection';
-import CartSection from './components/CartSection';
+import Hero from './components/Hero';
+import CartShowcase from './components/CartShowcase';
+import FoodMenu from './components/FoodMenu';
+import BusinessModel from './components/BusinessModel';
 import HowItWorks from './components/HowItWorks';
-import LocationStrategy from './components/LocationStrategy';
-import WhatYouGet from './components/WhatYouGet';
-import Menu from './components/Menu';
-import FAQ from './components/FAQ';
+import FranchiseTiers from './components/FranchiseTiers';
 import CustomerReviews from './components/CustomerReviews';
+import BrandStory from './components/BrandStory';
 import FinalCTA from './components/FinalCTA';
-import ContactSection from './components/ContactSection';
+import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
-import CartDrawer from './components/cart/CartDrawer';
-import Toast from './components/cart/Toast';
+import FAQ from './components/FAQ';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,64 +65,20 @@ function App() {
         <div className="animate-fade-in">
           <Navbar />
           <Hero />
-
-          {/* Food showcase */}
-          <FoodSection />
-
-          {/* TAKKERU CART */}
-          <CartSection />
-
-          {/* How It Works */}
-          <div id="how-it-works">
-            <HowItWorks />
-          </div>
-
-          {/* Location Strategy */}
-          <div id="locations">
-            <LocationStrategy />
-          </div>
-
-          {/* What You Get */}
-          <div id="what-you-get">
-            <WhatYouGet />
-          </div>
-
-          {/* Menu */}
-          <div id="menu">
-            <Menu />
-          </div>
-
-          {/* Products */}
-          <div id="products">
-            
-          </div>
-
-          {/* FAQ */}
-          <div id="faq">
-            <FAQ />
-          </div>
-
-          {/* Customer Reviews */}
-          <div id="reviews">
-            <CustomerReviews />
-          </div>
-
-          {/* Final CTA */}
+          <CartShowcase />
+          <FoodMenu />
+          <BusinessModel />
+          <HowItWorks />
+          <FranchiseTiers />
+          <CustomerReviews />
+          <BrandStory />
+          <FAQ />
           <FinalCTA />
-
-          {/* Contact */}
-          <div id="contact">
-            <ContactSection />
-          </div>
-
+          <ContactForm />
           <Footer />
-
           <div className="grain-overlay" />
         </div>
       )}
-
-      <CartDrawer />
-      <Toast />
     </main>
   );
 }

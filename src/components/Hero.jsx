@@ -1,24 +1,24 @@
-﻿import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
   const heroRef = useRef(null);
-  const videoRef = useRef(null);
+  const bgRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.hero-text', {
         opacity: 0,
-        y: 100,
-        filter: 'blur(20px)',
-        duration: 1.5,
+        y: 80,
+        filter: 'blur(16px)',
+        duration: 1.2,
         stagger: 0.2,
-        ease: 'power4.out',
+        ease: 'power3.out',
         delay: 0.5,
       });
 
-      gsap.to(videoRef.current, {
+      gsap.to(bgRef.current, {
         yPercent: 20,
         ease: 'none',
         scrollTrigger: {
@@ -39,18 +39,15 @@ export default function Hero() {
       ref={heroRef}
       className="relative h-screen w-full overflow-hidden flex items-center"
     >
-      {/* Hero Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <img
-          ref={videoRef}
+          ref={bgRef}
           src="/images/hero-bg.png"
-          alt="TAKKERU CART â€“ mobile boba tea business"
+          alt="TAKKERU Japanese food cart franchise"
           className="absolute inset-0 w-full h-full object-cover scale-110"
         />
-        {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-transparent" />
         <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -62,18 +59,23 @@ export default function Hero() {
             className="flex items-center gap-4 mb-6"
           >
             <div className="w-12 h-[1px] bg-accent" />
-            <span className="font-jp text-accent tracking-[0.3em] text-sm uppercase">タッケル カート</span>
+            <span className="font-jp text-accent tracking-[0.3em] text-sm">
+              タッケル カート
+            </span>
           </motion.div>
 
-          <h1 className="hero-text text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] leading-none mb-4 tracking-tighter">
+          <h1 className="hero-text text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] leading-none mb-4 tracking-tighter font-bebas text-white">
             TAKKERU
           </h1>
 
           <h2 className="hero-text text-xl md:text-3xl font-inter font-light text-subtle/80 tracking-widest uppercase mb-8">
-            YOUR BOBA BUSINESS. ON WHEELS.
+            START YOUR OWN FOOD BUSINESS.
           </h2>
 
-          {/* CTA Buttons */}
+          <p className="hero-text text-subtle/50 font-inter text-base md:text-lg mb-10 max-w-xl leading-relaxed">
+            A bold Japanese-inspired food cart concept built for modern entrepreneurs.
+          </p>
+
           <div className="hero-text flex flex-col sm:flex-row gap-4 sm:gap-6">
             <a
               href="https://tally.so/r/XxaDyj"
@@ -81,23 +83,27 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="px-10 py-4 bg-accent text-primary font-bebas text-xl tracking-widest hover:bg-white transition-all duration-500 transform hover:-translate-y-1"
             >
-              START YOUR CART
+              START YOUR TAKKERU
             </a>
 
             <a
-              href="#how-it-works"
+              href="#cart"
               className="inline-flex items-center justify-center gap-3 px-10 py-4 border border-white/30 text-white font-bebas text-xl tracking-widest hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-500 transform hover:-translate-y-1 backdrop-blur-sm"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-              SEE HOW IT WORKS
+              EXPLORE THE CART
             </a>
+          </div>
+
+          <div className="hero-text flex items-center gap-4 mt-12 text-xs font-inter tracking-widest uppercase text-subtle/60">
+            <span>LOW SPACE</span>
+            <span className="w-1 h-1 rounded-full bg-accent" />
+            <span>HIGH IMPACT</span>
+            <span className="w-1 h-1 rounded-full bg-accent" />
+            <span>BUILT TO SELL</span>
           </div>
         </div>
       </div>
 
-      {/* Floating scroll indicator */}
       <div className="absolute bottom-12 right-12 hidden md:flex flex-col items-end gap-4">
         <div className="flex items-center gap-4 group cursor-pointer">
           <span className="text-[10px] font-inter tracking-[0.5em] uppercase opacity-40 group-hover:opacity-100 transition-opacity">

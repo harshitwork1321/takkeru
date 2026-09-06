@@ -103,7 +103,7 @@ const GoogleIcon = () => (
 function ReviewCard({ r }) {
   return (
     <div
-      className="flex-shrink-0 w-[320px] md:w-[380px] bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col gap-4"
+      className="flex-shrink-0 w-[320px] md:w-[380px] bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col gap-4 transition-shadow duration-300 hover:shadow-[0_0_30px_-5px_rgba(239,68,68,0.2)]"
       style={{ userSelect: 'none' }}
     >
       {/* Header */}

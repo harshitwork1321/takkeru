@@ -7,8 +7,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
 
           <div className="md:col-span-1">
-            <h2 className="text-4xl font-bebas tracking-[0.2em] mb-6">TAKKERU CART</h2>
-            <p className="text-subtle/30 text-sm font-inter leading-relaxed max-w-xs mb-4">
+            <h2 className="font-bebas text-3xl tracking-[0.2em] mb-6">TAKKERU</h2>
+            <p className="text-subtle/50 text-sm font-inter leading-relaxed max-w-xs mb-4">
               Mobile boba tea, mandu, and ramen business. Take the cart to where the crowd is.
             </p>
             <p className="text-accent/60 text-xs font-inter uppercase tracking-widest">
@@ -20,8 +20,9 @@ export default function Footer() {
             <h3 className="font-bebas text-xl tracking-widest text-accent mb-8">QUICK LINKS</h3>
             <nav className="space-y-3">
               <a href="#how-it-works" className="block text-subtle/50 text-sm hover:text-accent transition-colors">How It Works</a>
-              <a href="#locations" className="block text-subple/50 text-sm hover:text-accent transition-colors">Locations</a>
+              <a href="#cart" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Cart</a>
               <a href="#menu" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Menu</a>
+              <a href="#franchise" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Franchise</a>
               <a href="#faq" className="block text-subtle/50 text-sm hover:text-accent transition-colors">FAQ</a>
             </nav>
           </div>
@@ -42,10 +43,10 @@ export default function Footer() {
           <div>
             <h3 className="font-bebas text-xl tracking-widest text-accent mb-8">SOCIALS</h3>
             <div className="flex gap-6">
-              <a href="https://www.instagram.com/takkeru_cafe" target="_blank" rel="noopener noreferrer" aria-label="Follow TAKKERU CART on Instagram" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
+              <a href="https://www.instagram.com/takkeru_cafe" target="_blank" rel="noopener noreferrer" aria-label="Follow TAKKERU on Instagram" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
                 <Instagram className="w-5 h-5" aria-hidden="true" />
               </a>
-              <a href="#" aria-label="Follow TAKKERU CART on Twitter" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
+              <a href="#" aria-label="Follow TAKKERU on Twitter" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
                 <Twitter className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
@@ -54,8 +55,8 @@ export default function Footer() {
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-subtle/20 text-xs tracking-[0.2em]">© 2026 TAKKERU CART. ALL RIGHTS RESERVED.</p>
-          <nav aria-label="Footer legal links" className="flex gap-8 text-[10px] text-subtle/20 tracking-widest uppercase font-bold">
+          <p className="text-subtle/50 text-xs tracking-[0.2em]">© 2026 TAKKERU CART. ALL RIGHTS RESERVED.</p>
+          <nav aria-label="Footer legal links" className="flex gap-8 text-[10px] text-subtle/50 tracking-widest uppercase font-bold">
             <a href="#" className="hover:text-accent transition-colors">Privacy</a>
             <a href="#" className="hover:text-accent transition-colors">Terms</a>
             <a href="#" className="hover:text-accent transition-colors">Career</a>
