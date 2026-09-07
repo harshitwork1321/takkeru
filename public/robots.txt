@@ -1,4 +1,4 @@
-# Takkeru Café — robots.txt
+# Takkeru Cart — robots.txt
 User-agent: *
 Allow: /
 Sitemap: https://takkeru.com/sitemap.xml

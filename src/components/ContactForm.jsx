@@ -12,7 +12,7 @@ const INVESTMENT_RANGES = [
 
 const INTERESTED_MODELS = [
   'Micro Cart',
-  'Cart Café',
+  'Cart Plus',
   'Full Concept',
   'Not Sure Yet',
 ];

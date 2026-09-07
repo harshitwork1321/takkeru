@@ -6,10 +6,10 @@ import { formatPrice } from '../lib/cart';
 import { getProductById } from '../data/products';
 
 const CART_MENU_ITEMS = [
-  { id: 'boba-tea', label: 'Boba Tea', jp: 'ãƒœãƒãƒ†ã‚£ãƒ¼' },
-  { id: 'ramen-signature', label: 'Signature Ramen', jp: 'ãƒ©ãƒ¼ãƒ¡ãƒ³' },
-  { id: 'mandu', label: 'Mandu', jp: 'é¥…é ­' },
-  { id: 'tteokbokki', label: 'Tteokbokki', jp: 'ãƒˆãƒƒãƒã‚®' },
+  { id: 'boba-tea', label: 'Boba Tea', jp: 'ボバティー' },
+  { id: 'ramen-signature', label: 'Signature Ramen', jp: 'ラーメン' },
+  { id: 'mandu', label: 'Mandu', jp: '饅頭' },
+  { id: 'tteokbokki', label: 'Tteokbokki', jp: 'トッポギ' },
 ];
 
 const STEPS = [
@@ -21,7 +21,7 @@ const STEPS = [
   {
     num: '02',
     title: 'SERVE THE CROWD',
-    description: 'Boba, ramen, mandu â€” hot and cold menu items that draw lines and keep people coming back.',
+    description: 'Boba, ramen, mandu — hot and cold menu items that draw lines and keep people coming back.',
   },
   {
     num: '03',
@@ -55,7 +55,7 @@ export default function CartSection() {
             transition={{ duration: 0.8 }}
             className="text-accent font-jp tracking-[0.4em] block mb-6"
           >
-            ã‚«ãƒ¼ãƒˆäº‹æ¥­
+            カート事業
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
@@ -101,7 +101,7 @@ export default function CartSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            <span className="text-accent font-jp tracking-[0.3em] text-sm block mb-4">ä»•çµ„ã¿</span>
+            <span className="text-accent font-jp tracking-[0.3em] text-sm block mb-4">仕組み</span>
             <h3 className="text-3xl md:text-5xl mb-10">HOW IT WORKS</h3>
 
             <div className="space-y-8">

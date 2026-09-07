@@ -37,10 +37,10 @@ export default function ContactSection() {
 
 
               <div className="flex gap-4">
-                <a href="https://www.instagram.com/takkeru_cafe" target="_blank" rel="noopener noreferrer" aria-label="Follow Takkeru Café on Instagram" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
+                <a href="https://www.instagram.com/takkeru_cafe" target="_blank" rel="noopener noreferrer" aria-label="Follow Takkeru Cart on Instagram" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
                   <Instagram className="w-6 h-6 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 </a>
-                <a href="#" aria-label="Follow Takkeru Café on Twitter" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
+                <a href="#" aria-label="Follow Takkeru Cart on Twitter" className="w-16 h-16 border border-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300 group">
                   <Twitter className="w-6 h-6 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 </a>
               </div>
@@ -57,7 +57,7 @@ export default function ContactSection() {
             <div className="aspect-square glass p-1 rounded-sm relative overflow-hidden">
                <img 
                  src="/images/contact.jpg" 
-                 alt="Contact Takkeru – anime 2D themed café interior in Delhi"
+                  alt="Contact Takkeru — Japanese-inspired food cart"
                  loading="lazy"
                  className="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
                />

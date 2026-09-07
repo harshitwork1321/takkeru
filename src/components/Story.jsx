@@ -16,16 +16,16 @@ export default function Story() {
         >
           <span className="text-accent font-jp tracking-[0.4em] block mb-6">物語</span>
           <h2 className="text-5xl md:text-8xl mb-12 leading-[0.9]">
-            SOME CAFÉS ARE <br />
+            SOME PLACES ARE <br />
             <span className="text-accent">BUILT FOR NOISE.</span>
           </h2>
           
           <div className="space-y-6 text-xl md:text-2xl font-inter font-light text-subtle/70 leading-relaxed max-w-xl">
             <p>Takkeru was built for pauses.</p>
-            <p>For monsoon evenings outside café windows. For unfinished conversations. For late-night cravings.</p>
+            <p>For monsoon evenings outside quiet windows. For unfinished conversations. For late-night cravings.</p>
             <p className="text-white italic">For 2D sketchbook walls that feel alive.</p>
             <p className="pt-6 text-sm md:text-base tracking-[0.2em] uppercase text-accent font-bold">
-              A unique cinematic escape hidden inside Delhi.
+              A unique Japanese-inspired food cart experience.
             </p>
           </div>
         </motion.div>
@@ -40,7 +40,7 @@ export default function Story() {
           <div className="absolute inset-0 border border-white/10 m-4 z-0" />
           <img 
             src="/images/story-interior.jpeg" 
-            alt="Takkeru Café interior – cinematic 2D sketchbook walls and anime décor in Delhi"
+            alt="Takkeru Japanese-inspired food cart interior"
             loading="lazy"
             className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
           />

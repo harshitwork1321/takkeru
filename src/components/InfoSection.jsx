@@ -32,7 +32,7 @@ export default function InfoSection() {
               VISITING TIMES
             </h3>
             <p className="text-subtle/50 font-inter leading-relaxed">
-              While we are vibrant throughout the day, the best time to visit for the full cinematic experience is late evening. As the city lights dim, our café truly comes alive with a signature, moody late-night vibe exclusive to our Delhi location.
+              While we are vibrant throughout the day, the best time to visit for the full experience is late evening. As the city lights dim, the cart truly comes alive with a signature, moody atmosphere.
             </p>
           </motion.div>
 
@@ -47,7 +47,7 @@ export default function InfoSection() {
               SOCIAL HUB
             </h3>
             <p className="text-subtle/50 font-inter leading-relaxed">
-              Takkeru is more than a café; it's a social hangout for the community. Whether you're here to sketch, discuss your favorite shows, or just soak in the vibe, you're among friends.
+              Takkeru is more than a food cart; it's a social hangout for the community. Whether you're here to grab a quick bite, discuss your favorite shows, or just soak in the vibe, you're among friends.
             </p>
           </motion.div>
 
@@ -60,7 +60,7 @@ export default function InfoSection() {
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             className="text-[15rem] md:text-[25rem] font-bebas leading-none inline-block pr-20"
           >
-            BEYOND THE FRAME — CINEMATIC DINING — 2D CULTURE — TAKKERU CAFE —
+            BEYOND THE FRAME — CINEMATIC DINING — JAPANESE STREET FOOD — TAKKERU CART —
           </motion.div>
         </div>
       </div>

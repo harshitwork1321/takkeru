@@ -161,7 +161,7 @@ export default function MembershipForm() {
             <div className="space-y-10">
               <div className="max-w-2xl">
                 <span className="text-accent font-jp tracking-[0.4em] block mb-4">メンバーシップ</span>
-                <h2 className="text-4xl md:text-6xl font-bebas tracking-tight">TAKKERU CAFÉ MEMBERSHIP FORM</h2>
+                <h2 className="text-4xl md:text-6xl font-bebas tracking-tight">TAKKERU CART MEMBERSHIP FORM</h2>
                 <p className="mt-6 text-subtle/70 text-lg font-inter leading-relaxed">
                   Join the fan club and register your membership details. Fill the form below to unlock exclusive campaigns, club perks, and event access.
                 </p>

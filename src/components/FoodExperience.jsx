@@ -19,7 +19,7 @@ export default function FoodExperience() {
             <div className="relative z-10 rounded-sm overflow-hidden shadow-[0_0_100px_rgba(255,122,61,0.15)] border border-white/5">
               <img 
                 src="/images/experience-interior.jpeg" 
-                alt="Takkeru Café cinematic 2D anime-themed interior atmosphere in Delhi"
+                alt="Takkeru Japanese-inspired food cart atmosphere"
                 loading="lazy"
                 className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000"
               />
@@ -44,7 +44,7 @@ export default function FoodExperience() {
             
             <div className="space-y-8">
               <p className="text-subtle/60 font-inter text-lg leading-relaxed">
-                Step into a world where premium Asian comfort food meets the vibrant energy of 2D café culture. Every dish at Takkeru is handcrafted with precision, offering Delhi an unforgettable, immersive dining experience.
+                Step into a world where premium Asian comfort food meets the bold energy of Japanese-inspired street food. Every dish at Takkeru is handcrafted with precision, offering an unforgettable dining experience.
               </p>
               
               <div className="grid grid-cols-2 gap-8">
@@ -54,7 +54,7 @@ export default function FoodExperience() {
                 </div>
                 <div className="border-l border-accent/30 pl-6">
                   <h4 className="text-accent text-xl mb-2">Culture</h4>
-                  <p className="text-subtle/40 text-sm font-inter">Deeply rooted in realistic social anime experiences.</p>
+                  <p className="text-subtle/40 text-sm font-inter">Deeply rooted in authentic food culture.</p>
                 </div>
               </div>
 
