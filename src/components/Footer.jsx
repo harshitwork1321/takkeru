@@ -23,7 +23,6 @@ export default function Footer() {
               <a href="#how-it-works" className="block text-subtle/50 text-sm hover:text-accent transition-colors">How It Works</a>
               <a href="#menu" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Menu</a>
               <a href="#investment" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Investment</a>
-              <a href="#economics" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Economics</a>
               <a href="#faq" className="block text-subtle/50 text-sm hover:text-accent transition-colors">FAQ</a>
             </nav>
           </div>

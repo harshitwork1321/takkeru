@@ -110,7 +110,7 @@ export default function FAQ() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-subtle/50 font-inter text-lg leading-relaxed max-w-md"
             >
-              Got questions about starting your TAKKERU CART business? We've got answers.
+              Got questions about starting your TAKKERU CART business? We have got answers. We've got answers.
             </motion.p>
           </div>
 
