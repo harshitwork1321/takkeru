@@ -16,7 +16,7 @@ const FAQS = [
   },
   {
     question: 'How do I start?',
-    answer: "Click 'START YOUR CART' to get in touch with the TAKKERU team. They'll guide you through cart setup, menu configuration, and operational guidance.",
+    answer: "Click 'START YOUR TAKKERU' to get in touch with the TAKKERU team. They'll guide you through cart setup, menu configuration, and operational guidance.",
   },
   {
     question: 'What does TAKKERU provide?',

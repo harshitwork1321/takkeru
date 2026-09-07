@@ -60,7 +60,7 @@ function UnitEconomicsDisplay({ inView }) {
       <div className="space-y-4">
         <div className="flex justify-between items-center border-b border-white/10 pb-3">
           <span className="text-cream/60 font-inter text-sm">SELLING PRICE</span>
-          <span className="text-cream font-bebas text-xl">₹99-259</span>
+          <span className="text-cream font-bebas text-xl">₹99-249</span>
         </div>
         
         <div className="flex justify-between items-center border-b border-white/10 pb-3">
@@ -363,7 +363,7 @@ export default function BusinessEconomics() {
           {/* Product Prices */}
           <MetricBlock
             label="PRODUCT PRICE"
-            value="₹99-259"
+            value="₹99-249"
             sublabel="Verified selling prices"
             delay={0}
             inView={inView}

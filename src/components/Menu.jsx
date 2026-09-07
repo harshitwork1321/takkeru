@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -37,7 +37,7 @@ const MENU_ITEMS = [
     id: 'tteokbokki',
     name: 'Tteokbokki Bowl',
     jp: 'トッポギ',
-    price: '₹259',
+    price: '₹249',
     desc: 'Korean street-food rice cakes coated in spicy savory sauce. Bold, chewy, and comfortingly spiced.',
     img: '/images/tteokbokki.jpg',
     category: 'Korean',

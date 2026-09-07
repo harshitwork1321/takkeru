@@ -69,11 +69,11 @@ export default function Hero() {
           </h1>
 
           <h2 className="hero-text text-xl md:text-3xl font-inter font-light text-subtle/80 tracking-widest uppercase mb-8">
-            START YOUR OWN FOOD BUSINESS.
+            YOUR BUSINESS. ON WHEELS.
           </h2>
 
           <p className="hero-text text-subtle/50 font-inter text-base md:text-lg mb-10 max-w-xl leading-relaxed">
-            A bold Japanese-inspired food cart concept built for modern entrepreneurs.
+            Japanese-inspired food, boba tea and street-food energy — built into one bold TAKKERU Cart.
           </p>
 
           <div className="hero-text flex flex-col sm:flex-row gap-4 sm:gap-6">

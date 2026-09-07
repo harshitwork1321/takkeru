@@ -1,4 +1,4 @@
-﻿export const PRODUCTS = [
+export const PRODUCTS = [
   // ── Ramen ──
   {
     id: 'ramen-signature',
@@ -38,7 +38,7 @@
     id: 'mandu',
     slug: 'mandu',
     name: 'Mandu',
-    japanese: '饅頭',
+    japanese: 'マンドゥ',
     tag: 'Pan-Fried',
     description: 'Korean dumplings pan-fried to golden perfection. Crispy outside, juicy inside.',
     longDescription: 'Handmade Korean dumplings filled with seasoned pork, tofu, and vegetables, pan-fried until golden and crispy. Served with our signature dipping sauce. Each bite is a burst of flavour.',
@@ -111,11 +111,11 @@
     id: 'tteokbokki',
     slug: 'tteokbokki-bowl',
     name: 'Tteokbokki Bowl',
-    japanese: 'トッポギ',
+    japanese: 'トッポッキ',
     tag: 'Spicy',
     description: 'Korean street-food rice cakes coated in spicy savory sauce. Bold, chewy, and comfortingly spiced.',
     longDescription: 'Chewy Korean rice cakes tossed in our house-made gochujang sauce with fish cake, boiled egg, and spring onions. A street-food classic perfected for bold palates. Choose your spice level.',
-    price: 259,
+    price: 249,
     image: '/images/tteokbokki.jpg',
     category: 'Korean Comfort Food',
     ingredients: ['Rice cakes', 'Gochujang sauce', 'Fish cake', 'Boiled egg', 'Spring onions', 'Sesame seeds'],
