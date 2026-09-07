@@ -7,6 +7,7 @@ import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HeroStats from './components/HeroStats';
+import BrandStatement from './components/BrandStatement';
 import CartShowcase from './components/CartShowcase';
 import FranchiseTiers from './components/FranchiseTiers';
 import FoodMenu from './components/FoodMenu';
@@ -89,6 +90,7 @@ function App() {
             <Navbar />
             <Hero />
             <HeroStats />
+            <BrandStatement />
             <CartShowcase />
             <FoodMenu />
             <FranchiseTiers />

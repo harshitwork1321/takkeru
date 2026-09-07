@@ -43,7 +43,7 @@ export default function Hero() {
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} className="flex items-center gap-4 mb-6">
             <div className="w-12 h-[1px] bg-accent" />
             <span className="font-jp text-accent tracking-[0.3em] text-sm">
-              カートビジネス
+              タッケル・カート
             </span>
           </motion.div>
           <h1 className="hero-text text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] leading-none mb-4 tracking-tighter font-bebas text-white">

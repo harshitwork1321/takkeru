@@ -57,7 +57,7 @@ export default function Navbar() {
         <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className="font-bebas text-2xl tracking-[0.2em] text-white hover:text-accent transition-colors duration-300">
           TAKKERU
           <span className="font-jp text-[10px] tracking-[0.15em] text-white/50 block leading-none -mt-1">
-            カートビジネス
+            タッケル・カート
           </span>
         </a>
         <div className="hidden lg:flex items-center gap-10">
