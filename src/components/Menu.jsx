@@ -37,7 +37,7 @@ const MENU_ITEMS = [
     id: 'tteokbokki',
     name: 'Tteokbokki Bowl',
     jp: 'トッポギ',
-    price: '₹249',
+    price: '₹259',
     desc: 'Korean street-food rice cakes coated in spicy savory sauce. Bold, chewy, and comfortingly spiced.',
     img: '/images/tteokbokki.jpg',
     category: 'Korean',

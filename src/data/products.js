@@ -115,7 +115,7 @@
     tag: 'Spicy',
     description: 'Korean street-food rice cakes coated in spicy savory sauce. Bold, chewy, and comfortingly spiced.',
     longDescription: 'Chewy Korean rice cakes tossed in our house-made gochujang sauce with fish cake, boiled egg, and spring onions. A street-food classic perfected for bold palates. Choose your spice level.',
-    price: 249,
+    price: 259,
     image: '/images/tteokbokki.jpg',
     category: 'Korean Comfort Food',
     ingredients: ['Rice cakes', 'Gochujang sauce', 'Fish cake', 'Boiled egg', 'Spring onions', 'Sesame seeds'],
