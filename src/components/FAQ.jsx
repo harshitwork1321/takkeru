@@ -3,28 +3,28 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 
 const FAQS = [
   {
-    question: 'What is TAKKERU CART?',
-    answer: 'TAKKERU CART is a mobile boba tea, mandu, and ramen business concept. Take the cart to where the crowd is — colleges, markets, events, and pop-ups.',
+    question: 'What is TAKKERU Cart?',
+    answer: 'TAKKERU Cart is a Japanese-inspired food cart business. Start your own mobile food business serving Boba Tea, Ramen, Mandu, and Tteokbokki.',
   },
   {
-    question: 'What products can I sell?',
-    answer: 'Boba tea (Classic, Brown Sugar, Taro, Matcha, Fruit), Mandu (Korean dumplings), Ramen (Signature Korean, Veg, Spicy Miso), Korean comfort food, and combos.',
+    question: 'How much does a TAKKERU Cart cost?',
+    answer: 'TAKKERU Cart investment starts at ₹65,000 for the Starter package (Boba Tea), ₹89,000 for Standard (Boba Tea + Mandu), and ₹99,000 for Premium (Boba Tea + Ramen + Mandu).',
   },
   {
-    question: 'Where can I operate?',
-    answer: 'College campuses, street markets, corporate events, pop-up events, shopping areas, festivals, and any high-traffic location. Location availability depends on local laws and permissions.',
+    question: 'What products are available?',
+    answer: 'Boba Tea (₹99), Signature Ramen (₹199), Mandu (₹99), and Tteokbokki Bowl (₹249).',
   },
   {
-    question: 'How do I start?',
-    answer: "Click 'START YOUR TAKKERU' to get in touch with the TAKKERU team. They'll guide you through cart setup, menu configuration, and operational guidance.",
+    question: 'What is included in the TAKKERU Cart packages?',
+    answer: 'Each package includes a TAKKERU Cart, equipment, branding, training, and operational support. Details vary by package.',
   },
   {
-    question: 'What does TAKKERU provide?',
-    answer: 'Cart setup, menu system, brand identity, operational guidance, and ongoing support. Details vary as part of the applicable TAKKERU business package.',
+    question: 'How can I start a TAKKERU Cart?',
+    answer: "Click 'START YOUR TAKKERU' to get in touch with the TAKKERU team. We will guide you through cart setup, menu configuration, and operational guidance.",
   },
   {
-    question: 'Do I need prior experience?',
-    answer: 'No prior food business experience is required. TAKKERU provides training, recipes, and operational guidance to help you succeed.',
+    question: 'How do I contact TAKKERU?',
+    answer: 'Visit takkeru.com and use the contact form, or reach out via Instagram @takkeru_cafe.',
   },
 ];
 

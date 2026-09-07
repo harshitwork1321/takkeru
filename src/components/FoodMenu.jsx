@@ -38,7 +38,7 @@ export default function FoodMenu() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-6xl md:text-8xl tracking-tighter"
           >
-            WHAT CAN YOU SELL?
+            WHAT'S ON THE CART?
           </motion.h2>
         </div>
 

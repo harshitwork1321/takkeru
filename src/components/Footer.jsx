@@ -19,10 +19,11 @@ export default function Footer() {
           <div>
             <h3 className="font-bebas text-xl tracking-widest text-accent mb-8">QUICK LINKS</h3>
             <nav className="space-y-3">
+              <a href="#cart" className="block text-subtle/50 text-sm hover:text-accent transition-colors">The Cart</a>
               <a href="#how-it-works" className="block text-subtle/50 text-sm hover:text-accent transition-colors">How It Works</a>
-              <a href="#cart" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Cart</a>
               <a href="#menu" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Menu</a>
-              <a href="#franchise" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Franchise</a>
+              <a href="#investment" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Investment</a>
+              <a href="#economics" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Economics</a>
               <a href="#faq" className="block text-subtle/50 text-sm hover:text-accent transition-colors">FAQ</a>
             </nav>
           </div>

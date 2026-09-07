@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -70,6 +70,7 @@ function App() {
           <FoodMenu />
           <BusinessModel />
           <HowItWorks />
+          <BusinessEconomics />
           <CustomerReviews />
           <BrandStory />
           <FAQ />

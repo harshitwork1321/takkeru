@@ -71,7 +71,7 @@ export default function CartShowcase() {
             カート
           </span>
           <h2 className="font-bebas mt-2 text-5xl leading-none tracking-tight text-text-primary md:text-7xl">
-            THE TAKKERU CART
+            MEET THE TAKKERU CART
           </h2>
           <div className="mt-4 h-[2px] w-24 bg-text-accent" />
         </motion.div>

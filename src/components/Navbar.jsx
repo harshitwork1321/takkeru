@@ -3,10 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_LINKS = [
   { name: 'Home', href: '#home' },
-  { name: 'Cart', href: '#cart' },
+  { name: 'The Cart', href: '#cart' },
   { name: 'Menu', href: '#menu' },
   { name: 'How It Works', href: '#how-it-works' },
-  { name: 'Franchise', href: '#franchise' },
+  { name: 'Investment', href: '#investment' },
+  { name: 'Economics', href: '#economics' },
+  { name: 'FAQ', href: '#faq' },
   { name: 'Contact', href: '#contact' },
 ];
 

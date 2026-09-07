@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Check, Minus } from 'lucide-react';
@@ -325,7 +325,7 @@ export default function FranchiseTiers() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="franchise" className="relative py-24 md:py-32 bg-cream overflow-hidden">
+    <section id="investment" className="relative py-24 md:py-32 bg-cream overflow-hidden">
       {/* Grid Background */}
       <div
         className="absolute inset-0 opacity-[0.03]"
