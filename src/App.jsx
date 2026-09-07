@@ -8,11 +8,10 @@ import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CartShowcase from './components/CartShowcase';
+import FranchiseTiers from './components/FranchiseTiers';
 import FoodMenu from './components/FoodMenu';
 import BusinessModel from './components/BusinessModel';
 import HowItWorks from './components/HowItWorks';
-import FranchiseInvestment from './components/FranchiseInvestment';
-import BusinessEconomics from './components/BusinessEconomics';
 import CustomerReviews from './components/CustomerReviews';
 import BrandStory from './components/BrandStory';
 import FinalCTA from './components/FinalCTA';
@@ -67,11 +66,10 @@ function App() {
           <Navbar />
           <Hero />
           <CartShowcase />
+          <FranchiseTiers />
           <FoodMenu />
           <BusinessModel />
           <HowItWorks />
-          <FranchiseInvestment />
-          <BusinessEconomics />
           <CustomerReviews />
           <BrandStory />
           <FAQ />
