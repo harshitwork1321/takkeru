@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TakkeruInMotion from './components/TakkeruInMotion';
 import HeroStats from './components/HeroStats';
 import BrandStatement from './components/BrandStatement';
 import CartShowcase from './components/CartShowcase';
@@ -89,16 +90,17 @@ function App() {
           <div className="animate-fade-in">
             <Navbar />
             <Hero />
+            <TakkeruInMotion />
             <HeroStats />
             <BrandStatement />
             <CartShowcase />
             <FoodMenu />
+            <RealFood />
             <FranchiseTiers />
             <BusinessEconomics />
             <HowItWorks />
             <LocationStrategy />
             <StreetCulture />
-            <RealFood />
             <CustomerReviews />
             <BrandStory />
             <FAQ />

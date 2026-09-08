@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Check, Minus } from 'lucide-react';
+import LazyVideo from './LazyVideo';
 
 const PACKAGES = [
   {
@@ -341,6 +342,29 @@ export default function FranchiseTiers() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+        {/* Cart Visual */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 max-w-5xl mx-auto overflow-hidden border-4 border-primary/10"
+        >
+          <div className="relative aspect-[21/9] md:aspect-[3/1] overflow-hidden">
+            <LazyVideo
+              src="/media/takkeru-cart-business.mp4"
+              poster="/images/takkeru-cart.jpg"
+              fallbackImage="/images/takkeru-cart.jpg"
+              containerClassName="w-full h-full"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-transparent to-primary/60 pointer-events-none" />
+            <div className="absolute bottom-6 left-8 z-10">
+              <span className="font-jp text-accent tracking-[0.3em] text-xs block mb-1">タッケル・カート</span>
+              <span className="font-bebas text-3xl md:text-4xl text-white tracking-wide">THE TAKKERU CART</span>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
