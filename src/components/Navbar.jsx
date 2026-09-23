@@ -69,8 +69,12 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <CartButton />
-          <a href="https://tally.so/r/XxaDyj" target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-accent px-5 py-2.5 font-bebas text-lg tracking-wider text-white transition-all duration-300 hover:bg-white hover:text-primary active:scale-95">
-            START YOUR TAKKERU →
+          <a
+            href="#pay"
+            onClick={(event) => scrollToSection(event, '#pay')}
+            className="inline-flex min-h-[42px] items-center bg-accent px-5 py-2.5 font-bebas text-lg tracking-wider text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-cream hover:text-[#111111] active:scale-95"
+          >
+            PAY NOW
           </a>
         </div>
 
@@ -94,8 +98,8 @@ export default function Navbar() {
                 </motion.a>
               ))}
             </nav>
-            <motion.a initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', damping: 20 }} href="https://tally.so/r/XxaDyj" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="relative z-10 mt-10 bg-accent px-10 py-3 font-bebas text-2xl tracking-wider text-white transition-all duration-300 hover:bg-white hover:text-primary active:scale-95">
-              START YOUR TAKKERU →
+            <motion.a initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', damping: 20 }} href="#pay" onClick={(event) => { scrollToSection(event, '#pay'); setIsMobileMenuOpen(false); }} className="relative z-10 mt-10 inline-flex min-h-[52px] items-center bg-accent px-10 py-3 font-bebas text-2xl tracking-wider text-white transition-all duration-300 hover:bg-cream hover:text-[#111111] active:scale-95">
+              PAY NOW →
             </motion.a>
           </motion.div>
         )}

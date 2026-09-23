@@ -20,6 +20,7 @@ import RealFood from './components/RealFood';
 import CustomerReviews from './components/CustomerReviews';
 import BrandStory from './components/BrandStory';
 import FAQ from './components/FAQ';
+import PaymentSection from './components/PaymentSection';
 import FinalCTA from './components/FinalCTA';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
@@ -104,6 +105,7 @@ function App() {
             <CustomerReviews />
             <BrandStory />
             <FAQ />
+            <PaymentSection />
             <FinalCTA />
             <ContactForm />
             <Footer />
