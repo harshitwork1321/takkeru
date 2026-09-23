@@ -63,7 +63,7 @@ export default function Hero() {
 
           <div className="hero-text mt-10 flex flex-col gap-4 sm:flex-row sm:gap-5">
             <a
-              href="https://rzp.io/rzp/sQz9KDq"
+              href="https://form.svhrt.com/6a853444a00a75349cf58bac"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 bg-accent px-8 py-4 font-bebas text-xl tracking-[0.12em] text-white shadow-[0_18px_45px_rgba(214,40,40,0.25)] transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:text-primary"
