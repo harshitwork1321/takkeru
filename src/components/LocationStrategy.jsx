@@ -117,7 +117,7 @@ export default function LocationStrategy() {
       </div>
 
       {/* Background texture */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/images/paper-fibers.png')]" />
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none paper-bg" />
     </section>
   );
 }

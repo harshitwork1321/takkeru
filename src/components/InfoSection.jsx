@@ -66,7 +66,7 @@ export default function InfoSection() {
       </div>
 
       {/* Manga halftone background */}
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[url('/images/halftone.png')]" />
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none halftone-bg" />
     </section>
   );
 }

@@ -23,6 +23,8 @@ import FAQ from './components/FAQ';
 import FinalCTA from './components/FinalCTA';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import CartDrawer from './components/cart/CartDrawer';
+import Toast from './components/cart/Toast';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,17 +67,15 @@ function App() {
         infinite: false,
       });
 
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-
       lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+      const updateLenis = (time) => lenis.raf(time * 1000);
+      gsap.ticker.add(updateLenis);
       gsap.ticker.lagSmoothing(0);
 
-      return () => { lenis.destroy(); };
+      return () => {
+        gsap.ticker.remove(updateLenis);
+        lenis.destroy();
+      };
     } catch {
       // Lenis init failed — page still visible
     }
@@ -107,6 +107,8 @@ function App() {
             <FinalCTA />
             <ContactForm />
             <Footer />
+            <CartDrawer />
+            <Toast />
             <div className="grain-overlay" />
           </div>
         )}

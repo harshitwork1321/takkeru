@@ -4,7 +4,7 @@ export default function Story() {
   return (
     <section className="relative py-24 md:py-40 bg-primary overflow-hidden">
       {/* Manga halftone background */}
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('/images/halftone.png')]" />
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none halftone-bg" />
       
       <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
         <motion.div

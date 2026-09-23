@@ -201,7 +201,7 @@ export default function CartSection() {
       </div>
 
       {/* Background texture */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/images/halftone.png')]" />
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none halftone-bg" />
 
       {/* Large decorative text */}
       <div className="absolute -bottom-16 -right-16 text-[12rem] md:text-[20rem] font-bebas text-white/[0.02] select-none pointer-events-none whitespace-nowrap leading-none">

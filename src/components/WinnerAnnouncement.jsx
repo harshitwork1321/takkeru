@@ -14,7 +14,7 @@ export default function WinnerAnnouncement() {
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
       {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[url('/images/halftone.png')]" />
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none halftone-bg" />
       <div className="absolute -bottom-20 -right-20 text-[20rem] font-bebas text-white/[0.02] select-none pointer-events-none whitespace-nowrap">
         CHAMPION
       </div>

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 
 const FAQS = [
@@ -30,6 +30,7 @@ const FAQS = [
 
 function FAQItem({ faq, index }) {
   const [isOpen, setIsOpen] = useState(false);
+  const contentId = useId();
 
   return (
     <motion.div
@@ -42,6 +43,8 @@ function FAQItem({ faq, index }) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex items-center justify-between text-left group"
+        aria-expanded={isOpen}
+        aria-controls={contentId}
       >
         <span className="text-xl md:text-2xl font-bebas tracking-wider group-hover:text-accent transition-colors">
           {faq.question}
@@ -57,6 +60,9 @@ function FAQItem({ faq, index }) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id={contentId}
+            role="region"
+            aria-label={faq.question}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -123,7 +129,7 @@ export default function FAQ() {
       </div>
 
       {/* Background texture */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/images/paper-fibers.png')]" />
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none paper-bg" />
     </section>
   );
 }

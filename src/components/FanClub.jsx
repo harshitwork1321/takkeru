@@ -39,7 +39,7 @@ export default function FanClub() {
           </div>
 
           {/* Manga paper texture background for the card */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/images/paper-fibers.png')] -z-10" />
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none paper-bg -z-10" />
         </motion.div>
       </div>
     </section>
