@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import useCart from '../hooks/useCart';
 import { formatPrice } from '../lib/cart';
 import { getProductById } from '../data/products';
+import { FORM_URL } from '../lib/links';
 
 const CART_MENU_ITEMS = [
   { id: 'boba-tea', label: 'Boba Tea', jp: 'ボバティー' },
@@ -183,7 +184,7 @@ export default function CartSection() {
         >
           <div className="inline-flex flex-col sm:flex-row gap-4 sm:gap-6">
             <a
-              href="https://tally.so/r/XxaDyj"
+              href={FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="px-12 py-5 bg-accent text-primary font-bebas text-xl tracking-[0.2em] uppercase hover:bg-white transition-all duration-500 transform hover:-translate-y-1"

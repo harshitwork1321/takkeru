@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Check, Minus } from 'lucide-react';
 import LazyVideo from './LazyVideo';
+import { FORM_URL } from '../lib/links';
 
 const PACKAGES = [
   {
@@ -52,6 +53,12 @@ const COMPARISON_ROWS = [
 ];
 
 function PackageCard({ pkg, isSelected, onSelect, index, inView }) {
+  const handleChoose = (event) => {
+    event.stopPropagation();
+    onSelect(pkg.id);
+    window.open(FORM_URL, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -133,6 +140,7 @@ function PackageCard({ pkg, isSelected, onSelect, index, inView }) {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
+          onClick={handleChoose}
           className={`w-full py-4 text-sm font-bebas tracking-[0.2em] transition-all duration-300 ${
             isSelected
               ? 'bg-accent text-white'
@@ -207,7 +215,7 @@ function SummaryPanel({ selectedId }) {
             READY TO START?
           </span>
           <a
-            href="https://tally.so/r/XxaDyj"
+            href={FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 bg-accent text-white px-12 py-5 font-bebas text-xl tracking-[0.2em] hover:bg-white hover:text-primary transition-all duration-500"

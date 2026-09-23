@@ -1,5 +1,6 @@
 ﻿import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { FORM_URL } from '../lib/links';
 
 export default function FinalCTA() {
   const ref = useRef(null);
@@ -59,7 +60,7 @@ export default function FinalCTA() {
               className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start"
             >
               <a
-                href="https://tally.so/r/XxaDyj"
+                href={FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-12 py-5 bg-primary text-white font-bebas text-xl tracking-[0.2em] uppercase hover:bg-primary/80 transition-all duration-500 transform hover:-translate-y-1"
