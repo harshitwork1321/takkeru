@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CartButton from './cart/CartButton';
+import { PAYMENT_URL } from '../lib/links';
 
 const NAV_LINKS = [
-  { name: 'Home', href: '#home' },
-  { name: 'The Cart', href: '#cart' },
+  { name: 'Cart', href: '#cart' },
   { name: 'Menu', href: '#menu' },
   { name: 'How It Works', href: '#how-it-works' },
   { name: 'Investment', href: '#investment' },
@@ -70,8 +70,9 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <CartButton />
           <a
-            href="#pay"
-            onClick={(event) => scrollToSection(event, '#pay')}
+            href={PAYMENT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex min-h-[42px] items-center bg-accent px-5 py-2.5 font-bebas text-lg tracking-wider text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-cream hover:text-[#111111] active:scale-95"
           >
             PAY NOW
@@ -98,7 +99,7 @@ export default function Navbar() {
                 </motion.a>
               ))}
             </nav>
-            <motion.a initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', damping: 20 }} href="#pay" onClick={(event) => { scrollToSection(event, '#pay'); setIsMobileMenuOpen(false); }} className="relative z-10 mt-10 inline-flex min-h-[52px] items-center bg-accent px-10 py-3 font-bebas text-2xl tracking-wider text-white transition-all duration-300 hover:bg-cream hover:text-[#111111] active:scale-95">
+            <motion.a initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', damping: 20 }} href={PAYMENT_URL} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="relative z-10 mt-10 inline-flex min-h-[52px] items-center bg-accent px-10 py-3 font-bebas text-2xl tracking-wider text-white transition-all duration-300 hover:bg-cream hover:text-[#111111] active:scale-95">
               PAY NOW →
             </motion.a>
           </motion.div>
