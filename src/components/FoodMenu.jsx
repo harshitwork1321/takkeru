@@ -9,7 +9,7 @@ const MENU_PRODUCTS = ['mandu', 'ramen-signature', 'tteokbokki']
   .map((id) => PRODUCTS.find((p) => p.id === id))
   .filter(Boolean);
 
-const NUMBERS = ['01', '02', '03'];
+const NUMBERS = ['03', '04', '05'];
 
 export default function FoodMenu() {
   const { addItem } = useCart();
@@ -33,8 +33,8 @@ export default function FoodMenu() {
             THE TAKKERU MENU
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={headerInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="text-subtle/50 font-inter text-base md:text-lg mt-6 max-w-2xl mx-auto">
-            Boba Tea leads. Mandu, Signature Ramen and Tteokbokki follow. Four bold street-food
-            picks, four exact prices.
+            Boba Tea leads, Bubble Drink follows. Mandu, Signature Ramen and
+            Tteokbokki close it out — four bold street-food picks, four exact prices.
           </motion.p>
         </div>
 
@@ -42,6 +42,7 @@ export default function FoodMenu() {
           {BOBA && (
             <BobaHeroCard product={BOBA} inView={gridInView} onAdd={addItem} onNavigate={navigate} />
           )}
+          <BubbleDrinkMenuCard inView={gridInView} />
           {MENU_PRODUCTS.map((product, index) => (
             <FoodMenuCard
               key={product.id}
@@ -115,6 +116,70 @@ function BobaHeroCard({ product, inView, onAdd, onNavigate }) {
             >
               View Details
             </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function BubbleDrinkMenuCard({ inView }) {
+  const scrollToSection = (event) => {
+    event.preventDefault();
+    const element = document.getElementById('bubble-drink');
+    if (element) window.scrollTo({ top: element.offsetTop - 70, behavior: 'smooth' });
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="group relative md:col-span-3 overflow-hidden border-2 border-golden/70 bg-golden/[0.07]"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div
+          className="relative aspect-[4/3] overflow-hidden cursor-pointer md:order-2"
+          onClick={(event) => scrollToSection(event)}
+        >
+          <img
+            src="/media/bubble-drink-splash.png"
+            alt="TAKKERU Bubble Drink"
+            loading="lazy"
+            className="w-full h-full object-cover object-[50%_38%] transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-primary/70" />
+          <span className="absolute top-4 left-4 text-white/30 font-bebas text-7xl md:text-8xl leading-none select-none drop-shadow-lg">
+            02
+          </span>
+          <span className="absolute top-4 right-4 bg-golden px-3 py-1 font-bebas text-xs tracking-[0.2em] text-primary">
+            ICE COLD
+          </span>
+        </div>
+
+        <div className="flex flex-col justify-center p-7 md:p-10 md:order-1">
+          <span className="text-[10px] font-inter font-semibold tracking-[0.3em] text-golden">
+            02 — THE SECOND DRINK
+          </span>
+          <h3 className="mt-2 font-bebas text-5xl leading-[0.9] tracking-wide text-white md:text-7xl">
+            BUBBLE DRINK
+          </h3>
+          <p className="mt-4 max-w-md font-inter text-sm leading-relaxed text-subtle/60 md:text-base">
+            Bright, icy and packed with red pearls. Served ice cold, straight off the
+            TAKKERU cart — the pour that follows the boba.
+          </p>
+
+          <div className="mt-7 flex flex-wrap items-center gap-5">
+            <span className="border border-golden/50 px-5 py-3 font-bebas text-base tracking-[0.2em] text-golden">
+              MENU NO. 02
+            </span>
+            <a
+              href="#bubble-drink"
+              onClick={scrollToSection}
+              className="font-bebas text-base tracking-[0.15em] uppercase text-white/70 underline decoration-white/30 underline-offset-4 transition-colors duration-300 hover:text-white hover:decoration-golden"
+            >
+              See the drink
+            </a>
           </div>
         </div>
       </div>

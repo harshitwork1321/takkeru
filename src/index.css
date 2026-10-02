@@ -300,3 +300,35 @@ html.lenis { height: auto; }
   background: linear-gradient(90deg, var(--color-accent), transparent);
 }
 
+/* ── Bubble Drink section ───────────────────────────────────────
+   Transform-only motion. Nothing here can ever hold content at
+   opacity: 0 — if the animation never runs, the artwork is simply
+   visible in its resting state. */
+@keyframes bubble-settle {
+  from { transform: scale(0.975) translateY(12px); }
+  to { transform: scale(1) translateY(0); }
+}
+
+@keyframes bubble-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -16px, 0); }
+}
+
+@keyframes bubble-orbit {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(8px, -20px, 0) scale(1.15); }
+}
+
+.bubble-settle { animation: bubble-settle 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.bubble-drift { animation: bubble-drift 7s ease-in-out infinite; }
+.bubble-orbit { animation: bubble-orbit 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble-settle,
+  .bubble-drift,
+  .bubble-orbit {
+    animation: none;
+    transform: none;
+  }
+}
+

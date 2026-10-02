@@ -7,6 +7,7 @@ import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BobaFeature from './components/BobaFeature';
+import BubbleDrink from './components/BubbleDrink';
 import BobaFilms from './components/BobaFilms';
 import BrandStatement from './components/BrandStatement';
 import FoodStory from './components/FoodStory';
@@ -43,7 +44,7 @@ class ErrorBoundary extends Component {
       return (
         <div style={{ background: '#FFF8EE', color: '#111111', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter, sans-serif', padding: '2rem', textAlign: 'center' }}>
           <h1 style={{ fontSize: '4rem', fontFamily: 'Bebas Neue, cursive', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>TAKKERU</h1>
-          <p style={{ fontSize: '1.2rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '0.5rem', color: '#D62828' }}>BOBA • MANDU • RAMEN • TTEOKBOKKI</p>
+          <p style={{ fontSize: '1.2rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '0.5rem', color: '#D62828' }}>BOBA • BUBBLE DRINK • MANDU • RAMEN • TTEOKBOKKI</p>
           <p style={{ color: '#555', fontSize: '0.875rem', marginTop: '2rem' }}>Something went wrong. Please refresh the page.</p>
           <a href="/" style={{ marginTop: '1.5rem', padding: '0.9rem 2rem', background: '#D62828', color: '#FFF8EE', textDecoration: 'none', fontFamily: 'Bebas Neue, cursive', letterSpacing: '0.16em', fontSize: '1.1rem' }}>BACK TO THE FOOD</a>
         </div>
@@ -97,6 +98,7 @@ function App() {
             {/* ── 80% — TAKKERU FOOD: BOBA TEA FIRST ───────────── */}
             <Hero />
             <BobaFeature />
+            <BubbleDrink />
             <BobaFilms />
             <BrandStatement />
             <FoodStory />
