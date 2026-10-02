@@ -88,7 +88,7 @@ export default function CartSection() {
                 poster="/images/cart-hero.png"
                 className="w-full h-full object-cover"
               >
-                <source src="/videos/a_TAKKERU_CART_-_FULL__1.mp4" type="video/mp4" />
+                <source src="/media/takkeru-cart-business.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
             </div>

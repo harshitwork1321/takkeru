@@ -3,10 +3,10 @@ import { motion, useInView } from 'framer-motion';
 import LazyVideo from './LazyVideo';
 
 const ITEMS = [
-  { name: 'BOBA TEA', japanese: 'ボバティー', image: '/images/boba.jpg', caption: 'Creamy. Bold. Instagram-ready.' },
+  { name: 'BOBA TEA', japanese: 'ボバティー', image: '/images/boba.jpg', caption: 'Chewy pearls. Creamy tea.' },
   { name: 'RAMEN', japanese: 'ラーメン', image: '/images/Ramen.jpeg', caption: 'Rich broth. Perfect noodles.' },
   { name: 'MANDU', japanese: 'マンドゥ', image: '/images/mandu.jpg', caption: 'Crispy Korean dumplings.' },
-  { name: 'STREET ENERGY', japanese: 'ストリートエネルギー', image: '/images/takkeru-cart.jpg', caption: 'Bold brand. Any location.' },
+  { name: 'TTEOKBOKKI', japanese: 'トッポッキ', image: '/images/tteokbokki.jpg', caption: 'Chewy rice cakes. Gochujang heat.' },
 ];
 
 export default function RealFood() {
@@ -73,7 +73,7 @@ export default function RealFood() {
             className="mb-16 md:mb-24"
           >
             <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-bebas leading-[0.9] tracking-tight text-white">
-              REAL FOOD.<br />REAL CART.
+              REAL FOOD.<br />REAL TASTE.
             </h2>
           </motion.div>
 

@@ -268,3 +268,35 @@ html.lenis { height: auto; }
   background-size: min(9vw, 120px) min(9vw, 120px);
   mask-image: linear-gradient(90deg, black, transparent 70%);
 }
+
+/* Boba film strip — horizontal video marquee */
+@keyframes boba-marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.boba-marquee-mask {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.boba-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: boba-marquee 46s linear infinite;
+  will-change: transform;
+}
+
+.boba-marquee-track:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .boba-marquee-track { animation: none; }
+}
+
+/* Food editorial rules */
+.food-rule {
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+

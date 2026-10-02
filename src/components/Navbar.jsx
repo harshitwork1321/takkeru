@@ -4,11 +4,11 @@ import CartButton from './cart/CartButton';
 import { PAYMENT_URL } from '../lib/links';
 
 const NAV_LINKS = [
-  { name: 'Cart', href: '#cart' },
+  { name: 'Boba', href: '#boba' },
+  { name: 'Food', href: '#food' },
   { name: 'Menu', href: '#menu' },
-  { name: 'How It Works', href: '#how-it-works' },
-  { name: 'Investment', href: '#investment' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'Story', href: '#story' },
+  { name: 'Cart Business', href: '#cart' },
 ];
 
 export default function Navbar() {

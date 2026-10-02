@@ -8,27 +8,27 @@ const MEDIA_ITEMS = [
     label: 'BOBA TEA',
     japanese: 'ボバティー',
     text: 'COLD. CREAMY. BOLD.',
-    src: '/media/takkeru-boba-commercial.mp4',
-    poster: '/images/boba.jpg',
+    src: '/media/takkeru-boba-tea-commercial.mp4',
+    poster: '/media/posters/takkeru-boba-tea-commercial.jpg',
     fallback: '/images/boba.jpg',
   },
   {
     number: '02',
-    label: 'THE CART',
-    japanese: 'タッケル・カート',
-    text: 'YOUR BUSINESS. ON WHEELS.',
-    src: '/media/takkeru-cart-business.mp4',
-    poster: '/images/takkeru-cart.jpg',
-    fallback: '/images/takkeru-cart.jpg',
-  },
-  {
-    number: '03',
-    label: 'THE FOOD',
-    japanese: 'ラーメン • マンドゥ',
+    label: 'THE MACRO',
+    japanese: '料理',
     text: 'ZOOM INTO THE FLAVOR.',
     src: '/media/takkeru-food-macro.mp4',
     poster: '/images/Ramen.jpeg',
     fallback: '/images/Ramen.jpeg',
+  },
+  {
+    number: '03',
+    label: 'THE POUR',
+    japanese: '一口',
+    text: 'CHEWY. CREAMY. ADDICTIVE.',
+    src: '/media/takkeru-boba-05.mp4',
+    poster: '/media/posters/takkeru-boba-05.jpg',
+    fallback: '/images/boba.jpg',
   },
 ];
 
@@ -39,7 +39,7 @@ export default function TakkeruInMotion() {
   const gridInView = useInView(gridRef, { once: true, amount: 0.1 });
 
   return (
-    <section className="py-24 md:py-32 bg-primary relative overflow-hidden">
+    <section id="films" className="py-24 md:py-32 bg-primary relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-16 md:mb-20">
@@ -57,7 +57,7 @@ export default function TakkeruInMotion() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bebas tracking-tight text-white"
           >
-            TAKKERU IN MOTION
+            TAKKERU FOOD FILMS
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ export default function TakkeruInMotion() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-4 text-subtle/50 font-inter text-sm md:text-base tracking-widest uppercase"
           >
-            THE CART. THE FOOD. THE ENERGY.
+            THE POUR. THE MACRO. THE ENERGY.
           </motion.p>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -86,7 +86,7 @@ export default function TakkeruInMotion() {
               className="group relative border-2 border-white/5 hover:border-accent/40 transition-colors duration-500 overflow-hidden"
             >
               {/* Video */}
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden">
                 <LazyVideo
                   src={item.src}
                   poster={item.poster}

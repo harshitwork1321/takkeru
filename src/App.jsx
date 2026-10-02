@@ -1,4 +1,4 @@
-import { useState, useEffect, Component } from 'react';
+import { useState, useEffect, useCallback, Component } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,23 +6,24 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import TakkeruInMotion from './components/TakkeruInMotion';
-import HeroStats from './components/HeroStats';
+import BobaFeature from './components/BobaFeature';
+import BobaFilms from './components/BobaFilms';
 import BrandStatement from './components/BrandStatement';
-import CartShowcase from './components/CartShowcase';
-import FranchiseTiers from './components/FranchiseTiers';
+import FoodStory from './components/FoodStory';
+import RealFood from './components/RealFood';
+import TakkeruInMotion from './components/TakkeruInMotion';
 import FoodMenu from './components/FoodMenu';
-import BusinessEconomics from './components/BusinessEconomics';
+import StreetCulture from './components/StreetCulture';
+import BrandStory from './components/BrandStory';
+import CartTransition from './components/CartTransition';
+import CartShowcase from './components/CartShowcase';
 import HowItWorks from './components/HowItWorks';
 import LocationStrategy from './components/LocationStrategy';
-import StreetCulture from './components/StreetCulture';
-import RealFood from './components/RealFood';
-import CustomerReviews from './components/CustomerReviews';
-import BrandStory from './components/BrandStory';
+import FranchiseTiers from './components/FranchiseTiers';
 import FAQ from './components/FAQ';
 import PaymentSection from './components/PaymentSection';
-import FinalCTA from './components/FinalCTA';
 import ContactForm from './components/ContactForm';
+import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import CartDrawer from './components/cart/CartDrawer';
 import Toast from './components/cart/Toast';
@@ -40,10 +41,11 @@ class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ background: '#0A0A0A', color: '#FFFFFF', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter, sans-serif', padding: '2rem', textAlign: 'center' }}>
+        <div style={{ background: '#FFF8EE', color: '#111111', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter, sans-serif', padding: '2rem', textAlign: 'center' }}>
           <h1 style={{ fontSize: '4rem', fontFamily: 'Bebas Neue, cursive', letterSpacing: '0.2em', marginBottom: '0.5rem' }}>TAKKERU</h1>
-          <p style={{ fontSize: '1.2rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>YOUR BUSINESS. ON WHEELS.</p>
-          <p style={{ color: '#888', fontSize: '0.875rem', marginTop: '2rem' }}>Something went wrong. Please refresh the page.</p>
+          <p style={{ fontSize: '1.2rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '0.5rem', color: '#D62828' }}>BOBA • MANDU • RAMEN • TTEOKBOKKI</p>
+          <p style={{ color: '#555', fontSize: '0.875rem', marginTop: '2rem' }}>Something went wrong. Please refresh the page.</p>
+          <a href="/" style={{ marginTop: '1.5rem', padding: '0.9rem 2rem', background: '#D62828', color: '#FFF8EE', textDecoration: 'none', fontFamily: 'Bebas Neue, cursive', letterSpacing: '0.16em', fontSize: '1.1rem' }}>BACK TO THE FOOD</a>
         </div>
       );
     }
@@ -53,6 +55,7 @@ class ErrorBoundary extends Component {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const handleLoadingComplete = useCallback(() => setIsLoading(false), []);
 
   useEffect(() => {
     try {
@@ -86,28 +89,34 @@ function App() {
     <ErrorBoundary>
       <main className="bg-primary text-secondary selection:bg-accent selection:text-primary overflow-x-hidden relative w-full">
         {isLoading ? (
-          <LoadingScreen onComplete={() => setIsLoading(false)} />
+          <LoadingScreen onComplete={handleLoadingComplete} />
         ) : (
           <div className="animate-fade-in">
             <Navbar />
+
+            {/* ── 80% — TAKKERU FOOD: BOBA TEA FIRST ───────────── */}
             <Hero />
-            <TakkeruInMotion />
-            <HeroStats />
+            <BobaFeature />
+            <BobaFilms />
             <BrandStatement />
-            <CartShowcase />
-            <FoodMenu />
+            <FoodStory />
             <RealFood />
-            <FranchiseTiers />
-            <BusinessEconomics />
+            <TakkeruInMotion />
+            <FoodMenu />
+            <StreetCulture />
+            <BrandStory />
+
+            {/* ── 20% — TAKKERU CART BUSINESS ──────────────────── */}
+            <CartTransition />
+            <CartShowcase />
             <HowItWorks />
             <LocationStrategy />
-            <StreetCulture />
-            <CustomerReviews />
-            <BrandStory />
+            <FranchiseTiers />
             <FAQ />
             <PaymentSection />
-            <FinalCTA />
             <ContactForm />
+            <FinalCTA />
+
             <Footer />
             <CartDrawer />
             <Toast />

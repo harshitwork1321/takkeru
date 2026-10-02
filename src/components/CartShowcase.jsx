@@ -14,16 +14,16 @@ const TABS = [
   {
     id: 'menu',
     label: 'MENU',
-    title: 'FOOD THAT SELLS ITSELF.',
-    description: 'From signature ramen to boba tea and mandu — the TAKKERU menu is built for high-margin, fast-service street food.',
-    features: ['Signature Ramen', 'Boba Tea', 'Mandu (Dumplings)', 'Tteokbokki'],
+    title: 'THE FOOD DOES THE TALKING.',
+    description: 'From boba tea to signature ramen, mandu and tteokbokki — the TAKKERU menu is a tight, street-food line-up built for quick service.',
+    features: ['Boba Tea', 'Signature Ramen', 'Mandu', 'Tteokbokki'],
   },
   {
     id: 'business',
     label: 'BUSINESS',
-    title: 'LOW COST. HIGH MARGIN.',
-    description: 'The TAKKERU Cart model is designed for entrepreneurs who want to start lean and scale fast. No heavy rent, no large staff.',
-    features: ['Low Startup Cost', 'Flexible Locations', 'Multiple Revenue Streams', 'Strong Brand'],
+    title: 'COMPACT. FOCUSED. BUILT TO START.',
+    description: 'The TAKKERU Cart model is designed for entrepreneurs who want to start lean — a small footprint, a focused menu and a brand people recognise.',
+    features: ['Compact Cart Model', 'Flexible Locations', 'Focused Menu', 'Strong Brand Identity'],
   },
   {
     id: 'setup',

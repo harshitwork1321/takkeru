@@ -11,6 +11,9 @@ export default function LazyVideo({
   muted = true,
   playsInline = true,
   preload = 'metadata',
+  fit = 'cover',
+  backdrop = false,
+  objectPosition = 'center',
 }) {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
@@ -22,6 +25,12 @@ export default function LazyVideo({
     const entry = entries[0];
     if (entry.isIntersecting) {
       setIsVisible(true);
+      // Play on every re-entry (e.g. marquee items scrolling back into view)
+      const video = videoRef.current;
+      if (video) {
+        const playPromise = video.play();
+        if (playPromise !== undefined) playPromise.catch(() => {});
+      }
     } else if (videoRef.current) {
       videoRef.current.pause();
     }
@@ -47,44 +56,54 @@ export default function LazyVideo({
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
-        // Autoplay blocked — video still visible as poster
+        // Autoplay blocked — poster stays visible
       });
     }
   }, [isVisible, isLoaded]);
 
-  const handleError = () => {
-    setHasError(true);
-  };
-
-  const handleLoadedData = () => {
-    setIsLoaded(true);
-  };
+  const handleError = () => setHasError(true);
+  const handleLoadedData = () => setIsLoaded(true);
 
   const showFallback = hasError || !src;
+  const safePoster = poster || fallbackImage;
+  const fitClass = fit === 'contain' ? 'object-contain' : 'object-cover';
 
   return (
-    <div ref={containerRef} className={`relative overflow-hidden ${containerClassName}`}>
+    <div
+      ref={containerRef}
+      className={`relative overflow-hidden bg-primary ${containerClassName}`}
+    >
+      {/* Blurred backdrop — keeps portrait video from ever sitting on a black box */}
+      {backdrop && safePoster && (
+        <img
+          src={safePoster}
+          alt=""
+          aria-hidden="true"
+          className={`absolute inset-0 h-full w-full scale-125 object-cover blur-2xl transition-opacity duration-500 ${isLoaded && !hasError ? 'opacity-55' : 'opacity-100'}`}
+        />
+      )}
+
       {/* Poster / fallback image — always rendered for safety */}
-      {poster && (
+      {safePoster && !backdrop && (
         <img
-          src={poster}
+          src={safePoster}
           alt=""
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isLoaded && !hasError ? 'opacity-0' : 'opacity-100'}`}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${isLoaded && !hasError ? 'opacity-0' : 'opacity-100'}`}
           loading="lazy"
         />
       )}
 
-      {/* Fallback image if video fails */}
-      {hasError && fallbackImage && (
+      {/* Full-bleed fallback if the video fails to load */}
+      {hasError && safePoster && (
         <img
-          src={fallbackImage}
+          src={safePoster}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
           loading="lazy"
         />
       )}
 
-      {/* Video — only render src when visible */}
+      {/* Video — only render src once visible */}
       {!showFallback && (
         <video
           ref={videoRef}
@@ -97,7 +116,8 @@ export default function LazyVideo({
           preload={preload}
           onError={handleError}
           onLoadedData={handleLoadedData}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+          style={{ objectPosition }}
+          className={`absolute inset-0 h-full w-full ${fitClass} transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
         />
       )}
     </div>

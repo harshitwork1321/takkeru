@@ -8,41 +8,62 @@ export default function LoadingScreen({ onComplete }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      onComplete: () => {
-        gsap.to(containerRef.current, {
-          opacity: 0,
-          duration: 0.8,
-          ease: 'power2.inOut',
-          onComplete: onComplete,
-        });
-      },
-    });
+    // Hard failsafe: the preloader must never trap the page on a black screen,
+    // even if GSAP throws, stalls, or never runs its timeline.
+    let finished = false;
+    const failsafe = window.setTimeout(dismiss, 4000);
 
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 1.5; // Slightly faster playback
+    function dismiss() {
+      if (finished) return;
+      finished = true;
+      window.clearTimeout(failsafe);
+      onComplete();
     }
 
-    tl.fromTo(textRef.current,
-      { opacity: 0, y: 30, filter: 'blur(10px)' },
-      { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1, ease: 'power3.out' }
-    )
-      .fromTo(subtextRef.current,
-        { opacity: 0, y: 15 },
-        { opacity: 0.7, y: 0, duration: 0.8, ease: 'power3.out' },
-        "-=0.6"
-      )
-      .to(containerRef.current, {
-        duration: 0.5,
-      }) // Short pause
-      .to([textRef.current, subtextRef.current], {
-        opacity: 0,
-        y: -30,
-        filter: 'blur(10px)',
-        duration: 0.7,
-        ease: 'power3.in',
+    try {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          if (!containerRef.current) {
+            dismiss();
+            return;
+          }
+          gsap.to(containerRef.current, {
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.inOut',
+            onComplete: dismiss,
+          });
+        },
       });
 
+      if (videoRef.current) {
+        videoRef.current.playbackRate = 1.5; // Slightly faster playback
+      }
+
+      tl.fromTo(textRef.current,
+        { opacity: 0, y: 30, filter: 'blur(10px)' },
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1, ease: 'power3.out' }
+      )
+        .fromTo(subtextRef.current,
+          { opacity: 0, y: 15 },
+          { opacity: 0.7, y: 0, duration: 0.8, ease: 'power3.out' },
+          "-=0.6"
+        )
+        .to(containerRef.current, {
+          duration: 0.5,
+        }) // Short pause
+        .to([textRef.current, subtextRef.current], {
+          opacity: 0,
+          y: -30,
+          filter: 'blur(10px)',
+          duration: 0.7,
+          ease: 'power3.in',
+        });
+    } catch {
+      // Animation unavailable — failsafe dismisses the overlay anyway.
+    }
+
+    return () => window.clearTimeout(failsafe);
   }, [onComplete]);
 
   return (
@@ -70,9 +91,9 @@ export default function LoadingScreen({ onComplete }) {
         </h1>
         <p
           ref={subtextRef}
-          className="mt-4 text-sm md:text-base font-inter text-secondary tracking-[0.3em] uppercase opacity-0"
+          className="mt-4 text-sm md:text-base font-inter text-secondary tracking-[0.3em] uppercase"
         >
-          BOBA • MANDU • RAMEN — MOBILE FOOD CART
+          BOBA • MANDU • RAMEN • TTEOKBOKKI
         </p>
       </div>
 

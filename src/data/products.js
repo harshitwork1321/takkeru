@@ -3,7 +3,7 @@ export const PRODUCTS = [
   {
     id: 'ramen-signature',
     slug: 'signature-korean-ramen',
-    name: 'Signature Korean Ramen',
+    name: 'Signature Ramen',
     japanese: 'ラーメン',
     tag: 'Signature',
     description: 'Rich broth, chewy noodles, warm steam. Authentic pan-Asian flavours from mild to spicy.',

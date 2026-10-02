@@ -17,7 +17,7 @@ export default function BrandStatement() {
               transition={{ duration: 0.6 }}
               className='font-jp text-accent tracking-[0.4em] block mb-6 text-sm'
             >
-              &#26085;&#26412;&#30340;&#35486;&#34920;&#36335;&#39278;&#33590;
+              日本のストリートフード
             </motion.span>
 
             <motion.h2
@@ -37,8 +37,8 @@ export default function BrandStatement() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className='text-subtle/50 font-inter text-lg leading-relaxed max-w-md mb-10'
             >
-              Bold flavors. Compact carts. A brand that turns heads.
-              TAKKERU brings the energy of Japanese street food to your city.
+              Bold flavours. Chewy pearls. Street food with real energy.
+              TAKKERU brings Japanese-inspired street food to your city.
             </motion.p>
 
             <motion.div
@@ -48,14 +48,14 @@ export default function BrandStatement() {
               className='flex items-center gap-6'
             >
               <a
-                href='#cart'
+                href='#menu'
                 className='px-8 py-3 border border-white/20 text-white font-bebas text-lg tracking-wider hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-500'
               >
-                SEE THE CART
+                TASTE THE MENU
               </a>
               <div className='flex items-center gap-2 text-subtle/30'>
                 <div className='w-8 h-[1px] bg-subtle/20' />
-                <span className='font-jp text-xs tracking-widest'>&#19979;&#12395;&#12367;&#12377;</span>
+                <span className='font-jp text-xs tracking-widest'>下に進む</span>
               </div>
             </motion.div>
           </div>
@@ -105,8 +105,8 @@ export default function BrandStatement() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className='absolute -bottom-6 -left-6 bg-accent text-white p-6 hidden md:block'
             >
-              <span className='font-bebas text-4xl leading-none block'>&#8377;65K</span>
-              <span className='font-inter text-xs tracking-widest uppercase opacity-80'>Starting from</span>
+              <span className='font-bebas text-4xl leading-none block'>&#8377;99</span>
+              <span className='font-inter text-xs tracking-widest uppercase opacity-80'>Boba Tea</span>
             </motion.div>
           </motion.div>
         </div>

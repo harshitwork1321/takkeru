@@ -30,10 +30,19 @@ export default function FinalCTA() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
-              className="font-jp text-white/60 tracking-[0.4em] block mb-6 text-lg md:text-xl"
+              className="font-jp text-white/70 tracking-[0.4em] block mb-6 text-lg md:text-xl"
             >
               始めよう
             </motion.span>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.05 }}
+              className="font-bebas text-xl md:text-2xl tracking-[0.3em] text-primary/70 mb-3"
+            >
+              LOVE THE FOOD?
+            </motion.p>
 
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
@@ -41,16 +50,16 @@ export default function FinalCTA() {
               transition={{ duration: 1, delay: 0.1 }}
               className="text-5xl md:text-7xl lg:text-8xl text-primary font-bebas tracking-wide mb-8"
             >
-              READY TO BUILD YOUR TAKKERU?
+              START YOUR TAKKERU CART.
             </motion.h2>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-primary/70 font-inter text-lg md:text-xl max-w-2xl mb-12"
+              className="text-primary/75 font-inter text-lg md:text-xl max-w-2xl mb-12"
             >
-              <strong>Choose your cart. Understand your numbers. Start your journey.</strong>
+              <strong>Bring the TAKKERU food experience to your location.</strong>
             </motion.p>
 
             <motion.div
@@ -65,13 +74,13 @@ export default function FinalCTA() {
                 rel="noopener noreferrer"
                 className="px-12 py-5 bg-primary text-white font-bebas text-xl tracking-[0.2em] uppercase hover:bg-primary/80 transition-all duration-500 transform hover:-translate-y-1"
               >
-                START YOUR TAKKERU →
+                START YOUR CART →
               </a>
               <a
-                href="#contact"
+                href="#menu"
                 className="px-12 py-5 border border-primary/30 text-primary font-bebas text-xl tracking-[0.2em] uppercase hover:bg-primary/10 hover:border-primary/50 transition-all duration-500 transform hover:-translate-y-1"
               >
-                TALK TO THE TEAM
+                EXPLORE THE MENU
               </a>
             </motion.div>
           </div>
