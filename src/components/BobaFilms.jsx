@@ -9,36 +9,38 @@ const FEATURED = {
 };
 
 const CARDS = [
-  { src: '/media/takkeru-boba-01.mp4', poster: '/media/posters/takkeru-boba-01.jpg', label: 'BROWN SUGAR', japanese: '黒糖' },
-  { src: '/media/takkeru-boba-02.mp4', poster: '/media/posters/takkeru-boba-02.jpg', label: 'CHEWY PEARLS', japanese: 'タピオカ' },
-  { src: '/media/takkeru-boba-03.mp4', poster: '/media/posters/takkeru-boba-03.jpg', label: 'MILK TEA', japanese: 'ミルクティー' },
-  { src: '/media/takkeru-boba-04.mp4', poster: '/media/posters/takkeru-boba-04.jpg', label: 'FIRST SIP', japanese: '一口' },
+  { src: '/media/takkeru-boba-01.mp4', poster: '/media/posters/takkeru-boba-01.jpg', label: 'BROWN SUGAR', japanese: '黒糖', fallback: '/images/boba.jpg' },
+  { src: '/media/takkeru-boba-03.mp4', poster: '/media/posters/takkeru-boba-03.jpg', label: 'MILK TEA', japanese: 'ミルクティー', fallback: '/images/boba.jpg' },
+  { src: '/media/takkeru-matcha-boba.mp4', poster: '/media/posters/takkeru-matcha-boba.jpg', label: 'MATCHA BOBA', japanese: '抹茶ボバ', fallback: '/media/posters/takkeru-matcha-boba.jpg' },
+  { src: '/media/takkeru-soda-bubble-drink.mp4', poster: '/media/posters/takkeru-soda-bubble-drink.jpg', label: 'SODA BUBBLE', japanese: 'ソーダ', fallback: '/media/posters/takkeru-soda-bubble-drink.jpg' },
 ];
 
 const STRIP = [
-  { src: '/media/takkeru-boba-05.mp4', poster: '/media/posters/takkeru-boba-05.jpg', label: 'STRAIGHT FROM THE CART' },
-  { src: '/media/takkeru-boba-tea-commercial.mp4', poster: '/media/posters/takkeru-boba-tea-commercial.jpg', label: 'THE COMMERCIAL' },
-  { src: '/media/takkeru-boba-01.mp4', poster: '/media/posters/takkeru-boba-01.jpg', label: 'BROWN SUGAR' },
-  { src: '/media/takkeru-boba-03.mp4', poster: '/media/posters/takkeru-boba-03.jpg', label: 'MILK TEA' },
-  { src: '/media/takkeru-boba-04.mp4', poster: '/media/posters/takkeru-boba-04.jpg', label: 'FIRST SIP' },
+  { src: '/media/takkeru-boba-05.mp4', poster: '/media/posters/takkeru-boba-05.jpg', label: 'STRAIGHT FROM THE CART', fallback: '/images/boba.jpg' },
+  { src: '/media/takkeru-boba-tea-commercial.mp4', poster: '/media/posters/takkeru-boba-tea-commercial.jpg', label: 'THE COMMERCIAL', fallback: '/images/boba.jpg' },
+  { src: '/media/takkeru-matcha-boba.mp4', poster: '/media/posters/takkeru-matcha-boba.jpg', label: 'MATCHA BOBA', fallback: '/media/posters/takkeru-matcha-boba.jpg' },
+  { src: '/media/takkeru-soda-bubble-drink.mp4', poster: '/media/posters/takkeru-soda-bubble-drink.jpg', label: 'SODA BUBBLE DRINK', fallback: '/media/posters/takkeru-soda-bubble-drink.jpg' },
+  { src: '/media/takkeru-boba-01.mp4', poster: '/media/posters/takkeru-boba-01.jpg', label: 'BROWN SUGAR', fallback: '/images/boba.jpg' },
+  { src: '/media/takkeru-boba-04.mp4', poster: '/media/posters/takkeru-boba-04.jpg', label: 'FIRST SIP', fallback: '/images/boba.jpg' },
 ];
 
 export default function BobaFilms() {
   return (
-    <section id="boba-films" className="relative overflow-hidden bg-primary py-24 md:py-36">
+    <section id="drinks" className="relative overflow-hidden bg-primary py-24 md:py-36">
       <div className="halftone-bg pointer-events-none absolute inset-0" />
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         <Reveal className="mb-12 md:mb-16">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <span className="font-jp text-sm tracking-[0.4em] text-accent">ボバティー</span>
+              <span className="font-jp text-sm tracking-[0.4em] text-accent">飲み物</span>
               <h2 className="mt-4 max-w-3xl font-bebas text-5xl leading-[0.88] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
-                THIS IS<br />TAKKERU BOBA.
+                THREE DRINKS.<br />ONE CART.
               </h2>
             </div>
             <p className="max-w-xs font-inter text-xs font-semibold uppercase leading-relaxed tracking-[0.2em] text-white/45 md:text-right">
-              Brown sugar. Chewy pearls. Real pours — shot close, served cold.
+              Brown sugar, matcha and carbonated soda — real pours, shot close,
+              served cold.
             </p>
           </div>
           <div className="food-rule mt-8 w-40" />
@@ -72,7 +74,7 @@ export default function BobaFilms() {
                 <LazyVideo
                   src={card.src}
                   poster={card.poster}
-                  fallbackImage="/images/boba.jpg"
+                  fallbackImage={card.fallback}
                   containerClassName="h-full w-full"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/10 to-transparent" />
@@ -102,7 +104,7 @@ export default function BobaFilms() {
               <LazyVideo
                 src={item.src}
                 poster={item.poster}
-                fallbackImage="/images/boba.jpg"
+                fallbackImage={item.fallback}
                 containerClassName="h-full w-full"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/85 to-transparent" />

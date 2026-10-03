@@ -93,7 +93,7 @@ export default function LoadingScreen({ onComplete }) {
           ref={subtextRef}
           className="mt-4 text-sm md:text-base font-inter text-secondary tracking-[0.3em] uppercase"
         >
-          BOBA • BUBBLE DRINK • MANDU • RAMEN • TTEOKBOKKI
+          BOBA • MATCHA BOBA • SODA • MANDU • RAMEN • TTEOKBOKKI
         </p>
       </div>
 

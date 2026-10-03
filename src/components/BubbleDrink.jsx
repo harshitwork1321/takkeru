@@ -2,7 +2,7 @@ import { ArrowDownRight } from 'lucide-react';
 import LazyVideo from './LazyVideo';
 import Reveal from './Reveal';
 
-const TAGS = ['Red pearls', 'Crushed ice', 'Served cold'];
+const TAGS = ['Carbonated soda', 'Popping bubbles', 'Ice-cold', 'Served chilled'];
 
 const PEARLS = [
   { className: 'left-[5%] top-[14%] h-4 w-4', delay: '0s' },
@@ -18,7 +18,7 @@ export default function BubbleDrink() {
         aria-hidden="true"
         className="pointer-events-none absolute -left-8 top-1/2 hidden -translate-y-1/2 select-none font-bebas text-[22vw] leading-none text-[#111111]/[0.07] md:block"
       >
-        BUBBLE
+        SODA
       </div>
 
       {PEARLS.map((pearl) => (
@@ -33,27 +33,30 @@ export default function BubbleDrink() {
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         <Reveal className="flex flex-wrap items-end justify-between gap-5 border-b-2 border-[#111111]/25 pb-7">
           <div>
-            <span className="font-jp text-sm tracking-[0.4em] text-accent">バブルドリンク</span>
+            <span className="font-jp text-sm tracking-[0.4em] text-accent">ソーダバブルドリンク</span>
             <p className="mt-3 font-bebas text-lg tracking-[0.35em] text-[#111111]/55">
-              02 — THE SECOND POUR
+              03 — THE FIZZY POUR
             </p>
           </div>
           <p className="font-bebas text-lg tracking-[0.3em] text-[#111111]/70">
-            SMASH • SLURP • SIP
+            POP • FIZZ • SIP
           </p>
         </Reveal>
 
         <div className="mt-12 grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-14">
           <Reveal className="md:col-span-5 lg:col-span-5">
             <h2 className="font-bebas text-6xl leading-[0.86] tracking-tight sm:text-7xl md:text-8xl">
+              SODA
+              <br />
               BUBBLE
               <br />
               DRINK
             </h2>
 
             <p className="mt-6 max-w-md font-inter text-base leading-relaxed text-[#111111]/75 md:text-lg">
-              Bright, icy and packed with red pearls. The TAKKERU pour that lands
-              straight after the boba — mixed on the cart, built for the street.
+              Ice-cold carbonated soda poured over ice with popping bubbles.
+              The fizzy TAKKERU pour that lands straight after the boba —
+              mixed on the cart, built for the street.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-2">
@@ -71,11 +74,11 @@ export default function BubbleDrink() {
               <span className="inline-flex items-center gap-3 bg-accent px-6 py-4 text-white">
                 <span className="font-bebas text-3xl leading-none tracking-[0.16em]">TAKKERU</span>
                 <span className="h-6 w-px bg-white/45" />
-                <span className="font-bebas text-lg leading-none tracking-[0.2em]">BUBBLE DRINK</span>
+                <span className="font-bebas text-lg leading-none tracking-[0.2em]">SODA</span>
               </span>
 
               <span className="border border-[#111111]/35 px-5 py-4 font-bebas text-lg tracking-[0.18em] text-[#111111]">
-                MENU NO. 02
+                MENU NO. 03
               </span>
             </div>
 
@@ -89,50 +92,51 @@ export default function BubbleDrink() {
           </Reveal>
 
           <div className="md:col-span-7">
-            <div className="grid grid-cols-1 gap-7 sm:grid-cols-5 sm:gap-5">
-              {/* ── Main visual — splash artwork, never animated away ── */}
-              <Reveal className="sm:col-span-3">
-                <div className="bubble-settle relative mx-auto w-full max-w-[460px] border-2 border-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)] sm:mx-0">
-                  <div className="aspect-[940/1672] w-full overflow-hidden bg-golden">
-                    <img
-                      src="/media/bubble-drink-splash.png"
-                      alt="TAKKERU Bubble Drink — iced red pearl drink in a TAKKERU cup"
-                      width="940"
-                      height="1672"
-                      loading="eager"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-
-                  <div className="absolute -bottom-5 -left-3 bg-[#111111] px-5 py-3.5 text-cream shadow-[0_18px_45px_rgba(0,0,0,0.3)] sm:-left-5">
-                    <p className="font-jp text-[10px] tracking-[0.3em] text-accent">バブルドリンク</p>
-                    <p className="font-bebas text-2xl leading-none tracking-[0.1em]">SERVED ICE COLD</p>
-                  </div>
-
-                  <div className="absolute -right-2 top-5 hidden rotate-3 bg-accent px-4 py-2 font-bebas text-lg tracking-[0.16em] text-white sm:block">
-                    SECOND DRINK
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* ── Product film — poster first, video enhances ── */}
-              <Reveal delay={0.14} className="sm:col-span-2 sm:mt-20">
-                <div className="bubble-drift relative mx-auto w-full max-w-[320px] border-2 border-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)] sm:mx-0 sm:max-w-none">
+            <div className="grid grid-cols-1 gap-7 lg:grid-cols-5 lg:gap-5">
+              {/* ── Product film — the new SODA BUBBLE DRINK asset, poster first ── */}
+              <Reveal className="lg:col-span-3">
+                <div className="bubble-settle relative mx-auto w-full max-w-[460px] border-2 border-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)] lg:mx-0">
                   <div className="aspect-[9/16] w-full overflow-hidden bg-golden">
                     <LazyVideo
-                      src="/media/takkeru-bubble-drink.mp4"
-                      poster="/media/posters/takkeru-bubble-drink.jpg"
-                      fallbackImage="/media/bubble-drink-splash.png"
+                      src="/media/takkeru-soda-bubble-drink.mp4"
+                      poster="/media/posters/takkeru-soda-bubble-drink.jpg"
+                      fallbackImage="/media/posters/takkeru-soda-bubble-drink.jpg"
                       containerClassName="h-full w-full"
                       preload="metadata"
                     />
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#111111]/85 to-transparent px-4 pb-4 pt-10">
+                    <p className="font-jp text-[10px] tracking-[0.3em] text-accent">ソーダ</p>
                     <p className="font-bebas text-xl leading-none tracking-[0.16em] text-cream">
-                      BUBBLE DRINK IN MOTION
+                      SODA IN MOTION
                     </p>
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* ── Splash artwork — never animated away ── */}
+              <Reveal delay={0.14} className="lg:col-span-2 lg:mt-20">
+                <div className="bubble-drift relative mx-auto w-full max-w-[320px] border-2 border-[#111111] shadow-[0_24px_60px_rgba(0,0,0,0.28)] lg:mx-0 lg:max-w-none">
+                  <div className="aspect-[940/1672] w-full overflow-hidden bg-golden">
+                    <img
+                      src="/media/bubble-drink-splash.png"
+                      alt="TAKKERU Soda Bubble Drink — ice-cold carbonated soda with popping bubbles in a TAKKERU cup"
+                      width="940"
+                      height="1672"
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <div className="absolute -bottom-5 -left-3 bg-[#111111] px-5 py-3.5 text-cream shadow-[0_18px_45px_rgba(0,0,0,0.3)] sm:-left-5">
+                    <p className="font-jp text-[10px] tracking-[0.3em] text-accent">ソーダ</p>
+                    <p className="font-bebas text-2xl leading-none tracking-[0.1em]">SERVED ICE COLD</p>
+                  </div>
+
+                  <div className="absolute -right-2 top-5 hidden rotate-3 bg-accent px-4 py-2 font-bebas text-lg tracking-[0.16em] text-white sm:block">
+                    SPARKLING
                   </div>
                 </div>
               </Reveal>

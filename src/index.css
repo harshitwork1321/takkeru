@@ -332,3 +332,20 @@ html.lenis { height: auto; }
   }
 }
 
+/* ── Matcha Boba section ────────────────────────────────────────
+   Same contract as the block above: transform-only motion, so the
+   label is simply at rest if the animation never runs. */
+@keyframes matcha-sway {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
+  50% { transform: translate3d(0, -14px, 0) rotate(2deg); }
+}
+
+.matcha-sway { animation: matcha-sway 7s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .matcha-sway {
+    animation: none;
+    transform: none;
+  }
+}
+

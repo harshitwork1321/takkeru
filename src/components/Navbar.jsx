@@ -5,6 +5,7 @@ import { PAYMENT_URL } from '../lib/links';
 
 const NAV_LINKS = [
   { name: 'Boba', href: '#boba' },
+  { name: 'Drinks', href: '#drinks' },
   { name: 'Food', href: '#food' },
   { name: 'Menu', href: '#menu' },
   { name: 'Story', href: '#story' },

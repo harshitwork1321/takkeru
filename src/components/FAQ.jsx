@@ -4,7 +4,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 const FAQS = [
   {
     question: 'What is TAKKERU Cart?',
-    answer: 'TAKKERU Cart is a Japanese-inspired food cart business. Start your own mobile food business serving Boba Tea, Ramen, Mandu, and Tteokbokki.',
+    answer: 'TAKKERU Cart is a Japanese-inspired food cart business. Start your own mobile food business serving Boba Tea, Matcha Boba, Soda Bubble Drink, Ramen, Mandu, and Tteokbokki.',
   },
   {
     question: 'How much does a TAKKERU Cart cost?',
@@ -12,7 +12,7 @@ const FAQS = [
   },
   {
     question: 'What products are available?',
-    answer: 'Boba Tea (₹99), Signature Ramen (₹199), Mandu (₹99), and Tteokbokki Bowl (₹249).',
+    answer: 'Drinks: Boba Tea (₹99), Matcha Boba, and Soda Bubble Drink. Food: Signature Ramen (₹199), Mandu (₹99), and Tteokbokki Bowl (₹249).',
   },
   {
     question: 'What is included in the TAKKERU Cart packages?',

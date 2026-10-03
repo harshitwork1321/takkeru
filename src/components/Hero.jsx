@@ -78,10 +78,10 @@ export default function Hero() {
               EXPLORE THE MENU <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
             </a>
             <a
-              href="#boba-films"
+              href="#drinks"
               className="inline-flex items-center justify-center gap-3 border border-white/25 bg-white/[0.03] px-8 py-4 font-bebas text-xl tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-white hover:bg-white/10"
             >
-              WATCH BOBA <ArrowUpRight className="h-5 w-5" />
+              WATCH THE DRINKS <ArrowUpRight className="h-5 w-5" />
             </a>
           </div>
 

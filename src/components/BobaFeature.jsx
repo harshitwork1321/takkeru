@@ -60,7 +60,7 @@ export default function BobaFeature() {
               </button>
 
               <a
-                href="#boba-films"
+                href="#drinks"
                 className="group inline-flex items-center gap-2 font-bebas text-lg tracking-[0.14em] text-accent underline decoration-accent/40 underline-offset-[6px] transition-colors duration-300 hover:decoration-accent"
               >
                 SEE IT POUR
