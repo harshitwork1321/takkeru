@@ -17,6 +17,7 @@ import TakkeruInMotion from './components/TakkeruInMotion';
 import FoodMenu from './components/FoodMenu';
 import StreetCulture from './components/StreetCulture';
 import BrandStory from './components/BrandStory';
+import TrainingSection from './components/TrainingSection';
 import CartTransition from './components/CartTransition';
 import CartShowcase from './components/CartShowcase';
 import HowItWorks from './components/HowItWorks';
@@ -109,6 +110,9 @@ function App() {
             <FoodMenu />
             <StreetCulture />
             <BrandStory />
+
+            {/* ── TRAINING — BOBA TEA SOP ──────────────────────── */}
+            <TrainingSection />
 
             {/* ── 20% — TAKKERU CART BUSINESS ──────────────────── */}
             <CartTransition />
