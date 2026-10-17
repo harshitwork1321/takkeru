@@ -7,6 +7,7 @@ import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BobaFeature from './components/BobaFeature';
+import BobaFlavors from './components/BobaFlavors';
 import MatchaBoba from './components/MatchaBoba';
 import BubbleDrink from './components/BubbleDrink';
 import BobaFilms from './components/BobaFilms';
@@ -100,6 +101,10 @@ function App() {
             {/* ── 80% — TAKKERU FOOD: BOBA TEA FIRST ───────────── */}
             <Hero />
             <BobaFeature />
+
+            {/* ── EXPLORE BOBA TEA — NEW FLAVORS ──────────────── */}
+            <BobaFlavors />
+
             <MatchaBoba />
             <BubbleDrink />
             <BobaFilms />
