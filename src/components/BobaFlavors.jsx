@@ -33,13 +33,14 @@ export default function BobaFlavors() {
 
         <div className="mt-14 grid grid-cols-1 justify-items-center gap-12 md:grid-cols-3 md:gap-8">
           {FLAVORS.map((flavor, index) => (
-            <FlavorCard
-              key={flavor.id}
-              flavor={flavor}
-              index={index}
-              isActive={activeId === flavor.id}
-              onActivate={setActiveId}
-            />
+            <Reveal key={flavor.id} delay={index * 0.12} className="w-full max-w-[400px]">
+              <FlavorCard
+                flavor={flavor}
+                index={index}
+                isActive={activeId === flavor.id}
+                onActivate={setActiveId}
+              />
+            </Reveal>
           ))}
         </div>
       </div>

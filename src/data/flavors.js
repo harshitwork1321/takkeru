@@ -5,7 +5,7 @@ export const FLAVORS = [
     name: 'Taro Boba Tea',
     japanese: 'タロボバ',
     description:
-      'Discover Taro Boba Tea with a smooth, creamy taro-inspired flavor and chewy boba pearls.',
+      'Smooth, creamy taro flavor with a playful boba twist.',
     video: '/media/takkeru-taro-boba.mp4',
     poster: '/media/posters/takkeru-taro-boba.jpg',
     posterAlt:
@@ -18,7 +18,7 @@ export const FLAVORS = [
     name: 'Strawberry Boba Tea',
     japanese: 'ストロベリーボバ',
     description:
-      'A strawberry-inspired boba drink with vibrant flavor, refreshing presentation, and chewy pearls.',
+      'Bright strawberry flavor, chilled refreshment, and a pop of fun.',
     video: '/media/takkeru-strawberry-boba.mp4',
     poster: '/media/posters/takkeru-strawberry-boba.jpg',
     posterAlt:
@@ -31,7 +31,7 @@ export const FLAVORS = [
     name: 'Chocolate Boba Tea',
     japanese: 'チョコレートボバ',
     description:
-      'A chocolate-inspired boba drink featuring rich chocolate visuals and chewy boba pearls.',
+      'Rich chocolate flavor meets a fun boba experience.',
     video: '/media/takkeru-chocolate-boba.mp4',
     poster: '/media/posters/takkeru-chocolate-boba.jpg',
     posterAlt:

@@ -1,15 +1,19 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import LazyVideo from './LazyVideo';
+import Button from './ui/button';
+import { CART_ENQUIRY_URL } from '../lib/links';
 
 const CHIPS = ['Boba', 'Mandu', 'Ramen', 'Tteokbokki'];
 
 export default function Hero() {
   const heroRef = useRef(null);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (reduceMotion) return undefined;
     try {
       const context = gsap.context(() => {
         gsap.from('.hero-text', {
@@ -26,20 +30,27 @@ export default function Hero() {
     } catch {
       // Animation unavailable — content is already visible in the DOM.
     }
-  }, []);
+  }, [reduceMotion]);
 
   return (
     <section id="home" ref={heroRef} className="relative flex min-h-[700px] h-[100svh] w-full items-center overflow-hidden">
       <div className="absolute inset-0">
-        <LazyVideo
-          src="/media/takkeru-boba-tea-commercial.mp4"
-          poster="/media/posters/takkeru-boba-tea-commercial.jpg"
-          fallbackImage="/images/boba.jpg"
-          containerClassName="w-full h-full"
-          fit="contain"
-          backdrop
-          preload="auto"
-        />
+        <motion.div
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full h-full"
+        >
+          <LazyVideo
+            src="/media/takkeru-boba-tea-commercial.mp4"
+            poster="/media/posters/takkeru-boba-tea-commercial.jpg"
+            fallbackImage="/images/boba.jpg"
+            containerClassName="w-full h-full"
+            fit="contain"
+            backdrop
+            preload="auto"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/75 to-primary/15" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,10,0.35)_0%,transparent_38%,rgba(10,10,10,0.7)_100%)]" />
         <div className="absolute inset-0 hero-grid pointer-events-none" />
@@ -61,7 +72,7 @@ export default function Hero() {
           </motion.div>
 
           <p className="hero-text font-bebas text-xl md:text-2xl tracking-[0.4em] text-accent">
-            TAKKERU BOBA TEA
+            SIP THE HYPE
           </p>
           <h1 className="hero-text mt-3 text-balance font-bebas text-5xl leading-[0.86] tracking-tight text-white sm:text-7xl md:text-8xl lg:text-[8.5rem]">
             BOBA THAT<br className="hidden sm:block" /> HITS DIFFERENT.
@@ -71,18 +82,16 @@ export default function Hero() {
           </p>
 
           <div className="hero-text mt-10 flex flex-col gap-4 sm:flex-row sm:gap-5">
-            <a
-              href="#menu"
-              className="group inline-flex items-center justify-center gap-3 bg-accent px-8 py-4 font-bebas text-xl tracking-[0.12em] text-white shadow-[0_18px_45px_rgba(214,40,40,0.25)] transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:text-primary"
-            >
-              EXPLORE THE MENU <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
-            </a>
-            <a
-              href="#drinks"
-              className="inline-flex items-center justify-center gap-3 border border-white/25 bg-white/[0.03] px-8 py-4 font-bebas text-xl tracking-[0.12em] text-white backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-white hover:bg-white/10"
-            >
-              WATCH THE DRINKS <ArrowUpRight className="h-5 w-5" />
-            </a>
+            <Button asChild variant="accent">
+              <a href="#menu">
+                EXPLORE THE MENU <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+              </a>
+            </Button>
+            <Button asChild variant="outline">
+              <a href={CART_ENQUIRY_URL} target="_blank" rel="noopener noreferrer">
+                START YOUR CART <ArrowUpRight className="h-5 w-5" />
+              </a>
+            </Button>
           </div>
 
           <div className="hero-text mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-inter font-semibold uppercase tracking-[0.18em] text-white/55">
