@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CartButton from './cart/CartButton';
 import { PAYMENT_URL } from '../lib/links';
@@ -16,6 +16,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const toggleRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,10 +40,25 @@ export default function Navbar() {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return undefined;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (event, href) => {
     event.preventDefault();
     const element = document.getElementById(href.substring(1));
-    if (element) window.scrollTo({ top: element.offsetTop - 80, behavior: 'smooth' });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (element) {
+      window.scrollTo({ top: element.offsetTop - 80, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -82,7 +98,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3 lg:hidden">
           <CartButton />
-          <button className="z-50 flex flex-col gap-1.5 p-1" onClick={() => setIsMobileMenuOpen((open) => !open)} aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={isMobileMenuOpen}>
+          <button ref={toggleRef} className="z-50 flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 p-2.5" onClick={() => setIsMobileMenuOpen((open) => !open)} aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={isMobileMenuOpen}>
             <motion.span animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="h-[1.5px] w-8 origin-center bg-white" />
             <motion.span animate={isMobileMenuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }} className="h-[1.5px] w-8 origin-center bg-white" />
             <motion.span animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="h-[1.5px] w-8 origin-center bg-white" />

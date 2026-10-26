@@ -2,11 +2,13 @@ import { useState, useEffect, useCallback, Component } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MotionConfig } from 'framer-motion';
 
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import BobaFeature from './components/BobaFeature';
+import BobaFlavors from './components/BobaFlavors';
 import MatchaBoba from './components/MatchaBoba';
 import BubbleDrink from './components/BubbleDrink';
 import BobaFilms from './components/BobaFilms';
@@ -62,6 +64,8 @@ function App() {
 
   useEffect(() => {
     try {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -90,7 +94,8 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <main className="bg-primary text-secondary selection:bg-accent selection:text-primary overflow-x-hidden relative w-full">
+      <MotionConfig reducedMotion="user">
+        <main className="bg-primary text-secondary selection:bg-accent selection:text-primary overflow-x-hidden relative w-full">
         {isLoading ? (
           <LoadingScreen onComplete={handleLoadingComplete} />
         ) : (
@@ -100,6 +105,10 @@ function App() {
             {/* ── 80% — TAKKERU FOOD: BOBA TEA FIRST ───────────── */}
             <Hero />
             <BobaFeature />
+
+            {/* ── EXPLORE BOBA TEA — NEW FLAVORS ──────────────── */}
+            <BobaFlavors />
+
             <MatchaBoba />
             <BubbleDrink />
             <BobaFilms />
@@ -131,7 +140,8 @@ function App() {
             <div className="grain-overlay" />
           </div>
         )}
-      </main>
+        </main>
+      </MotionConfig>
     </ErrorBoundary>
   );
 }

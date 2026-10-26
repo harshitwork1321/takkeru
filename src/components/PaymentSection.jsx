@@ -1,4 +1,5 @@
 import { ArrowUpRight, Lock } from 'lucide-react';
+import Reveal from './Reveal';
 import { PAYMENT_URL } from '../lib/links';
 
 export default function PaymentSection() {
@@ -13,7 +14,7 @@ export default function PaymentSection() {
       <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-accent to-transparent" />
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <span className="font-jp mb-6 block text-sm tracking-[0.4em] text-golden">
             タッケル・カート
           </span>
@@ -64,7 +65,7 @@ export default function PaymentSection() {
               </p>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

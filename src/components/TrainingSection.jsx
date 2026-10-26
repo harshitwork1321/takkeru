@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { ArrowDownRight, ArrowRight, Check, Play } from 'lucide-react';
+import Reveal from './Reveal';
 
 const FEATURED = {
   title: 'CLEANING & EQUIPMENT MAINTENANCE',
@@ -227,7 +228,8 @@ export default function TrainingSection() {
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         {/* ── Header ─────────────────────────────────────────── */}
-        <header className="max-w-4xl">
+        <Reveal className="max-w-4xl">
+          <header>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <span className="font-jp text-sm tracking-[0.4em] text-[#D62828]">研修</span>
             <span className="font-inter text-[10px] font-semibold uppercase tracking-[0.3em] text-[#FFF8EE]/50">
@@ -254,9 +256,11 @@ export default function TrainingSection() {
             START TRAINING
             <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
           </button>
-        </header>
+          </header>
+        </Reveal>
 
         {/* ── Featured training videos ───────────────────────── */}
+        <Reveal delay={0.1}>
         <div id="training-video" className="mt-14 grid grid-cols-1 gap-6 lg:mt-20 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <div className="border border-white/10 bg-[#181818] p-4 sm:p-5">
@@ -336,10 +340,11 @@ export default function TrainingSection() {
             </div>
           </div>
         </div>
+        </Reveal>
 
         {/* ── Module timeline ────────────────────────────────── */}
         <div id="training-modules" className="mt-16 md:mt-24">
-          <div className="flex flex-wrap items-end justify-between gap-5 border-b-2 border-white/15 pb-6">
+          <Reveal className="flex flex-wrap items-end justify-between gap-5 border-b-2 border-white/15 pb-6">
             <div>
               <span className="font-jp text-sm tracking-[0.4em] text-[#D62828]">ボバティー研修</span>
               <h3 className="mt-3 font-bebas text-5xl leading-[0.9] tracking-tight text-white sm:text-6xl md:text-7xl">
@@ -350,7 +355,7 @@ export default function TrainingSection() {
               Five modules — opening to closing. Follow TAKKERU&apos;s approved
               SOP at your outlet.
             </p>
-          </div>
+          </Reveal>
 
           {/* Static progress track — visible with or without JS */}
           <ol
@@ -375,14 +380,16 @@ export default function TrainingSection() {
           </ol>
 
           <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5">
-            {MODULES.map((module) => (
-              <ModuleCard key={module.n} module={module} onWatch={watchFeatured} />
+            {MODULES.map((module, index) => (
+              <Reveal key={module.n} delay={index * 0.1}>
+                <ModuleCard module={module} onWatch={watchFeatured} />
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* ── End screen ─────────────────────────────────────── */}
-        <div className="mt-16 border border-[#D62828]/40 bg-[#D62828]/[0.07] px-6 py-10 text-center md:mt-24 md:px-12 md:py-14">
+        <Reveal className="mt-16 border border-[#D62828]/40 bg-[#D62828]/[0.07] px-6 py-10 text-center md:mt-24 md:px-12 md:py-14">
           <p className="font-jp text-sm tracking-[0.5em] text-[#F4C542]">TAKKERU BOBA TEA</p>
           <p className="mx-auto mt-5 max-w-3xl font-bebas text-4xl leading-[0.95] tracking-[0.06em] text-white sm:text-5xl md:text-6xl">
             FOLLOW SOP.
@@ -408,7 +415,7 @@ export default function TrainingSection() {
             Follow TAKKERU&apos;s approved SOP, applicable local food-safety
             requirements, and the manufacturer&apos;s instructions for equipment.
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

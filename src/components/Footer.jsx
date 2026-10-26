@@ -1,4 +1,5 @@
 import { Instagram, Twitter, Mail } from 'lucide-react';
+import Reveal from './Reveal';
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
 
-          <div className="md:col-span-1">
+          <Reveal delay={0} className="md:col-span-1">
             <h2 className="font-bebas text-3xl tracking-[0.2em] mb-6">TAKKERU</h2>
             <p className="text-subtle/50 text-sm font-inter leading-relaxed max-w-xs mb-4">
               Mobile boba tea, mandu, and ramen business. Take the cart to where the crowd is.
@@ -14,9 +15,9 @@ export default function Footer() {
             <p className="text-accent/60 text-xs font-inter uppercase tracking-widest">
               A Brand By Anubind Group Pvt Ltd
             </p>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={0.08}>
             <h3 className="font-bebas text-xl tracking-widest text-accent mb-8">QUICK LINKS</h3>
             <nav className="space-y-3">
               <a href="#cart" className="block text-subtle/50 text-sm hover:text-accent transition-colors">The Cart</a>
@@ -25,9 +26,9 @@ export default function Footer() {
               <a href="#investment" className="block text-subtle/50 text-sm hover:text-accent transition-colors">Investment</a>
               <a href="#faq" className="block text-subtle/50 text-sm hover:text-accent transition-colors">FAQ</a>
             </nav>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={0.16}>
             <h3 className="font-bebas text-xl tracking-widest text-accent mb-8">CONTACT</h3>
             <div className="space-y-4">
               <a href="mailto:contact@takkeru.com" className="flex items-center gap-3 text-subtle/50 text-sm hover:text-accent transition-colors">
@@ -38,9 +39,9 @@ export default function Footer() {
                 Available across India
               </p>
             </div>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={0.24}>
             <h3 className="font-bebas text-xl tracking-widest text-accent mb-8">SOCIALS</h3>
             <div className="flex gap-6">
               <a href="https://www.instagram.com/takkeru_cafe" target="_blank" rel="noopener noreferrer" aria-label="Follow TAKKERU on Instagram" className="w-10 h-10 border border-white/10 flex items-center justify-center rounded-full hover:bg-accent hover:border-accent transition-all duration-300">
@@ -50,18 +51,18 @@ export default function Footer() {
                 <Twitter className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
-          </div>
+          </Reveal>
 
         </div>
 
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <Reveal delay={0.1} className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-subtle/50 text-xs tracking-[0.2em]">© 2026 TAKKERU CART. ALL RIGHTS RESERVED.</p>
           <nav aria-label="Footer legal links" className="flex gap-8 text-[10px] text-subtle/50 tracking-widest uppercase font-bold">
             <a href="#" className="hover:text-accent transition-colors">Privacy</a>
             <a href="#" className="hover:text-accent transition-colors">Terms</a>
             <a href="#" className="hover:text-accent transition-colors">Career</a>
           </nav>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );
