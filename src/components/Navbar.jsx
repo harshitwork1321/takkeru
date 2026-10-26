@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { name: 'Food', href: '#food' },
   { name: 'Menu', href: '#menu' },
   { name: 'Story', href: '#story' },
+  { name: 'Locations', href: '#locations' },
   { name: 'Cart Business', href: '#cart' },
 ];
 

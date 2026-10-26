@@ -19,6 +19,7 @@ import TakkeruInMotion from './components/TakkeruInMotion';
 import FoodMenu from './components/FoodMenu';
 import StreetCulture from './components/StreetCulture';
 import BrandStory from './components/BrandStory';
+import LocationFinder from './components/LocationFinder';
 import TrainingSection from './components/TrainingSection';
 import CartTransition from './components/CartTransition';
 import CartShowcase from './components/CartShowcase';
@@ -119,6 +120,9 @@ function App() {
             <FoodMenu />
             <StreetCulture />
             <BrandStory />
+
+            {/* ── FIND YOUR TAKKERU — LOCATIONS + VIDEOS ─────── */}
+            <LocationFinder />
 
             {/* ── TRAINING — BOBA TEA SOP ──────────────────────── */}
             <TrainingSection />

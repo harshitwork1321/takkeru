@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import { ArrowDownRight, MapPin, Play } from 'lucide-react';
 import LazyVideo from './LazyVideo';
 import Button from './ui/button';
-import { CART_ENQUIRY_URL } from '../lib/links';
 
 const CHIPS = ['Boba', 'Mandu', 'Ramen', 'Tteokbokki'];
 
@@ -81,15 +80,20 @@ export default function Hero() {
             Bold flavours. Chewy pearls. Japanese-inspired street culture.
           </p>
 
-          <div className="hero-text mt-10 flex flex-col gap-4 sm:flex-row sm:gap-5">
+          <div className="hero-text mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-5">
             <Button asChild variant="accent">
               <a href="#menu">
-                EXPLORE THE MENU <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+                EXPLORE MENU <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
               </a>
             </Button>
             <Button asChild variant="outline">
-              <a href={CART_ENQUIRY_URL} target="_blank" rel="noopener noreferrer">
-                START YOUR CART <ArrowUpRight className="h-5 w-5" />
+              <a href="#locations">
+                FIND TAKKERU <MapPin className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button asChild variant="outline">
+              <a href="#story">
+                WATCH OUR STORY <Play className="h-5 w-5" />
               </a>
             </Button>
           </div>
