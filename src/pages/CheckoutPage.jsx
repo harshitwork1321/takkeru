@@ -4,7 +4,9 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, User, Phone, Mail, MapPin, Building, Hash, Loader2 } from 'lucide-react';
 import useCart from '../hooks/useCart';
 import { getProductById } from '../data/products';
-import { formatPrice, validateCustomerForm, generateOrderId } from '../lib/cart';
+import { formatPrice, validateCustomerForm, generateOrderId, getUnitPrice } from '../lib/cart';
+import { lineKey } from '../lib/ramenCart';
+import { describeSelection } from '../lib/ramenSelection';
 
 const FIELDS = [
   { id: 'name', label: 'Full Name', icon: User, type: 'text', placeholder: 'Your full name' },
@@ -152,8 +154,9 @@ export default function CheckoutPage() {
                   {items.map((item) => {
                     const product = getProductById(item.productId);
                     if (!product) return null;
+                    const described = item.bowl ? describeSelection(item.bowl.selection) : null;
                     return (
-                      <div key={item.productId} className="flex items-center gap-3">
+                      <div key={lineKey(item)} className="flex items-center gap-3">
                         <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-white/[0.03]">
                           <img
                             src={product.image}
@@ -164,9 +167,13 @@ export default function CheckoutPage() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="font-bebas text-sm tracking-wide text-white truncate">{product.name}</p>
-                          <p className="text-subtle/40 text-[10px] font-inter">Qty: {item.quantity}</p>
+                          <p className="text-subtle/40 text-[10px] font-inter">
+                            {described
+                              ? `Custom bowl · ${described.broth ?? 'Tonkotsu'} · ${described.spice ?? 'Medium'} spice · Qty: ${item.quantity}`
+                              : `Qty: ${item.quantity}`}
+                          </p>
                         </div>
-                        <span className="font-bebas text-sm text-accent">{formatPrice(product.price * item.quantity)}</span>
+                        <span className="font-bebas text-sm text-accent">{formatPrice(getUnitPrice(item) * item.quantity)}</span>
                       </div>
                     );
                   })}

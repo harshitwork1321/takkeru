@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import CartButton from './cart/CartButton';
 import { PAYMENT_URL } from '../lib/links';
 
@@ -8,6 +9,7 @@ const NAV_LINKS = [
   { name: 'Drinks', href: '#drinks' },
   { name: 'Food', href: '#food' },
   { name: 'Menu', href: '#menu' },
+  { name: 'Build Ramen', href: '/ramen' },
   { name: 'Story', href: '#story' },
   { name: 'Locations', href: '#locations' },
   { name: 'Cart Business', href: '#cart' },
@@ -18,6 +20,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const toggleRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,6 +58,11 @@ export default function Navbar() {
 
   const scrollToSection = (event, href) => {
     event.preventDefault();
+    if (href.startsWith('/')) {
+      navigate(href);
+      setIsMobileMenuOpen(false);
+      return;
+    }
     const element = document.getElementById(href.substring(1));
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (element) {

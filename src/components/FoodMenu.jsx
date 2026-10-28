@@ -82,6 +82,7 @@ export default function FoodMenu() {
               inView={gridInView}
               onAdd={(id) => addItem(id)}
               onNavigate={(id) => navigate(`/product/${id}`)}
+              onBuild={product.id === 'ramen-signature' ? () => navigate('/ramen') : null}
             />
           ))}
         </div>
@@ -222,7 +223,7 @@ function DrinkShowcaseCard({ drink, index, inView }) {
   );
 }
 
-function FoodMenuCard({ product, index, number, inView, onAdd, onNavigate }) {
+function FoodMenuCard({ product, index, number, inView, onAdd, onNavigate, onBuild }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -251,6 +252,14 @@ function FoodMenuCard({ product, index, number, inView, onAdd, onNavigate }) {
         <p className="text-subtle/50 font-inter text-sm leading-relaxed mb-4">
           {product.description}
         </p>
+        {onBuild && (
+          <button
+            onClick={onBuild}
+            className="mb-4 font-bebas text-sm tracking-[0.15em] uppercase text-golden underline decoration-golden/40 underline-offset-4 transition-colors duration-300 hover:text-white hover:decoration-accent"
+          >
+            Build your own ramen →
+          </button>
+        )}
         <div className="flex items-center justify-between">
           <span className="font-bebas text-xl text-accent tracking-wide">
             ₹{product.price}

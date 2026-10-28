@@ -7,6 +7,7 @@ import FormPage from './pages/FormPage.jsx'
 import CheckoutPage from './pages/CheckoutPage.jsx'
 import OrderConfirmation from './pages/OrderConfirmation.jsx'
 import ProductDetailPage from './pages/ProductDetailPage.jsx'
+import RamenBuilderPage from './pages/RamenBuilderPage.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path="/ramen" element={<RamenBuilderPage />} />
         </Routes>
       </CartProvider>
     </BrowserRouter>

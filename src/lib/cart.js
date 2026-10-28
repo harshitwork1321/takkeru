@@ -1,13 +1,25 @@
-import { getProductById } from '../data/products';
+import { getProductById } from '../data/products.js';
 
 const DELIVERY_FEE = 40;
 const FREE_DELIVERY_THRESHOLD = 500;
+
+/**
+ * Unit price of a cart line. Custom bowls carry their engine-calculated
+ * `bowl.unitPrice`; plain catalog lines use the product price.
+ */
+export function getUnitPrice(item) {
+  if (item.bowl && Number.isFinite(item.bowl.unitPrice) && item.bowl.unitPrice >= 0) {
+    return item.bowl.unitPrice;
+  }
+  const product = getProductById(item.productId);
+  return product ? product.price : 0;
+}
 
 export function calculateSubtotal(items) {
   return items.reduce((sum, item) => {
     const product = getProductById(item.productId);
     if (!product) return sum;
-    return sum + product.price * item.quantity;
+    return sum + getUnitPrice(item) * item.quantity;
   }, 0);
 }
 

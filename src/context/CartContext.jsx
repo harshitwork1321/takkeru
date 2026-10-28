@@ -1,6 +1,7 @@
 import { createContext, useState, useCallback, useEffect, useRef } from 'react';
 import { getProductById } from '../data/products';
 import { calculateSubtotal, calculateDeliveryFee, calculateTotal, calculateCartQuantity } from '../lib/cart';
+import { normalizeBowl, lineKey } from '../lib/ramenCart';
 
 const STORAGE_KEY = 'takkeru_cart';
 
@@ -10,14 +11,20 @@ function loadCart() {
     if (!raw) return [];
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (item) =>
-        item &&
-        typeof item.productId === 'string' &&
-        typeof item.quantity === 'number' &&
-        item.quantity > 0 &&
-        getProductById(item.productId)
-    );
+    return parsed
+      .filter(
+        (item) =>
+          item &&
+          typeof item.productId === 'string' &&
+          typeof item.quantity === 'number' &&
+          item.quantity > 0 &&
+          getProductById(item.productId)
+      )
+      .flatMap((item) => {
+        if (!item.bowl) return [item];
+        const bowl = normalizeBowl(item.bowl);
+        return bowl ? [{ ...item, bowl }] : [];
+      });
   } catch {
     return [];
   }
@@ -44,18 +51,25 @@ export function CartProvider({ children }) {
     saveCart(items);
   }, [items]);
 
-  const addItem = useCallback((productId) => {
+  const addItem = useCallback((productId, bowl = null) => {
     const product = getProductById(productId);
-    if (!product) return;
+    if (!product) return false;
+
+    let cleanBowl = null;
+    if (bowl) {
+      cleanBowl = normalizeBowl(bowl);
+      if (!cleanBowl) return false;
+    }
+    const key = cleanBowl ? lineKey({ productId, bowl: cleanBowl }) : productId;
 
     setItems((prev) => {
-      const existing = prev.find((i) => i.productId === productId);
+      const existing = prev.find((i) => lineKey(i) === key);
       if (existing) {
         return prev.map((i) =>
-          i.productId === productId ? { ...i, quantity: i.quantity + 1 } : i
+          lineKey(i) === key ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
-      return [...prev, { productId, quantity: 1 }];
+      return [...prev, cleanBowl ? { productId, quantity: 1, bowl: cleanBowl } : { productId, quantity: 1 }];
     });
 
     setToast({ visible: true, product });
@@ -63,19 +77,20 @@ export function CartProvider({ children }) {
     toastTimer.current = setTimeout(() => {
       setToast({ visible: false, product: null });
     }, 2500);
+    return true;
   }, []);
 
-  const removeItem = useCallback((productId) => {
-    setItems((prev) => prev.filter((i) => i.productId !== productId));
+  const removeItem = useCallback((key) => {
+    setItems((prev) => prev.filter((i) => lineKey(i) !== key));
   }, []);
 
-  const updateQuantity = useCallback((productId, quantity) => {
+  const updateQuantity = useCallback((key, quantity) => {
     if (quantity < 1) {
-      setItems((prev) => prev.filter((i) => i.productId !== productId));
+      setItems((prev) => prev.filter((i) => lineKey(i) !== key));
       return;
     }
     setItems((prev) =>
-      prev.map((i) => (i.productId === productId ? { ...i, quantity } : i))
+      prev.map((i) => (lineKey(i) === key ? { ...i, quantity } : i))
     );
   }, []);
 

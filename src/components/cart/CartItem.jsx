@@ -1,13 +1,26 @@
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { getProductById } from '../../data/products';
-import { formatPrice } from '../../lib/cart';
+import { formatPrice, getUnitPrice } from '../../lib/cart';
+import { lineKey } from '../../lib/ramenCart';
+import { describeSelection } from '../../lib/ramenSelection';
 import useCart from '../../hooks/useCart';
 import QuantityControl from './QuantityControl';
+
+function bowlSummary(selection) {
+  const described = describeSelection(selection);
+  const parts = [described.base, described.broth, described.spice].filter(Boolean);
+  if (described.extras.length > 0) parts.push(described.extras.join(' / '));
+  const summary = parts.join(' · ');
+  return described.toppings.length > 0
+    ? `${summary} · ${described.toppings.join(', ')}`
+    : summary;
+}
 
 export default function CartItem({ item }) {
   const { removeItem, updateQuantity } = useCart();
   const product = getProductById(item.productId);
+  const key = lineKey(item);
 
   if (!product) return null;
 
@@ -40,26 +53,32 @@ export default function CartItem({ item }) {
               {product.name}
             </h4>
             <p className="text-subtle/40 text-[10px] uppercase tracking-[0.15em] font-inter">
-              {product.category}
+              {item.bowl ? 'Custom bowl' : product.category}
             </p>
           </div>
           <button
-            onClick={() => removeItem(item.productId)}
-            aria-label={`Remove ${product.name} from cart`}
+            onClick={() => removeItem(key)}
+            aria-label={`Remove ${product.name}${item.bowl ? ' custom bowl' : ''} from cart`}
             className="w-6 h-6 flex items-center justify-center text-subtle/30 hover:text-red-400 transition-colors flex-shrink-0"
           >
             <X className="w-3.5 h-3.5" />
           </button>
         </div>
 
+        {item.bowl && (
+          <p className="text-subtle/50 text-[11px] font-inter leading-snug mt-1">
+            {bowlSummary(item.bowl.selection)}
+          </p>
+        )}
+
         <div className="flex items-center justify-between mt-2">
           <QuantityControl
             quantity={item.quantity}
-            onIncrease={() => updateQuantity(item.productId, item.quantity + 1)}
-            onDecrease={() => updateQuantity(item.productId, item.quantity - 1)}
+            onIncrease={() => updateQuantity(key, item.quantity + 1)}
+            onDecrease={() => updateQuantity(key, item.quantity - 1)}
           />
           <span className="font-bebas text-sm text-accent tracking-wide">
-            {formatPrice(product.price * item.quantity)}
+            {formatPrice(getUnitPrice(item) * item.quantity)}
           </span>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import useCart from '../../hooks/useCart';
+import { lineKey } from '../../lib/ramenCart';
 import CartItem from './CartItem';
 import CartEmpty from './CartEmpty';
 import CartSummary from './CartSummary';
@@ -79,7 +80,7 @@ export default function CartDrawer() {
               ) : (
                 <AnimatePresence mode="popLayout">
                   {items.map((item) => (
-                    <CartItem key={item.productId} item={item} />
+                    <CartItem key={lineKey(item)} item={item} />
                   ))}
                 </AnimatePresence>
               )}
