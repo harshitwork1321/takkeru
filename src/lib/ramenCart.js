@@ -54,10 +54,11 @@ export function normalizeBowl(bowl) {
 /**
  * Identity of a cart line: plain products keep their productId, custom
  * bowls get productId#selectionKey so different bowls stay separate lines
- * and identical bowls merge.
- * @param {{ productId: string, bowl?: { key?: string } | null }} item
+ * and identical bowls merge. A custom boba drink rides the same scheme.
+ * @param {{ productId: string, bowl?: { key?: string } | null, boba?: { key?: string } | null }} item
  * @returns {string}
  */
 export function lineKey(item) {
-  return item.bowl && item.bowl.key ? `${item.productId}#${item.bowl.key}` : item.productId;
+  const payload = item.bowl ?? item.boba;
+  return payload && payload.key ? `${item.productId}#${payload.key}` : item.productId;
 }

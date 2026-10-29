@@ -68,7 +68,7 @@ export default function FoodMenu() {
 
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-6 gap-6 max-w-6xl mx-auto">
           {BOBA && (
-            <BobaHeroCard product={BOBA} inView={gridInView} onAdd={addItem} onNavigate={navigate} />
+            <BobaHeroCard product={BOBA} inView={gridInView} onAdd={addItem} onNavigate={navigate} onBuild={() => navigate('/boba')} />
           )}
           {DRINKS.map((drink, index) => (
             <DrinkShowcaseCard key={drink.number} drink={drink} index={index} inView={gridInView} />
@@ -91,7 +91,7 @@ export default function FoodMenu() {
   );
 }
 
-function BobaHeroCard({ product, inView, onAdd, onNavigate }) {
+function BobaHeroCard({ product, inView, onAdd, onNavigate, onBuild }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -140,6 +140,12 @@ function BobaHeroCard({ product, inView, onAdd, onNavigate }) {
               className="px-7 py-3 bg-accent text-primary font-bebas text-base tracking-[0.15em] uppercase rounded-full hover:bg-white transition-colors duration-300"
             >
               Add to Cart
+            </button>
+            <button
+              onClick={onBuild}
+              className="px-7 py-3 border border-accent text-accent font-bebas text-base tracking-[0.15em] uppercase rounded-full hover:bg-accent hover:text-primary transition-colors duration-300"
+            >
+              Build Your Own
             </button>
             <button
               onClick={() => onNavigate(product.id)}

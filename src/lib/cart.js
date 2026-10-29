@@ -4,12 +4,14 @@ const DELIVERY_FEE = 40;
 const FREE_DELIVERY_THRESHOLD = 500;
 
 /**
- * Unit price of a cart line. Custom bowls carry their engine-calculated
- * `bowl.unitPrice`; plain catalog lines use the product price.
+ * Unit price of a cart line. Custom bowls and custom boba drinks carry
+ * their engine-calculated `unitPrice`; plain catalog lines use the
+ * product price.
  */
 export function getUnitPrice(item) {
-  if (item.bowl && Number.isFinite(item.bowl.unitPrice) && item.bowl.unitPrice >= 0) {
-    return item.bowl.unitPrice;
+  const custom = item.bowl ?? item.boba;
+  if (custom && Number.isFinite(custom.unitPrice) && custom.unitPrice >= 0) {
+    return custom.unitPrice;
   }
   const product = getProductById(item.productId);
   return product ? product.price : 0;

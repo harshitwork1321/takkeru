@@ -8,7 +8,7 @@ import CheckoutPage from './pages/CheckoutPage.jsx'
 import OrderConfirmation from './pages/OrderConfirmation.jsx'
 import ProductDetailPage from './pages/ProductDetailPage.jsx'
 import BuilderFallback from './components/BuilderFallback.jsx'
-import { RamenBuilderPage } from './routes.jsx'
+import { RamenBuilderPage, BobaBuilderPage } from './routes.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -26,6 +26,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             element={
               <Suspense fallback={<BuilderFallback />}>
                 <RamenBuilderPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/boba"
+            element={
+              <Suspense fallback={<BuilderFallback />}>
+                <BobaBuilderPage />
               </Suspense>
             }
           />

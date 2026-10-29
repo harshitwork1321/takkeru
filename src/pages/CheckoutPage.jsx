@@ -7,6 +7,7 @@ import { getProductById } from '../data/products';
 import { formatPrice, validateCustomerForm, generateOrderId, getUnitPrice } from '../lib/cart';
 import { lineKey } from '../lib/ramenCart';
 import { describeSelection } from '../lib/ramenSelection';
+import { describeBobaSelection } from '../lib/bobaSelection';
 
 const FIELDS = [
   { id: 'name', label: 'Full Name', icon: User, type: 'text', placeholder: 'Your full name' },
@@ -155,6 +156,7 @@ export default function CheckoutPage() {
                     const product = getProductById(item.productId);
                     if (!product) return null;
                     const described = item.bowl ? describeSelection(item.bowl.selection) : null;
+                    const boba = item.boba ? describeBobaSelection(item.boba.selection) : null;
                     return (
                       <div key={lineKey(item)} className="flex items-center gap-3">
                         <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-white/[0.03]">
@@ -170,7 +172,9 @@ export default function CheckoutPage() {
                           <p className="text-subtle/40 text-[10px] font-inter">
                             {described
                               ? `Custom bowl · ${described.broth ?? 'Tonkotsu'} · ${described.spice ?? 'Medium'} spice · Qty: ${item.quantity}`
-                              : `Qty: ${item.quantity}`}
+                              : boba
+                                ? `Custom boba · ${boba.flavor ?? 'Classic Milk Tea'} · ${boba.size ?? 'Regular'} · Qty: ${item.quantity}`
+                                : `Qty: ${item.quantity}`}
                           </p>
                         </div>
                         <span className="font-bebas text-sm text-accent">{formatPrice(getUnitPrice(item) * item.quantity)}</span>

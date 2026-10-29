@@ -2,6 +2,7 @@ import { createContext, useState, useCallback, useEffect, useRef } from 'react';
 import { getProductById } from '../data/products';
 import { calculateSubtotal, calculateDeliveryFee, calculateTotal, calculateCartQuantity } from '../lib/cart';
 import { normalizeBowl, lineKey } from '../lib/ramenCart';
+import { normalizeBoba } from '../lib/bobaCart';
 
 const STORAGE_KEY = 'takkeru_cart';
 
@@ -21,9 +22,18 @@ function loadCart() {
           getProductById(item.productId)
       )
       .flatMap((item) => {
-        if (!item.bowl) return [item];
-        const bowl = normalizeBowl(item.bowl);
-        return bowl ? [{ ...item, bowl }] : [];
+        let next = item;
+        if (item.bowl) {
+          const bowl = normalizeBowl(item.bowl);
+          if (!bowl) return [];
+          next = { ...next, bowl };
+        }
+        if (next.boba) {
+          const boba = normalizeBoba(next.boba);
+          if (!boba) return [];
+          next = { ...next, boba };
+        }
+        return [next];
       });
   } catch {
     return [];
@@ -51,7 +61,7 @@ export function CartProvider({ children }) {
     saveCart(items);
   }, [items]);
 
-  const addItem = useCallback((productId, bowl = null) => {
+  const addItem = useCallback((productId, bowl = null, boba = null) => {
     const product = getProductById(productId);
     if (!product) return false;
 
@@ -60,7 +70,12 @@ export function CartProvider({ children }) {
       cleanBowl = normalizeBowl(bowl);
       if (!cleanBowl) return false;
     }
-    const key = cleanBowl ? lineKey({ productId, bowl: cleanBowl }) : productId;
+    let cleanBoba = null;
+    if (boba) {
+      cleanBoba = normalizeBoba(boba);
+      if (!cleanBoba) return false;
+    }
+    const key = lineKey({ productId, bowl: cleanBowl, boba: cleanBoba });
 
     setItems((prev) => {
       const existing = prev.find((i) => lineKey(i) === key);
@@ -69,7 +84,10 @@ export function CartProvider({ children }) {
           lineKey(i) === key ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
-      return [...prev, cleanBowl ? { productId, quantity: 1, bowl: cleanBowl } : { productId, quantity: 1 }];
+      const next = { productId, quantity: 1 };
+      if (cleanBowl) next.bowl = cleanBowl;
+      if (cleanBoba) next.boba = cleanBoba;
+      return [...prev, next];
     });
 
     setToast({ visible: true, product });
