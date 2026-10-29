@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
@@ -7,7 +7,8 @@ import FormPage from './pages/FormPage.jsx'
 import CheckoutPage from './pages/CheckoutPage.jsx'
 import OrderConfirmation from './pages/OrderConfirmation.jsx'
 import ProductDetailPage from './pages/ProductDetailPage.jsx'
-import RamenBuilderPage from './pages/RamenBuilderPage.jsx'
+import BuilderFallback from './components/BuilderFallback.jsx'
+import { RamenBuilderPage } from './routes.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -20,7 +21,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
-          <Route path="/ramen" element={<RamenBuilderPage />} />
+          <Route
+            path="/ramen"
+            element={
+              <Suspense fallback={<BuilderFallback />}>
+                <RamenBuilderPage />
+              </Suspense>
+            }
+          />
         </Routes>
       </CartProvider>
     </BrowserRouter>
