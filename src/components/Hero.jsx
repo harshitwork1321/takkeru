@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowDownRight, MapPin, Play } from 'lucide-react';
+import { ArrowDownRight, CupSoda, MapPin, Play, Soup } from 'lucide-react';
 import LazyVideo from './LazyVideo';
 import Button from './ui/button';
 
@@ -80,7 +81,17 @@ export default function Hero() {
             Bold flavours. Chewy pearls. Japanese-inspired street culture.
           </p>
 
-          <div className="hero-text mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-5">
+          <div className="hero-text mt-10 grid grid-cols-2 gap-4 sm:flex sm:flex-row sm:flex-wrap sm:gap-5">
+            <Button asChild variant="accent">
+              <Link to="/boba">
+                BUILD BOBA <CupSoda className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link to="/ramen">
+                BUILD RAMEN <Soup className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </Button>
             <Button asChild variant="accent">
               <a href="#menu">
                 EXPLORE MENU <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
