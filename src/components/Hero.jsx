@@ -1,36 +1,44 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import gsap from 'gsap';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowDownRight, CupSoda, MapPin, Play, Soup } from 'lucide-react';
 import LazyVideo from './LazyVideo';
 import Button from './ui/button';
+import { gsap, useGSAP } from '../animations/gsap';
+import { motionPresets } from '../animations/motionPresets';
+import useMagneticHover from '../animations/useMagneticHover';
 
 const CHIPS = ['Boba', 'Mandu', 'Ramen', 'Tteokbokki'];
+
+function Magnetic({ children }) {
+  const ref = useRef(null);
+  useMagneticHover(ref);
+  return (
+    <span ref={ref} className="inline-flex">
+      {children}
+    </span>
+  );
+}
 
 export default function Hero() {
   const heroRef = useRef(null);
   const reduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    if (reduceMotion) return undefined;
-    try {
-      const context = gsap.context(() => {
-        gsap.from('.hero-text', {
-          opacity: 0,
-          y: 56,
-          filter: 'blur(12px)',
-          duration: 1.05,
-          stagger: 0.12,
-          ease: 'power3.out',
-          delay: 0.1,
-        });
-      }, heroRef);
-      return () => context.revert();
-    } catch {
-      // Animation unavailable — content is already visible in the DOM.
-    }
-  }, [reduceMotion]);
+  useGSAP(
+    () => {
+      if (reduceMotion) return;
+      const tl = gsap.timeline({
+        defaults: { ease: motionPresets.brand.ease },
+        delay: 0.15,
+      });
+      tl.from('.hero-eyebrow', { opacity: 0, y: 18, duration: 0.7, ease: 'power3.out' })
+        .from('.hero-word', { opacity: 0, y: 44, duration: 1.0, stagger: 0.075 }, '-=0.45')
+        .from('.hero-copy', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out' }, '-=0.6')
+        .from('.hero-ctas > *', { opacity: 0, y: 18, duration: 0.6, stagger: 0.07, ease: 'power3.out' }, '-=0.5')
+        .from('.hero-chips', { opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.35');
+    },
+    { scope: heroRef, dependencies: [reduceMotion] },
+  );
 
   return (
     <section id="home" ref={heroRef} className="relative flex min-h-[700px] h-[100svh] w-full items-center overflow-hidden">
@@ -62,7 +70,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="mb-7 flex flex-wrap items-center gap-x-4 gap-y-2"
+            className="hero-eyebrow mb-7 flex flex-wrap items-center gap-x-4 gap-y-2"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full border border-accent/50 bg-accent/10">
               <span className="h-2 w-2 rounded-full bg-accent" />
@@ -71,45 +79,60 @@ export default function Hero() {
             <span className="hidden sm:inline text-[10px] font-inter font-semibold tracking-[0.24em] text-white/45 uppercase">Japanese-inspired street food</span>
           </motion.div>
 
-          <p className="hero-text font-bebas text-xl md:text-2xl tracking-[0.4em] text-accent">
+          <p className="hero-eyebrow font-bebas text-xl md:text-2xl tracking-[0.4em] text-accent">
             SIP THE HYPE
           </p>
-          <h1 className="hero-text mt-3 text-balance font-bebas text-5xl leading-[0.86] tracking-tight text-white sm:text-7xl md:text-8xl lg:text-[8.5rem]">
-            BOBA THAT<br className="hidden sm:block" /> HITS DIFFERENT.
+          <h1 className="mt-3 text-balance font-bebas text-5xl leading-[0.86] tracking-tight text-white sm:text-7xl md:text-8xl lg:text-[8.5rem]">
+            <span className="hero-word inline-block will-change-transform">BOBA</span>{' '}
+            <span className="hero-word inline-block will-change-transform">THAT</span>
+            <br className="hidden sm:block" />
+            {' '}
+            <span className="hero-word inline-block will-change-transform">HITS</span>{' '}
+            <span className="hero-word inline-block will-change-transform">DIFFERENT.</span>
           </h1>
-          <p className="hero-text mt-7 max-w-xl font-inter text-base leading-relaxed text-white/65 md:text-lg">
+          <p className="hero-copy mt-7 max-w-xl font-inter text-base leading-relaxed text-white/65 md:text-lg">
             Bold flavours. Chewy pearls. Japanese-inspired street culture.
           </p>
 
-          <div className="hero-text mt-10 grid grid-cols-2 gap-4 sm:flex sm:flex-row sm:flex-wrap sm:gap-5">
-            <Button asChild variant="accent">
-              <Link to="/boba">
-                BUILD BOBA <CupSoda className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link to="/ramen">
-                BUILD RAMEN <Soup className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button asChild variant="accent">
-              <a href="#menu">
-                EXPLORE MENU <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
-              </a>
-            </Button>
-            <Button asChild variant="outline">
-              <a href="#locations">
-                FIND TAKKERU <MapPin className="h-5 w-5" />
-              </a>
-            </Button>
-            <Button asChild variant="outline">
-              <a href="#story">
-                WATCH OUR STORY <Play className="h-5 w-5" />
-              </a>
-            </Button>
+          <div className="hero-ctas mt-10 grid grid-cols-2 gap-4 sm:flex sm:flex-row sm:flex-wrap sm:gap-5">
+            <Magnetic>
+              <Button asChild variant="accent">
+                <Link to="/boba">
+                  BUILD BOBA <CupSoda className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button asChild variant="outline">
+                <Link to="/ramen">
+                  BUILD RAMEN <Soup className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button asChild variant="accent">
+                <a href="#menu">
+                  EXPLORE MENU <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+                </a>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button asChild variant="outline">
+                <a href="#locations">
+                  FIND TAKKERU <MapPin className="h-5 w-5" />
+                </a>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button asChild variant="outline">
+                <a href="#story">
+                  WATCH OUR STORY <Play className="h-5 w-5" />
+                </a>
+              </Button>
+            </Magnetic>
           </div>
 
-          <div className="hero-text mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-inter font-semibold uppercase tracking-[0.18em] text-white/55">
+          <div className="hero-chips mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-inter font-semibold uppercase tracking-[0.18em] text-white/55">
             {CHIPS.map((chip, index) => (
               <span key={chip} className="flex items-center gap-4">
                 <span className={index === 0 ? 'text-white/85' : ''}>{chip}</span>

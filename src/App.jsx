@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, Component } from 'react';
 import Lenis from 'lenis';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from './animations/gsap';
 import { MotionConfig } from 'framer-motion';
+import useSmoothSectionNavigation from './animations/useSmoothSectionNavigation';
 
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
@@ -34,8 +34,6 @@ import Footer from './components/Footer';
 import CartDrawer from './components/cart/CartDrawer';
 import Toast from './components/cart/Toast';
 
-gsap.registerPlugin(ScrollTrigger);
-
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -62,6 +60,7 @@ class ErrorBoundary extends Component {
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const handleLoadingComplete = useCallback(() => setIsLoading(false), []);
+  useSmoothSectionNavigation();
 
   useEffect(() => {
     try {

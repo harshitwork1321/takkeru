@@ -1,6 +1,7 @@
 ﻿import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FORM_URL } from '../lib/links';
+import ParallaxImage from './motion/ParallaxImage';
 
 export default function FinalCTA() {
   const ref = useRef(null);
@@ -93,11 +94,11 @@ export default function FinalCTA() {
             className="hidden lg:block"
           >
             <div className="relative w-64 h-64 overflow-hidden border-4 border-primary/20">
-              <img
+              <ParallaxImage
                 src="/images/takkeru-cart.jpg"
                 alt="TAKKERU Cart"
-                className="w-full h-full object-cover"
-                loading="lazy"
+                className="h-full w-full object-cover"
+                strength={5}
               />
               <div className="absolute inset-0 bg-primary/10" />
             </div>

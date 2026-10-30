@@ -34,6 +34,6 @@ const buttonVariants = cva(
 export default function Button({ className, variant, size, asChild = false, ...props }) {
   const Comp = asChild ? Slot : 'button';
   return (
-    <Comp className={cn(buttonVariants({ variant, size, className }))} {...props} />
+    <Comp className={cn(buttonVariants({ variant, size, className }), 'active:scale-[0.98] active:duration-150')} {...props} />
   );
 }

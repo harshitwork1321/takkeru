@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import ParallaxImage from './motion/ParallaxImage';
 
 export default function BrandStatement() {
   const ref = useRef(null);
@@ -70,29 +71,28 @@ export default function BrandStatement() {
             <div className='grid grid-cols-2 gap-4'>
               {/* Main large image */}
               <div className='col-span-2 aspect-[16/9] overflow-hidden rounded-sm'>
-                <img
+                <ParallaxImage
                   src='/images/boba.jpg'
                   alt='TAKKERU boba tea'
-                  className='w-full h-full object-cover hover:scale-105 transition-transform duration-700'
-                  loading='lazy'
+                  className='h-full w-full object-cover'
                 />
               </div>
 
               {/* Two smaller images */}
               <div className='aspect-square overflow-hidden rounded-sm'>
-                <img
+                <ParallaxImage
                   src='/images/Ramen.jpeg'
                   alt='TAKKERU ramen'
-                  className='w-full h-full object-cover hover:scale-105 transition-transform duration-700'
-                  loading='lazy'
+                  className='h-full w-full object-cover'
+                  strength={4}
                 />
               </div>
               <div className='aspect-square overflow-hidden rounded-sm relative'>
-                <img
+                <ParallaxImage
                   src='/images/mandu.jpg'
                   alt='TAKKERU mandu'
-                  className='w-full h-full object-cover hover:scale-105 transition-transform duration-700'
-                  loading='lazy'
+                  className='h-full w-full object-cover'
+                  strength={5}
                 />
                 <div className='absolute inset-0 bg-accent/20 mix-blend-multiply' />
               </div>

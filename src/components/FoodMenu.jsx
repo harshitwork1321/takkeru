@@ -3,6 +3,8 @@ import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import useCart from '../hooks/useCart';
 import { PRODUCTS } from '../data/products';
+import TextReveal from './motion/TextReveal';
+import Reveal from './motion/Reveal';
 
 const BOBA = PRODUCTS.find((p) => p.id === 'boba-tea');
 const MENU_PRODUCTS = ['mandu', 'ramen-signature', 'tteokbokki']
@@ -56,14 +58,18 @@ export default function FoodMenu() {
           <motion.span initial={{ opacity: 0, y: 20 }} animate={headerInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-accent font-jp tracking-[0.6em] block mb-4 text-sm uppercase">
             料理
           </motion.span>
-          <motion.h2 initial={{ opacity: 0, y: 20 }} animate={headerInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }} className="text-6xl md:text-8xl tracking-tighter">
-            THE TAKKERU MENU
-          </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={headerInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="text-subtle/50 font-inter text-base md:text-lg mt-6 max-w-2xl mx-auto">
-            Boba Tea leads, Matcha Boba and Soda Bubble Drink follow. Mandu,
-            Signature Ramen and Tteokbokki close it out — six picks, four exact
-            prices.
-          </motion.p>
+          <TextReveal
+            as="h2"
+            text="THE TAKKERU MENU"
+            className="text-6xl md:text-8xl tracking-tighter"
+          />
+          <Reveal delay={0.15}>
+            <p className="text-subtle/50 font-inter text-base md:text-lg mt-6 max-w-2xl mx-auto">
+              Boba Tea leads, Matcha Boba and Soda Bubble Drink follow. Mandu,
+              Signature Ramen and Tteokbokki close it out — six picks, four exact
+              prices.
+            </p>
+          </Reveal>
         </div>
 
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-6 gap-6 max-w-6xl mx-auto">
