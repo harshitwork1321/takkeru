@@ -12,7 +12,6 @@ const NAV_LINKS = [
   { name: 'Build Ramen', href: '/ramen' },
   { name: 'Build Boba', href: '/boba' },
   { name: 'Story', href: '#story' },
-  { name: 'Locations', href: '#locations' },
   { name: 'Cart Business', href: '#cart' },
 ];
 

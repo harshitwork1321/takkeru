@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowDownRight, CupSoda, MapPin, Play, Soup } from 'lucide-react';
+import { ArrowDownRight, CupSoda, Play, Soup } from 'lucide-react';
 import LazyVideo from './LazyVideo';
 import Button from './ui/button';
 import { gsap, useGSAP } from '../animations/gsap';
@@ -113,13 +113,6 @@ export default function Hero() {
               <Button asChild variant="accent">
                 <a href="#menu">
                   EXPLORE MENU <ArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
-                </a>
-              </Button>
-            </Magnetic>
-            <Magnetic>
-              <Button asChild variant="outline">
-                <a href="#locations">
-                  FIND TAKKERU <MapPin className="h-5 w-5" />
                 </a>
               </Button>
             </Magnetic>
