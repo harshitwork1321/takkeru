@@ -38,7 +38,7 @@ export default function LocationFinder() {
             </h2>
           </div>
           <p className="max-w-sm font-inter text-base leading-relaxed text-white/70">
-            Delhi, Dehradun and Nagpri — watch the story of each stop and
+            Delhi, Dehradun and Nagpur — watch the story of each stop and
             discover where TAKKERU is heading next.
           </p>
         </Reveal>

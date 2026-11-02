@@ -25,7 +25,7 @@ Boba Tea leads the cart; Matcha Boba and Soda Bubble Drink are showcase drinks
 - **Soda Bubble Drink (03)** — the fizzy pour, carbonated soda video section
 - **Drinks showcase** (`#drinks`) — three drinks, one cart: boba, matcha and soda pours
 - **Food menu** — six numbered cards, four exact prices, add-to-cart
-- **Find Your TAKKERU** (`#locations`) — Delhi, Dehradun and Nagpri location cards
+- **Find Your TAKKERU** (`#locations`) — Delhi, Dehradun and Nagpur location cards
   with per-location video experiences (click-to-play, `preload="none"`)
 - **Cart business** — investment packages and the franchise pitch
 - **FAQ, checkout, order confirmation**
@@ -39,10 +39,10 @@ configurable there without touching UI code. Owner verification still needed:
 - **Satya Niketan, Delhi** — exact address, operating status, hours and a
   verified map URL (left `null` in config; the UI omits them rather than
   inventing details).
-- **Dehradun / Nagpri** — confirm operating status; both default to
-  `coming-soon`. Nagpri spelling is kept exactly as supplied by the owner.
+- **Dehradun / Nagpur** — confirm operating status; both default to
+  `coming-soon`.
 
-Location videos: `public/videos/dehradun.mp4`, `public/videos/nagpri.mp4`
+Location videos: `public/videos/dehradun.mp4`, `public/videos/nagpur.mp4`
 (posters in `public/media/posters/`).
 
 ## Tech

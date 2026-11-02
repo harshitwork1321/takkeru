@@ -6,8 +6,8 @@
  *  - Satya Niketan: exact street address, current status, hours, verified map URL.
  *    (No verified address exists in this repository yet — leave `address` null
  *    and the UI will honestly omit it instead of inventing one.)
- *  - Dehradun / Nagpri: confirm operating status. Default 'coming-soon' is used
- *    until confirmed open. Nagpri locality spelling must stay as supplied.
+ *  - Dehradun / Nagpur: confirm operating status. Default 'coming-soon' is used
+ *    until confirmed open.
  */
 export const LOCATIONS = [
   {
@@ -39,17 +39,17 @@ export const LOCATIONS = [
     sub: 'Discover the TAKKERU experience.',
   },
   {
-    id: 'nagpri',
-    name: 'TAKKERU — NAGPRI',
-    city: 'Nagpri',
+    id: 'nagpur',
+    name: 'TAKKERU — NAGPUR',
+    city: 'Nagpur, Maharashtra, India',
     address: null,
     status: 'coming-soon',
     hours: null,
     directionsUrl: null,
-    video: '/videos/nagpri.mp4',
-    poster: '/media/posters/takkeru-nagpri.jpg',
-    alt: 'TAKKERU pink boba tea — Nagpri location video',
-    headline: 'MEET TAKKERU NAGPRI',
+    video: '/videos/nagpur.mp4',
+    poster: '/media/posters/takkeru-nagpur.jpg',
+    alt: 'TAKKERU pink boba tea — Nagpur location video',
+    headline: 'MEET TAKKERU NAGPUR',
     sub: 'Your next TAKKERU experience starts here.',
   },
 ];
